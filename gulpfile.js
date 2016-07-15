@@ -8,6 +8,7 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
+var nodemon = require('gulp-nodemon')
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
@@ -25,6 +26,13 @@ gulp.task('js', function() {
   //.pipe(uglify()) //Uncomment when code is production ready
   .pipe(gulp.dest('./public'));
 });
+gulp.task('start', function () {
+  nodemon({
+    script: './src/server/app.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  })
+})
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
@@ -46,4 +54,4 @@ gulp.task('watch', function() {
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['watch', 'js', 'sass']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['watch', 'js', 'sass', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
