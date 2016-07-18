@@ -12,9 +12,9 @@ var nodemon = require('gulp-nodemon');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
-  jsSource: ['./public/app/**/*.js', '!/public/dist/'], // We need to change where the fil paths according to our file structure.
-  sassSource: ['./public/styles/**/*.{sass,scss}', '!./public/dist/'],
-  bundleSource: ['/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
+  jsSource: ['./src/public/app/**/*.js', '!./src/public/dist/'], // We need to change where the fil paths according to our file structure.
+  sassSource: ['./src/public/styles/**/*.{sass,scss}', '!./src/public/dist/'],
+  bundleSource: ['./src/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
 // DEFINE TASKS
@@ -25,7 +25,7 @@ gulp.task('js', function() {
   .pipe(concat('bundle.js'))
   .pipe(annotate())
   //.pipe(uglify()) //Uncomment when code is production ready
-  .pipe(gulp.dest('./public'));
+  .pipe(gulp.dest('./src/public/dist/'));
 });
 gulp.task('start', function () {
   nodemon({
@@ -38,7 +38,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
     .pipe(concat('style.css'))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./src/public/dist/'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
 //   return gulp.src(paths.lessSource)
