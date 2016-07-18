@@ -19,7 +19,7 @@
 			event.currentState = getElementsByTagName('ui-view')[0].baseURI;
 			event.__quix_site_id = window.__quix_site_id;
 			event.targetElementId = assignElementId(event);
-			
+
 			console.log(event);
 			var url = 'http://pokeapi.co/api/v2/pokemon/1/';
 			axios.get(url)
