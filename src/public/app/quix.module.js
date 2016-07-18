@@ -1,1 +1,1 @@
-angular.module('quix', ['quix.core']);
+angular.module('quix', ['quix.core', 'quix.dashboard']);
