@@ -8,12 +8,13 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
-var nodemon = require('gulp-nodemon')
+var nodemon = require('gulp-nodemon');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
-  jsSource: ['./public/app/**/*.js', '!/public/bundle.js'], // We need to change where the fil paths according to our file structure.
-  sassSource: ['./public/styles/**/*.{sass,scss}'], // Add to array or change current path to './public/styles/**/*.scss' to use Scss
+  jsSource: ['./src/public/app/**/*.js', '!./src/public/dist/'], // We need to change where the fil paths according to our file structure.
+  sassSource: ['./src/public/styles/**/*.{sass,scss}', '!./src/public/dist/'],
+  bundleSource: ['./src/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
 // DEFINE TASKS
@@ -24,7 +25,7 @@ gulp.task('js', function() {
   .pipe(concat('bundle.js'))
   .pipe(annotate())
   //.pipe(uglify()) //Uncomment when code is production ready
-  .pipe(gulp.dest('./public'));
+  .pipe(gulp.dest('./src/public/dist/'));
 });
 gulp.task('start', function () {
   nodemon({
@@ -37,7 +38,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
     .pipe(concat('style.css'))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./src/public/dist/'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
 //   return gulp.src(paths.lessSource)
@@ -50,8 +51,9 @@ gulp.task('sass', function () {
 gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
   gulp.watch(paths.sassSource, ['sass']);
+  gulp.watch(paths.bundleSource, ['start']);
 //   gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['watch', 'js', 'sass', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['js', 'sass', 'start', 'watch']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
