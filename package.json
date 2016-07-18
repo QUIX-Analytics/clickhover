@@ -2,9 +2,10 @@
   "name": "clickhover",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server/app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "mongoose": "^4.5.4",
