@@ -1,1 +1,6 @@
-angular.module('quix.core', ['ngAnimate', 'ui-router']);
+(function() {
+  'use strict';
+
+  angular.module('quix.core', ['ngAnimate', 'ui-router']);
+
+})();

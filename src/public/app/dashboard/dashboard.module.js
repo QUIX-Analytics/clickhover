@@ -1,1 +1,6 @@
-angular.module('quix.dashboard', []);
+(function() {
+    'use strict';
+
+    angular.module('quix.dashboard', []);
+    
+})();
