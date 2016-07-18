@@ -15,7 +15,7 @@ app.use(cors());
 
 //Variables
 var port = process.env.PORT || 3000;
-var mongoURI = 'mongodb://localhost/majorgolf';
+var mongoURI = 'mongodb://localhost/quix';
 
 //Endpoints
 
