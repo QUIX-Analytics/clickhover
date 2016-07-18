@@ -1,6 +1,6 @@
 (function() {
     'use strict';
 
-angular.module('quix', ['quix.core', 'quix.dashboard']);
+angular.module('quix', ['quix.core', 'quix.dashboard', 'quix.auth']);
 
 })();
