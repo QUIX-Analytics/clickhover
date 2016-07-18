@@ -39,7 +39,7 @@
 		})
     setInterval(function(){
 			hoverInfo.hoverCoordinates = hoverCoordinates;
-			console.log(hoverInfo); //SEND OBJECT
+			console.log(hoverInfo.hoverCoordinates); //SEND OBJECT
 			hoverInfo.hoverCoordinates = [];//clear object
 			hoverCoordinates = [];
 		}, 3000)
