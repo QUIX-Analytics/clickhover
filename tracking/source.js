@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //########CLICK TRACKER#################
 //   Add the following script tag to your main HTML File( works only on Angular applications using ui-router)
 // 		<script>
@@ -12,8 +11,6 @@
 //     </script>
 //######################################
 
-=======
->>>>>>> 7c4af7559b8f570799a629501c80d9f8c8a03a6c
 (function(document, window) {
 
 	var clicks = (function() {
@@ -22,7 +19,7 @@
 			event.currentState = getElementsByTagName('ui-view')[0].baseURI;
 			event.__quix_site_id = window.__quix_site_id;
 			event.targetElementId = assignElementId(event);
-			
+
 			console.log(event);
 			var url = 'http://pokeapi.co/api/v2/pokemon/1/';
 			axios.get(url)
@@ -66,7 +63,6 @@
 //# sourceMappingURL=axios.min.map
 
 })(document, window);
-<<<<<<< HEAD
 
 
 //Assigns unique ID to a clicked element based on element path and current state
@@ -89,5 +85,3 @@ String.prototype.hashCode = function() {
   }
   return hash;
 };
-=======
->>>>>>> 7c4af7559b8f570799a629501c80d9f8c8a03a6c
