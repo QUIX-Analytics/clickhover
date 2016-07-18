@@ -1,6 +1,7 @@
 (function() {
-    'use strict';
+  
+  'use strict';
 
-angular.module('quix', ['quix.core', 'quix.dashboard', 'quix.auth']);
+  angular.module('quix', ['quix.core', 'quix.dashboard', 'quix.auth']);
 
 })();
