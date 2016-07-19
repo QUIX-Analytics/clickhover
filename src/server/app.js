@@ -10,8 +10,10 @@ var config = require('./config/config.js');
 
 //App
 var app = express();
+app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
-app.use("/dist", express.static(__dirname + "./../../dist"));
+app.use("/dist", express.static(__dirname + "./../dist"));
+app.use("/assets", express.static(__dirname + "./../assets"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -27,9 +29,9 @@ mongoose.connect(config.localmongoURI, function (err, res) {
 	else console.log('QUIX database now connected!')
 });
 
+//Endpoints
 var Site = require('./models/site.model.js');
 var User = require('./models/user.model.js');
-//Endpoints
 
 app.get('/api/site', function (req, res, next) {
 	console.log('API read Site');
@@ -51,47 +53,45 @@ app.post('/api/site', function (req, res, next) {
 	})
 });
 
-app.get('/api/user', function(req, res, next) {
+app.get('/api/user', function (req, res, next) {
 	console.log('read', req.body);
-	User.find(req.query, function(err, user) {
+	User.find(req.query, function (err, user) {
 		if (err) res.status(500).send(err);
 		res.status(200).send(user);
 	})
 });
-app.get('/api/user/:id', function(req, res, next) {
+app.get('/api/user/:id', function (req, res, next) {
 	console.log('show', req.body);
 	User.findOne({
 		_id: req.params.id
-	}, function(e, r) {
+	}, function (e, r) {
 		if (e) {
 			return res.status(500).send(e);
 		}
 		return res.status(200).json(r);
 	})
 });
-app.put('/api/user/:id', function(req, res, next) {
-	User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
+app.put('/api/user/:id', function (req, res, next) {
+	User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
 		if (err) res.status(500).send(err);
 		res.status(200).send(user);
+	});
+});
+app.post('/api/user', function (req, res, next) {
+	console.log('create user', req.body);
+	User.create(req.body, function (err, user) {
+		if (err) return res.status(500).send(err);
+		res.status(200).json(user);
 	})
 });
-app.post('/api/user', function(req, res, next) {
-	console.log('create', req.body);
-	// var user = new User(req.body) {
-	//   user.save(function(err, user) {
-	//     if (err) res.status(500).send(err);
-	//     res.status(200).send(user);
-	//   })
-	// }
-});
-app.delete('/api/user/:id', function(req, res, next) {
-	User.findByIdAndRemove(req.params.id, function(err, user) {
+app.delete('/api/user/:id', function (req, res, next) {
+	User.findByIdAndRemove(req.params.id, function (err, user) {
 		if (err) res.status(500).send(err);
 		res.status(200).send(user);
 	})
 });
 
 //Listen
-app.listen(port, function() {
-  console.log('QUIX Express server listening on ' + port);
-})
+app.listen(port, function () {
+	console.log('QUIX Express server listening on ' + port);
+});
