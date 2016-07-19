@@ -10,6 +10,8 @@ var config = require('./config/config.js');
 
 //App
 var app = express();
+app.use("/", express.static(__dirname + "./../client"));
+app.use("/dist", express.static(__dirname + "./../../dist"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
