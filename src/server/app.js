@@ -109,14 +109,14 @@ app.delete('/api/user/:id', function (req, res, next) {
 });
 
 // Auth Endpoints
-app.post('/register', userCtrl.register);
-app.get('/me', userCtrl.me);
+app.post('/auth/register', userCtrl.register);
+app.get('/auth/me', userCtrl.me);
 // app.get('/user', userCtrl.read);
 // app.put('/user/:id', userCtrl.update);
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/me'
+app.post('/auth/login', passport.authenticate('local', {
+    successRedirect: '/auth/me'
 }));
-app.get('/logout', function(req, res, next) {
+app.get('/auth/logout', function(req, res, next) {
     req.logout();
     return res.status(200).send('logged out');
 })
