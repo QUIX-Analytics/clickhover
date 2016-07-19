@@ -1,16 +1,12 @@
 var mongoose = require('mongoose');
+var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
 // var ObjectId = Schema.ObjectId;
 
 var userSchema = new Schema({
-	quixid: Number,
 	username: {
 		type: String,
 		index: true
-	},
-	created: {
-		type: Date,
-		default: new Date()
 	},
 	admin: {
 		type: Boolean,
@@ -18,5 +14,7 @@ var userSchema = new Schema({
 	},
 	sites: [{type: Schema.Types.ObjectId, ref: 'Site'}]
 });
+
+userSchema.plugin(timestamps);
 
 module.exports = mongoose.model("User", userSchema);
