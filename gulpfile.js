@@ -16,7 +16,7 @@ var autoprefixer = require('autoprefixer');
 // ============================================================
 var paths = {
   jsSource: ['./src/public/app/**/*.js', '!./src/public/dist/'], // We need to change where the fil paths according to our file structure.
-  sassSource: ['./src/public/styles/**/*.{sass,scss}', '!./src/public/dist/'],
+  sassSource: ['./src/public/styles/reset.scss', './src/public/styles/base/imports/imports.scss', './src/public/styles/base/variables/variables.scss', '!./src/public/dist/'],
   bundleSource: ['./src/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
