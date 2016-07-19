@@ -4,11 +4,14 @@
   "description": "",
   "main": "src/server/app.js",
   "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
     "body-parser": "^1.15.2",
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "mongoose": "^4.5.5",
+    "mongoose-timestamp": "^0.6.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "socket.io": "^1.4.8"
