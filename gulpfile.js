@@ -43,7 +43,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(concat('style.css'))
+    .pipe(concat('bundle.css'))
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
