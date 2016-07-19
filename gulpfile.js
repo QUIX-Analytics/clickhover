@@ -15,20 +15,22 @@ var autoprefixer = require('autoprefixer');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
-  jsSource: ['./src/public/app/**/*.js', '!./src/public/dist/'], // We need to change where the fil paths according to our file structure.
-  sassSource: ['./src/public/styles/reset.scss', './src/public/styles/base/imports/imports.scss', './src/public/styles/base/variables/variables.scss', '!./src/public/dist/'],
-  bundleSource: ['./src/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
+  jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/dashboard/dashboard.module.js', './src/client/app/auth/auth.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
+  sassSource: ['./src/client/styles/reset.scss', './src/client/styles/base/imports/imports.scss', './src/client/styles/base/variables/variables.scss'],
+  bundleSource: ['./dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
 // DEFINE TASKS
 // ============================================================
 gulp.task('js', function() {
   return gulp.src(paths.jsSource)
+  .pipe(sourcemaps.init())
   .pipe(babel()) //Uncomment if using ES6
   .pipe(concat('bundle.js'))
   .pipe(annotate())
   //.pipe(uglify()) //Uncomment when code is production ready
-  .pipe(gulp.dest('./src/public/dist/'));
+  .pipe(sourcemaps.write('.'))
+  .pipe(gulp.dest('./dist'));
 });
 gulp.task('start', function () {
   nodemon({
@@ -39,12 +41,12 @@ gulp.task('start', function () {
 })
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(concat('style.css'))
-		.pipe(sourcemaps.init())
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./src/public/dist/'));
+    .pipe(gulp.dest('./dist'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
 //   return gulp.src(paths.lessSource)
