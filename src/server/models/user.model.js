@@ -6,14 +6,14 @@ var Schema = mongoose.Schema;
 // var ObjectId = Schema.ObjectId;
 
 var userSchema = new Schema({
-	username: {
-		type: String,
-		index: true
-	},
-	admin: {
-		type: Boolean,
-		default: false
-	},
+	// username: {
+	// 	type: String,
+	// 	index: true
+	// },
+	// admin: {
+	// 	type: Boolean,
+	// 	default: false
+	// },
 	email: {
 		type: String,
 		index: true
