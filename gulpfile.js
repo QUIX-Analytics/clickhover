@@ -17,7 +17,7 @@ var autoprefixer = require('autoprefixer');
 var paths = {
   jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/dashboard/dashboard.module.js', './src/client/app/auth/auth.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
   sassSource: ['./src/client/styles/reset.scss', './src/client/styles/base/imports/imports.scss', './src/client/styles/base/variables/variables.scss'],
-  bundleSource: ['./dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
+  bundleSource: ['./src/dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
 // DEFINE TASKS
@@ -30,7 +30,7 @@ gulp.task('js', function() {
   .pipe(annotate())
   //.pipe(uglify()) //Uncomment when code is production ready
   .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('./dist'));
+  .pipe(gulp.dest('./src/dist'));
 });
 gulp.task('start', function () {
   nodemon({
@@ -46,7 +46,7 @@ gulp.task('sass', function () {
     .pipe(concat('style.css'))
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./src/dist'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
 //   return gulp.src(paths.lessSource)
