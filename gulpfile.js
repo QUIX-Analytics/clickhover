@@ -9,6 +9,9 @@ var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
+var postcss = require('gulp-postcss');
+var sourcemaps  = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
@@ -38,6 +41,9 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
     .pipe(concat('style.css'))
+		.pipe(sourcemaps.init())
+    .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./src/public/dist/'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
