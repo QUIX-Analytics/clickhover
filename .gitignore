@@ -4,3 +4,4 @@ bower_components
 config.js
 bundle.js
 dist
+npm-debug.log
