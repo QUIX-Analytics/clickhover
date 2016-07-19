@@ -12,7 +12,8 @@ var config = require('./config/config.js');
 var app = express();
 app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
-app.use("/dist", express.static(__dirname + "./../../dist"));
+app.use("/dist", express.static(__dirname + "./../dist"));
+app.use("/assets", express.static(__dirname + "./../assets"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
