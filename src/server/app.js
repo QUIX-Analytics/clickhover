@@ -10,6 +10,7 @@ var config = require('./config/config.js');
 
 //App
 var app = express();
+app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
 app.use("/dist", express.static(__dirname + "./../../dist"));
 
