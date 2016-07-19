@@ -69,6 +69,38 @@ app.post('/api/site', function (req, res, next) {
 		res.status(200).send(site);
 	})
 });
+app.patch('/api/site/:id', function(req, res, next){
+	console.log('API add click to site of id', req.params.id);
+	Site.findByIdAndUpdate(req.params.id, {}, function(err, site){
+		if(err) res.status(500).send(err);
+		var sessionToUpdate = {};
+		var sessionExists = false;
+		for(var i = 0; i < site.sessions.length; i++){
+			if(site.sessions[i].sessionId === req.body.sessionId){
+				sessionExists = true;
+				sessionToUpdate = site.sessions[i];
+			}
+		}
+		if(sessionExists){
+			sessionToUpdate.clicks.push(req.body.click);
+			site.markModified('sessions');
+			site.save(function(err, s){
+				if (err) res.status(500).send(err);
+				res.status(200).send(s);
+			})
+		} else {
+			site.sessions.push({
+				"sessionId": req.body.sessionId,
+				"clicks": [req.body.click]
+			});
+			site.save(function(err, s){
+				if (err) res.status(500).send(err);
+				res.status(200).send(s);
+			})
+		}
+	})
+
+})
 
 app.get('/api/user', function (req, res, next) {
 	console.log('read', req.body);
