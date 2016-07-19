@@ -1,6 +1,6 @@
 // routerHelperProvider.js
 angular
-    .module('quix.auth')
+    .module('quix.router')
     .provider('routerHelper', routerHelperProvider);
 
 routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];

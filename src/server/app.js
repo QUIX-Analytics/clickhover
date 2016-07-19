@@ -120,6 +120,12 @@ app.get('/logout', function(req, res, next) {
     return res.status(200).send('logged out');
 })
 
+// Enable HTML5 model
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', {root: './src/client/'});
+});
+
 //Listen
 app.listen(port, function () {
 	console.log('QUIX Express server listening on ' + port);
