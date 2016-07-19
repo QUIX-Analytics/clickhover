@@ -9,11 +9,14 @@ var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
+var postcss = require('gulp-postcss');
+var sourcemaps  = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
   jsSource: ['./src/public/app/**/*.js', '!./src/public/dist/'], // We need to change where the fil paths according to our file structure.
-  sassSource: ['./src/public/styles/**/*.{sass,scss}', '!./src/public/dist/'],
+  sassSource: ['./src/public/styles/reset.scss', './src/public/styles/base/imports/imports.scss', './src/public/styles/base/variables/variables.scss', '!./src/public/dist/'],
   bundleSource: ['./src/public/dist/'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
@@ -38,6 +41,9 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass())
     .pipe(concat('style.css'))
+		.pipe(sourcemaps.init())
+    .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./src/public/dist/'));
 });
 // gulp.task('less', function () {       // Uncomment if using Less
