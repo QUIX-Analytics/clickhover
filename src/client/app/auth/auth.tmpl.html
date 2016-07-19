@@ -1,1 +1,7 @@
-{{vm.name}}
+<input type="text" placeholder="Email" ng-model="authCtrl.user.email">
+<input type="password" placeholder="Password" ng-model="authCtrl.user.password">
+<button type="button" ng-click="authCtrl.login(authCtrl.user)">Go</button>
+<hr>
+<input type="text" placeholder="email" ng-model="authCtrl.newUser.email">
+<input type="password" placeholder="Password" ng-model="authCtrl.newUser.password">
+<button type="button" ng-click="authCtrl.register(authCtrl.newUser)">Go</button>
