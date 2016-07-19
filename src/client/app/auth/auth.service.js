@@ -9,7 +9,7 @@
         this.login = function(user) {
             return $http({
                 method: 'POST',
-                url: '/login',
+                url: '/auth/login',
                 data: user
             }).then(function(response) {
                 console.log(response);
@@ -19,7 +19,7 @@
         this.logout = function() {
             return $http({
                 method: 'GET',
-                url: '/logout'
+                url: '/auth/logout'
             }).then(function(response) {
                 return response;
             })
@@ -27,7 +27,7 @@
         this.register = function(user) {
             return $http({
                 method: 'POST',
-                url: '/register',
+                url: '/auth/register',
                 data: user
             }).then(function(response) {
                 return response;
@@ -36,7 +36,7 @@
         this.getUser = function() {
             return $http({
                 method: 'GET',
-                url: '/me'
+                url: '/auth/me'
             }).then(function(response) {
                 return response;
             })
