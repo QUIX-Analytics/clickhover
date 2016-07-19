@@ -3,10 +3,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
-var config = require('./config/config.js');
+var config = require('./config/config');
+var userCtrl = require('./controllers/user.controller');
+var passport = require('./services/passport');
 
 //App
 var app = express();
@@ -17,6 +18,22 @@ app.use("/dist", express.static(__dirname + "./../../dist"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
+
+//Auth Setup
+var isAuthed = function(req, res, next) {
+    if (!req.isAuthenticated()) return res.status(401).send();
+    return next();
+}
+
+app.use(session({
+	secret: config.secret,
+	saveIninitialized: false,
+	resave: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 //Variables
 var port = process.env.PORT || 3000;
@@ -89,6 +106,19 @@ app.delete('/api/user/:id', function (req, res, next) {
 		res.status(200).send(user);
 	})
 });
+
+// Auth Endpoints
+app.post('/register', userCtrl.register);
+app.get('/me', userCtrl.me);
+// app.get('/user', userCtrl.read);
+// app.put('/user/:id', userCtrl.update);
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/me'
+}));
+app.get('/logout', function(req, res, next) {
+    req.logout();
+    return res.status(200).send('logged out');
+})
 
 //Listen
 app.listen(port, function () {
