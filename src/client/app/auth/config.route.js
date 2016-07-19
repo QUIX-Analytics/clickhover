@@ -21,7 +21,7 @@
                     url: '/auth',
                     templateUrl: '/app/auth/auth.tmpl.html',
                     controller: 'AuthController',
-                    controllerAs: 'vm',
+                    controllerAs: 'authCtrl',
                 }
             }
         ];
