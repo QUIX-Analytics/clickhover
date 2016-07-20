@@ -11,6 +11,7 @@
     vm.login = function(user) {
       authService.login(user).then(function(response) {
         console.log(response);
+        $state.go('dashboard');
       })
     }
 
@@ -18,7 +19,6 @@
       authService.register(newUser).then(function(response) {
         console.log(response);
         alert('Account Successfully Created')
-        $state.go('dashboard');
       })
     }
 
