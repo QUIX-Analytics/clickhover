@@ -1,7 +1,7 @@
 //########CLICK TRACKER#################
 //   Add the following script tag to your main HTML File( works only on Angular applications using ui-router)
 // 		<script>
-//     	window.__quix_site_id = 00000; //Replace with ID provided by Quix.com
+//     	window.qxid = 00000; //Replace with ID provided by Quix.com
 //   		var wa = document.createElement('script');
 //   		wa.type = 'text/javascript';
 //   		wa.async = true;
@@ -23,8 +23,8 @@
 				platform: platformCheck(),
 				click: {
 					currentState: document.getElementsByTagName('ui-view')[0].baseURI,
-					__quix_site_id: window.__quix_site_id,
-					targetElementId: assignElementId(event),
+					qxid: window.qxid,
+					// targetElementId: assignElementId(event),
 					target: resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
 					timeStamp: event.timeStamp,
 					clickX: event.x,
@@ -36,7 +36,7 @@
 			}
 
 			var url = 'http://localhost:3000/api/';
-			axios.patch(url + 'site/' + window.__quix_site_id, clickInfo)
+			axios.patch(url + 'site/' + window.qxid, clickInfo)
 				.then(function(response) {
 					console.log(response);
 				});
@@ -96,9 +96,12 @@
 
 		var stringifyPath = function(path){
 			var stringified = '';
-			for(var i = 0; i < path.length; i++){
-				if(path[i].localName)
-				stringified += path[i].localName + '>';
+			for(var i = path.length - 1; i >= 0; i--){
+				if(path[i].localName) {
+					stringified += '>' + path[i].localName;
+					if(path[i].className) stringified += '.' + path[i].className;
+					if(path[i].id) stringified += '#' + path[i].id;
+				}
 			}
 			return stringified;
 		}
@@ -126,7 +129,7 @@ if (typeof(Storage) !== "undefined"){
 
 var url = 'http://localhost:3000/api/';
 
-axios.patch(url + 'site/' + window.__quix_site_id, { //Starts empty click session on page load
+axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 	sessionId: localStorage.getItem('sessionId'),
 	browser: clickHelperFunctions.getBrowserType(),
 	viewHeight: window.innerHeight,
