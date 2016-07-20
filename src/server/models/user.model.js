@@ -6,10 +6,12 @@ var Schema = mongoose.Schema;
 // var ObjectId = Schema.ObjectId;
 
 var userSchema = new Schema({
-	// username: {
-	// 	type: String,
-	// 	index: true
-	// },
+	username: {
+		type: String,
+		index: true,
+		min: 4,
+		max: 20
+	},
 	// admin: {
 	// 	type: Boolean,
 	// 	default: false

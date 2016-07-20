@@ -12,7 +12,6 @@
                 url: '/auth/login',
                 data: user
             }).then(function(response) {
-                console.log(response);
                 return response;
             })
         }
