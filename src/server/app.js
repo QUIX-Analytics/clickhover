@@ -41,7 +41,7 @@ var port = process.env.PORT || 3000;
 
 //Database
 mongoose.set('debug', true);
-mongoose.connect(config.localmongoURI, function (err, res) {
+mongoose.connect(config.mongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('QUIX database now connected!')
 });

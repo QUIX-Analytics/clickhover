@@ -60,7 +60,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
   gulp.watch(paths.sassSource, ['sass']);
   gulp.watch(paths.bundleSource, ['start']);
-//   gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
+// gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
