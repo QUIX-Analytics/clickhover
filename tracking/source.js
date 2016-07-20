@@ -27,8 +27,10 @@
 					targetElementId: assignElementId(event),
 					target: resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
 					timeStamp: event.timeStamp,
-					x: event.x,
-					y: event.y,
+					clickX: event.x,
+					clickY: event.y,
+					scrollX: window.scrollX,
+					scrollY: window.scrollY,
 					path: clickHelperFunctions.stringifyPath(event.path),
 				}
 			}
