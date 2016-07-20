@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var siteSchema = new Schema({
   siteId: { type: Number, required: true, unique: true },
+  baseURL: { type: String },
   sessions: { type: Array }
 });
 
