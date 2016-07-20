@@ -91,12 +91,12 @@ app.patch('/api/site/:id', function(req, res, next){
 		} else {
 			site.sessions.push({
 				"sessionId": req.body.sessionId,
-        "timeStarted": Date.now() - req.body.click.timeStamp,
+        "timeStarted": Date.now(),
         "browser": req.body.browser,
         "viewHeight": req.body.viewHeight,
         "viewWidth": req.body.viewWidth,
         "platform": req.body.platform,
-				"clicks": [req.body.click]
+				"clicks": []
 			});
 			site.save(function(err, s){
 				if (err) res.status(500).send(err);
