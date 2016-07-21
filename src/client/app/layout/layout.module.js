@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('quix.dashboard', []);
+    .module('quix.layout', []);
 
 })();

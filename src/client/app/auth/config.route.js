@@ -15,15 +15,25 @@
     function getStates() {
         return [
             {
-
-                state: 'auth',
+                state: 'login',
                 config: {
-                    url: '/auth',
-                    templateUrl: '/app/auth/auth.tmpl.html',
-                    controller: 'AuthController',
-                    controllerAs: 'authCtrl',
+                    url: '/',
+                    templateUrl: '/app/auth/login.html',
+                    controller: 'Auth',
+                    controllerAs: 'Auth',
+                }
+            },
+
+            {
+                state: 'register',
+                config: {
+                    url: '/register',
+                    templateUrl: '/app/auth/register.html',
+                    controller: 'Auth',
+                    controllerAs: 'Auth',
                 }
             }
+
         ];
     }
 })();

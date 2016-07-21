@@ -49,6 +49,7 @@ mongoose.connect(config.mongoURI, function (err, res) {
 //Endpoints
 var Site = require('./models/site.model.js');
 var User = require('./models/user.model.js');
+var ClickSession = require('./models/sessionSchema.js')
 
 app.get('/api/site', function (req, res, next) {
 	console.log('API read Site');
@@ -71,36 +72,44 @@ app.post('/api/site', function (req, res, next) {
 });
 app.patch('/api/site/:id', function(req, res, next){
 	console.log('API add click to site of id', req.params.id);
-	Site.findOne({siteId: req.params.id}, function(err, site){
+  console.log(Date.now());
+	Site.findOne({qxid: req.params.id}, function(err, site){
 		if(err) res.status(500).send(err);
 		var sessionToUpdate = {};
 		var sessionExists = false;
+    console.log(Date.now());
+    console.log("Session Lenght: ", site.sessions.length)
 		for(var i = 0; i < site.sessions.length; i++){
-			if(site.sessions[i].sessionId === req.body.sessionId){
+			if(site.sessions[i].sessionId == req.body.sessionId){
 				sessionExists = true;
 				sessionToUpdate = site.sessions[i];
 			}
 		}
+    console.log(Date.now());
 		if(sessionExists){
 			sessionToUpdate.clicks.push(req.body.click);
 			site.markModified('sessions');
 			site.save(function(err, s){
 				if (err) res.status(500).send(err);
-				res.status(200).send(s);
+				res.status(200).send('Click added to session');
 			})
 		} else {
-			site.sessions.push({
-				"sessionId": req.body.sessionId,
-        "timeStarted": Date.now(),
-        "browser": req.body.browser,
-        "viewHeight": req.body.viewHeight,
-        "viewWidth": req.body.viewWidth,
-        "platform": req.body.platform,
-				"clicks": []
-			});
+      // var newSession = {
+      //   sessionId: req.body.sessionId,
+      //   browser: req.body.browser,
+      //   vh: req.body.vh,
+      //   vw: req.body.vw,
+      //   platform: req.body.platform,
+			// 	clicks: []
+      // }
+      var newSession = req.body;
+      // newSession.clicks = [];
+			site.sessions.push(newSession);
+      // site.sessions[site.sessions.length - 1].sessionId = req.body.sessionId;
+      site.markModified('sessions');
 			site.save(function(err, s){
 				if (err) res.status(500).send(err);
-				res.status(200).send(s);
+				res.status(200).send('Started new session');
 			})
 		}
 	})
