@@ -7,11 +7,11 @@
         {{site.baseURL}}<br>
         <ol>
             <li ng-repeat="session in site.sessions">
-              {{session.sessionId}}
+              {{session.sessionId}} {{session.timeStarted | date: 'medium'}}
               | {{session.browser}} {{session.platform}}
               | {{session.viewHeight}} x {{session.viewWidth}}
               <ul ng-if="session.clicks[0]">
-                Click Path:<li style="display: inline-block; padding: 2px" ng-repeat="click in session.clicks"> {{ click.target.tagName }}<br>{{click.timeStamp | number: 0}}</li>
+                Click Path:<li style="display: inline-block; padding: 2px" ng-repeat="click in session.clicks"> {{ click.target.tagName }}<br>{{session.timeStarted + click.timeStamp | date: 'mediumTime'}}</li>
               </ul>
             </li>
         </ol>
