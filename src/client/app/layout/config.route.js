@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('quix.dashboard')
+        .module('quix.layout')
         .run(appRun);
 
     // appRun.$inject = ['routerHelper']
@@ -19,9 +19,9 @@
                 state: 'dashboard',
                 config: {
                     url: '/dashboard',
-                    templateUrl: '/app/dashboard/dashboard.tmpl.html',
-                    controller: 'DashboardController',
-                    controllerAs: 'dashboardCtrl',
+                    templateUrl: '/app/layout/dashboard.html',
+                    controller: 'Dashboard',
+                    controllerAs: 'Dashboard',
                 }
             }
         ];
