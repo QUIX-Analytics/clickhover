@@ -72,20 +72,16 @@ app.post('/api/site', function (req, res, next) {
 });
 app.patch('/api/site/:id', function(req, res, next){
 	console.log('API add click to site of id', req.params.id);
-  console.log(Date.now());
 	Site.findOne({qxid: req.params.id}, function(err, site){
 		if(err) res.status(500).send(err);
 		var sessionToUpdate = {};
 		var sessionExists = false;
-    console.log(Date.now());
-    console.log("Session Lenght: ", site.sessions.length)
 		for(var i = 0; i < site.sessions.length; i++){
 			if(site.sessions[i].sessionId == req.body.sessionId){
 				sessionExists = true;
 				sessionToUpdate = site.sessions[i];
 			}
 		}
-    console.log(Date.now());
 		if(sessionExists){
 			sessionToUpdate.clicks.push(req.body.click);
 			site.markModified('sessions');
