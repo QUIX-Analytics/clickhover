@@ -15,31 +15,28 @@
 
 	var clicks = (function() {
 
-		var clickInfo = {
-				sessionId: localStorage.getItem('sessionId'),
-				browser: getBrowserType(),
-				viewHeight: window.innerHeight,
-				viewWidth: window.innerWidth,
-				platform: platformCheck(),
-				click: {
-					currentState: document.getElementsByTagName('ui-view')[0].baseURI,
-					qxid: window.qxid,
-					// targetElementId: assignElementId(event),
-					target: resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
-					timeStamp: event.timeStamp,
-					clickX: event.x,
-					clickY: event.y,
-					scrollX: window.scrollX,
-					scrollY: window.scrollY,
-					path: clickHelperFunctions.stringifyPath(event.path),
-				}
-			}
+		var onClick = function(event) {
 
-			var url = 'http://localhost:3000/api/';
-			axios.patch(url + 'site/' + window.qxid, clickInfo)
-				.then(function(response) {
-					console.log(response);
-				});
+			var clickInfo = {
+					sessionId: localStorage.getItem('sessionId'),
+					click: {
+						currentState: document.getElementsByTagName('ui-view')[0].baseURI,
+						// targetElementId: assignElementId(event),
+						target: clickHelperFunctions.resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
+						time: event.timeStamp,
+						clickX: event.x,
+						clickY: event.y,
+						scrollX: window.scrollX,
+						scrollY: window.scrollY,
+						path: clickHelperFunctions.stringifyPath(event.path),
+					}
+				}
+
+				axios.patch(url + 'site/' + window.qxid, clickInfo)
+					.then(function(response) {
+						console.log(response);
+					});
+			}
 
 		return {
 			onClick: onClick
@@ -50,13 +47,13 @@
 
 
 	var clickHelperFunctions = (function(){
-		var assignElementId = function(event){
-			var elementPath = '';
-			for(var element in event.path){
-				elementPath += event.path[element].localName;
-			}
-			return (elementPath + event.currentState).hashCode();
-		}
+		// var assignElementId = function(event){
+		// 	var elementPath = '';
+		// 	for(var element in event.path){
+		// 		elementPath += event.path[element].localName;
+		// 	}
+		// 	return (elementPath + event.currentState).hashCode();
+		// }
 
 		var resolveCircularReference = function(target){
 			var resolveChild = function(child){
@@ -73,18 +70,19 @@
 			for(var prop in target){
 				if(typeof target[prop] !== "function" && typeof target[prop] !== "object"){
 					targetWithoutCircular[prop] = target[prop]
-				} else if ( prop === "firstChild" || prop === "firstElementChild" || prop === "lastChild" || prop === "lastElementChild"
-										|| prop === "nextElementSibling" || prop === "nextSibling" || prop === "offsetParent" || prop == "parentElement"
-										|| prop === "parentNode" || prop === "previousSibling" || prop === "previousElementSibling"){
-
-												targetWithoutCircular[prop] = resolveChild(target[prop]);
-
-										} else if (prop === "childNodes" || prop === "children") {
-											targetWithoutCircular[prop] = [];
-											for(var i = 0; i < target[prop].length; i++){
-												targetWithoutCircular[prop].push(resolveChild(target[prop][i]));
-											}
-										}
+				}
+				// else if ( prop === "firstChild" || prop === "firstElementChild" || prop === "lastChild" || prop === "lastElementChild"
+				// 						|| prop === "nextElementSibling" || prop === "nextSibling" || prop === "offsetParent" || prop == "parentElement"
+				// 						|| prop === "parentNode" || prop === "previousSibling" || prop === "previousElementSibling"){
+				//
+				// 								targetWithoutCircular[prop] = resolveChild(target[prop]);
+				//
+				// 						} else if (prop === "childNodes" || prop === "children") {
+				// 							targetWithoutCircular[prop] = [];
+				// 							for(var i = 0; i < target[prop].length; i++){
+				// 								targetWithoutCircular[prop].push(resolveChild(target[prop][i]));
+				// 							}
+				// 						}
 			}
 			return targetWithoutCircular;
 		}
@@ -126,12 +124,21 @@
 			return stringified;
 		}
 
+		var randomString = function(){
+			var text = "";
+		    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				for( var i=0; i < 8; i++ )
+		        text += possible.charAt(Math.floor(Math.random() * possible.length));
+				return text;
+		}
+
 		return {
-			assignElementId: assignElementId,
+			// assignElementId: assignElementId,
 			resolveCircularReference: resolveCircularReference,
 			getBrowserType: getBrowserType,
 			platformCheck: platformCheck,
-			stringifyPath: stringifyPath
+			stringifyPath: stringifyPath,
+			randomString: randomString
 		}
 	})();
 
@@ -143,7 +150,7 @@
 document.addEventListener('click', clicks.onClick);
 
 if (typeof(Storage) !== "undefined"){
-	var sessionId = Math.floor(Math.random() * 1000000);
+	var sessionId = clickHelperFunctions.randomString();
 	localStorage.setItem('sessionId', sessionId);
 }
 
@@ -152,9 +159,10 @@ var url = 'http://localhost:3000/api/';
 axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 	sessionId: localStorage.getItem('sessionId'),
 	browser: clickHelperFunctions.getBrowserType(),
-	viewHeight: window.innerHeight,
-	viewWidth: window.innerWidth,
+	vh: window.innerHeight,
+	vw: window.innerWidth,
 	platform: clickHelperFunctions.platformCheck(),
+	entryState: document.getElementsByTagName('ui-view')[0].baseURI
 })
 	.then(function(response) {
 		console.log(response);

@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
+var session = require('./sessionSchema');
 // var ObjectId = Schema.ObjectId;
 
 var siteSchema = new Schema({
-  siteId: { type: Number, required: true, unique: true },
-  baseURL: { type: String },
-  sessions: { type: Array }
+  qxid: { type: String, required: true },
+  URL: { type: String },
+  sessions: [session]
 });
 
 siteSchema.plugin(timestamps);
