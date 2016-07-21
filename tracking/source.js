@@ -32,10 +32,11 @@
 					}
 				}
 
-				axios.patch(url + 'site/' + window.qxid, clickInfo)
-					.then(function(response) {
-						console.log(response);
-					});
+				clickHelperFunctions.sendClick(clickInfo);
+				// axios.patch(url + 'site/' + window.qxid, clickInfo)
+				// 	.then(function(response) {
+				// 		console.log(response);
+				// 	});
 			}
 
 		return {
@@ -44,7 +45,7 @@
 
 	})();
 
-
+	var clickQueue = [];
 
 	var clickHelperFunctions = (function(){
 		// var assignElementId = function(event){
@@ -132,13 +133,30 @@
 				return text;
 		}
 
+		var sendClick = function(clickInfo){
+			if(clickInfo !== 'recurse'){
+				clickQueue.push(clickInfo);
+			}
+			if(clickQueue.length === 1 || clickInfo === 'recurse'){
+				axios.patch(url + 'site/' + window.qxid, clickQueue[0])
+					.then(function(response) {
+						console.log(response);
+						clickQueue.shift();
+						if(clickQueue.length > 0){
+							sendClick('recurse');
+						}
+					});
+			}
+		}
+
 		return {
 			// assignElementId: assignElementId,
 			resolveCircularReference: resolveCircularReference,
 			getBrowserType: getBrowserType,
 			platformCheck: platformCheck,
 			stringifyPath: stringifyPath,
-			randomString: randomString
+			randomString: randomString,
+			sendClick: sendClick
 		}
 	})();
 
