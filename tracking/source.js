@@ -15,25 +15,28 @@
 
 	var clicks = (function() {
 
-		var clickInfo = {
-				sessionId: localStorage.getItem('sessionId'),
-				click: {
-					currentState: document.getElementsByTagName('ui-view')[0].baseURI,
-					// targetElementId: assignElementId(event),
-					target: clickHelperFunctions.resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
-					time: event.timeStamp,
-					clickX: event.x,
-					clickY: event.y,
-					scrollX: window.scrollX,
-					scrollY: window.scrollY,
-					path: clickHelperFunctions.stringifyPath(event.path),
-				}
-			}
+		var onClick = function(event) {
 
-			axios.patch(url + 'site/' + window.qxid, clickInfo)
-				.then(function(response) {
-					console.log(response);
-				});
+			var clickInfo = {
+					sessionId: localStorage.getItem('sessionId'),
+					click: {
+						currentState: document.getElementsByTagName('ui-view')[0].baseURI,
+						// targetElementId: assignElementId(event),
+						target: clickHelperFunctions.resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
+						time: event.timeStamp,
+						clickX: event.x,
+						clickY: event.y,
+						scrollX: window.scrollX,
+						scrollY: window.scrollY,
+						path: clickHelperFunctions.stringifyPath(event.path),
+					}
+				}
+
+				axios.patch(url + 'site/' + window.qxid, clickInfo)
+					.then(function(response) {
+						console.log(response);
+					});
+			}
 
 		return {
 			onClick: onClick
