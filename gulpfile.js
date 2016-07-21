@@ -43,7 +43,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(concat('style.css'))
+    .pipe(concat('bundle.css'))
     .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./src/dist'));
@@ -60,7 +60,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
   gulp.watch(paths.sassSource, ['sass']);
   gulp.watch(paths.bundleSource, ['start']);
-//   gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
+// gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
