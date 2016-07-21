@@ -2,10 +2,11 @@
 
 
 ## callsigns
-jordan = pueblo
-tj = rambo
-joe = jedda
-taylor = iceman
-jared = silky
 
-brett = debby
+* Pueblo = jordan
+* Iceman = taylor
+* Jedda = joe
+* Aero = james
+* Silky = jared
+
+* brett = debby
