@@ -59,12 +59,32 @@
 		}
 
 		var resolveCircularReference = function(target){
+			var resolveChild = function(child){
+				var childWithoutCircular = {};
+				for(var prop in child){
+					if(typeof child[prop] !== "function" && typeof child[prop] !== "object"){
+						childWithoutCircular[prop] = child[prop]
+					}
+				}
+				return childWithoutCircular;
+			}
+
 			var targetWithoutCircular = {};
 			for(var prop in target){
 				if(typeof target[prop] !== "function" && typeof target[prop] !== "object"){
-					// console.log(target[prop]);
 					targetWithoutCircular[prop] = target[prop]
-				}
+				} else if ( prop === "firstChild" || prop === "firstElementChild" || prop === "lastChild" || prop === "lastElementChild"
+										|| prop === "nextElementSibling" || prop === "nextSibling" || prop === "offsetParent" || prop == "parentElement"
+										|| prop === "parentNode" || prop === "previousSibling" || prop === "previousElementSibling"){
+
+												targetWithoutCircular[prop] = resolveChild(target[prop]);
+
+										} else if (prop === "childNodes" || prop === "children") {
+											targetWithoutCircular[prop] = [];
+											for(var i = 0; i < target[prop].length; i++){
+												targetWithoutCircular[prop].push(resolveChild(target[prop][i]));
+											}
+										}
 			}
 			return targetWithoutCircular;
 		}
