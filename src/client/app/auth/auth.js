@@ -22,7 +22,8 @@
       authService.register(newUser).then(function(response) {
         console.log(response);
         newUser = {};
-        alert('Success! Welcome to QUIX!')
+        alert('Success! Welcome to QUIX!');
+        $state.go('login');
       })
     }
 
