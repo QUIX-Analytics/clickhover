@@ -1,7 +1,7 @@
 (function() {
 
   angular
-    .module('quix.dashboard')
+    .module('quix.layout')
     .service('dashboardService', dashboardService)
 
   function dashboardService($http) {

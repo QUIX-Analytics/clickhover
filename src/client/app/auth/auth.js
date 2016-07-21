@@ -4,9 +4,9 @@
 
   angular
     .module('quix.auth')
-    .controller('AuthController', AuthController);
+    .controller('Auth', Auth);
 
-  function AuthController($scope, authService, $state) {
+  function Auth($scope, authService, $state) {
     var vm = this;
     vm.login = function(user) {
       user.email = user.email.toLowerCase();
@@ -22,7 +22,7 @@
       authService.register(newUser).then(function(response) {
         console.log(response);
         newUser = {};
-        alert('Account Successfully Created')
+        alert('Success! Welcome to QUIX!')
       })
     }
 

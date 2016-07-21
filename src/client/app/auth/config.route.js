@@ -19,9 +19,9 @@
                 state: 'auth',
                 config: {
                     url: '/auth',
-                    templateUrl: '/app/auth/auth.tmpl.html',
-                    controller: 'AuthController',
-                    controllerAs: 'authCtrl',
+                    templateUrl: '/app/auth/auth.html',
+                    controller: 'Auth',
+                    controllerAs: 'Auth',
                 }
             }
         ];
