@@ -4,9 +4,10 @@ var Schema = mongoose.Schema;
 // var ObjectId = Schema.ObjectId;
 
 var siteSchema = new Schema({
-  siteId: { type: Number, required: true, unique: true },
+  QXID: { type: Number, required: true, unique: true },
   baseURL: { type: String },
-  sessions: { type: Array }
+  // sessions: { type: Array }
+  
 });
 
 siteSchema.plugin(timestamps);

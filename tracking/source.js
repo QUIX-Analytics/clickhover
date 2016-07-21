@@ -17,10 +17,6 @@
 
 		var clickInfo = {
 				sessionId: localStorage.getItem('sessionId'),
-				browser: getBrowserType(),
-				viewHeight: window.innerHeight,
-				viewWidth: window.innerWidth,
-				platform: platformCheck(),
 				click: {
 					currentState: document.getElementsByTagName('ui-view')[0].baseURI,
 					qxid: window.qxid,
