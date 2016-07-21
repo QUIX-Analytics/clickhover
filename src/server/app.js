@@ -71,7 +71,7 @@ app.post('/api/site', function (req, res, next) {
 });
 app.patch('/api/site/:id', function(req, res, next){
 	console.log('API add click to site of id', req.params.id);
-	Site.findByIdAndUpdate(req.params.id, {}, function(err, site){
+	Site.findOne({siteId: req.params.id}, function(err, site){
 		if(err) res.status(500).send(err);
 		var sessionToUpdate = {};
 		var sessionExists = false;
@@ -91,7 +91,12 @@ app.patch('/api/site/:id', function(req, res, next){
 		} else {
 			site.sessions.push({
 				"sessionId": req.body.sessionId,
-				"clicks": [req.body.click]
+        "timeStarted": Date.now(),
+        "browser": req.body.browser,
+        "viewHeight": req.body.viewHeight,
+        "viewWidth": req.body.viewWidth,
+        "platform": req.body.platform,
+				"clicks": []
 			});
 			site.save(function(err, s){
 				if (err) res.status(500).send(err);
