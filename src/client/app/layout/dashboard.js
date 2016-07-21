@@ -2,10 +2,10 @@
 
   'use strict';
   angular
-    .module('quix.dashboard')
-    .controller('DashboardController', DashboardController)
+    .module('quix.layout')
+    .controller('Dashboard', Dashboard)
 
-  function DashboardController($scope, dashboardService) {
+  function Dashboard($scope, dashboardService) {
 
     var vm = this;
     vm.getData = function() {
