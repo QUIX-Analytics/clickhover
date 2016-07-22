@@ -12,6 +12,8 @@ var nodemon = require('gulp-nodemon');
 var postcss = require('gulp-postcss');
 var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
+var path = require('path');
+
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
@@ -38,8 +40,19 @@ gulp.task('start', function () {
     script: './src/server/app.js'
   , ext: 'js html scss'
   , env: { 'NODE_ENV': 'development' }
-  , tasks: ['js', 'sass']
   , ignore: ['dist/*.*']
+  , tasks: function(files) {
+      const tasks = [];
+      files.forEach(function(file) {
+        if (path.extname(file) === '.js' && !tasks.includes('js')) {
+          tasks.push('js')
+        }
+        if (path.extname(file) === '.scss' && !tasks.includes('.scss')) {
+          tasks.push('sass')
+        }
+      })
+      return tasks;
+    }
   })
 });
 gulp.task('sass', function () {
