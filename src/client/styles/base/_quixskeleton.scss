@@ -211,8 +211,8 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"]
 {
-	color: $primary;
-  border: 1px solid $primary;
+	// color: $primary;
+  // border: 1px solid $primary;
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -230,47 +230,16 @@ input[type="button"]
   outline: 0;
 	&:hover,
 	&:focus {
-		color: $dark1;
-	  border: 1px solid $primary;
-	  background-color: $primary;
+		// color: $dark1;
+	  // border: 1px solid $primary;
+	  // background-color: $primary;
 	  outline: 0;
 	}
 	&:active{
-		color: $dark1;
-	  border: 1px solid $medium1;
-	  background-color: $medium1;
+		// color: $dark1;
+	  // border: 1px solid $medium1;
+	  // background-color: $medium1;
 	  outline: 0;
-	}
-}
-
-.button {
-	&_primary {
-		background-color: $primary;
-		&:hover,
-		&:focus {
-
-		}
-	}
-	&_warning {
-		background-color: $warning;
-		&:hover,
-		&:focus {
-
-		}
-	}
-	&_success {
-		background-color: $success;
-		&:hover,
-		&:focus {
-
-		}
-	}
-	&_accent {
-		background-color: $accent;
-		&:hover,
-		&:focus {
-
-		}
 	}
 }
 
