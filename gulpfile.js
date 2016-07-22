@@ -17,6 +17,7 @@ var autoprefixer = require('autoprefixer');
 var paths = {
   jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/layout/layout.module.js', './src/client/app/auth/auth.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
   sassSource: ['./src/client/styles/main.scss'],
+	sassWatchSource: ['./src/client/styles/*.scss', './src/client/styles/**/*.scss'],
   bundleSource: ['./src/dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
   //lessSource: ['./public/styles/**/*.less'] //Uncomment if using Less
 };
@@ -58,7 +59,7 @@ gulp.task('sass', function () {
 // ============================================================
 gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
-  gulp.watch(paths.sassSource, ['sass']);
+  gulp.watch(paths.sassWatchSource, ['sass']);
   // gulp.watch(paths.bundleSource, ['start']);
 // gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });

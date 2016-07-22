@@ -227,21 +227,23 @@ input[type="button"] {
   cursor: pointer;
   box-sizing: border-box;
   outline: 0;
-}
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-  color: $dark1;
-  border: 1px solid $primary;
-  background-color: $primary;
-  outline: 0;
+	&:hover,
+	&:focus {
+		color: $dark1;
+	  border: 1px solid $primary;
+	  background-color: $primary;
+	  outline: 0;
+	}
+
+	&_primary {
+
+	}
+	&_warning {
+
+	}
+	&_primary {
+
+	}
 }
 
 .button.button-primary,
@@ -284,13 +286,20 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
-textarea,
-select {
+textarea {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: transparent;
   border: 1px solid $invisible;
   border-bottom: 1px solid $primary;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: transparent;
+  border: 1px solid $primary;
   box-shadow: none;
   box-sizing: border-box;
 }
@@ -423,9 +432,10 @@ td:last-child {
   #SPACING
 \*------------------------------------*/
 button,
-.button {
-  margin-bottom: 1rem;
-}
+.button,
+// {
+//   margin-bottom: 1rem;
+// }
 input,
 textarea,
 select,
