@@ -8,6 +8,9 @@
 */
 
 
+
+
+
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Grid
@@ -26,8 +29,13 @@
 */
 
 
-/* Grid
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #GRID
+\*------------------------------------*/
+
 .container {
   position: relative;
   width: 100%;
@@ -113,8 +121,13 @@
 }
 
 
-/* Base Styles
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #BASE STYLES
+\*------------------------------------*/
+
 /* NOTE
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
@@ -124,12 +137,17 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  // font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $primary; }
 
 
-/* Typography
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #TYPOGRAPHY
+\*------------------------------------*/
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
@@ -155,16 +173,27 @@ p {
   margin-top: 0; }
 
 
-/* Links
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+
 a {
-  color: #1EAEDB; }
+  color: $accent; }
 a:hover {
-  color: #0FA0CE; }
+  color: $accent; }
 
 
-/* Buttons
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
+
+/* Normal */
 .button,
 button,
 input[type="submit"],
@@ -173,7 +202,7 @@ input[type="button"] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: #555;
+  color: $primary;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -183,10 +212,11 @@ input[type="button"] {
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border-radius: 4px;
-  border: 1px solid #bbb;
+  border: 1px solid $primary;
   cursor: pointer;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  outline: 0;
+}
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -197,17 +227,22 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  color: #333;
-  border-color: #888;
-  outline: 0; }
+  color: $dark1;
+  border: 1px solid $primary;
+  background-color: $primary;
+  outline: 0;
+}
+
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
-  color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
+  color: $dark1;
+  background-color: $primary;
+  border: 1px solid $primary;
+  outline: 0;
+}
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -218,13 +253,19 @@ button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
-  color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  color: $primary;
+  background-color: transparent;
+  border: 1px solid $primary;
+  outline: 0;
+}
 
 
-/* Forms
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #FORMS
+\*------------------------------------*/
 input[type="email"],
 input[type="number"],
 input[type="search"],
@@ -236,9 +277,9 @@ textarea,
 select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #fff;
-  border: 1px solid #D1D1D1;
-  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid hsla(33, 5%, 38%, 0);;
+  border-bottom: 1px solid $primary;
   box-shadow: none;
   box-sizing: border-box; }
 /* Removes awkward default styles on some inputs for iOS */
@@ -266,7 +307,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid $primary;
   outline: 0; }
 label,
 legend {
@@ -285,8 +326,12 @@ label > .label-body {
   font-weight: normal; }
 
 
-/* Lists
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #LISTS
+\*------------------------------------*/
 ul {
   list-style: circle inside; }
 ol {
@@ -304,15 +349,19 @@ li {
   margin-bottom: 1rem; }
 
 
-/* Code
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #CODE
+\*------------------------------------*/
 code {
   padding: .2rem .5rem;
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
-  background: #F1F1F1;
-  border: 1px solid #E1E1E1;
+  background: $white;
+  border: 1px solid $light1;
   border-radius: 4px; }
 pre > code {
   display: block;
@@ -320,13 +369,17 @@ pre > code {
   white-space: pre; }
 
 
-/* Tables
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #TABLES
+\*------------------------------------*/
 th,
 td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #E1E1E1; }
+  border-bottom: 1px solid $light1; }
 th:first-child,
 td:first-child {
   padding-left: 0; }
@@ -335,8 +388,12 @@ td:last-child {
   padding-right: 0; }
 
 
-/* Spacing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #SPACING
+\*------------------------------------*/
 button,
 .button {
   margin-bottom: 1rem; }
@@ -357,8 +414,12 @@ form {
   margin-bottom: 2.5rem; }
 
 
-/* Utilities
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #UTILITIES
+\*------------------------------------*/
 .u-full-width {
   width: 100%;
   box-sizing: border-box; }
@@ -371,18 +432,25 @@ form {
   float: left; }
 
 
-/* Misc
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #MISC
+\*------------------------------------*/
 hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1; }
+  border-top: 1px solid $light1; }
 
 
-/* Clearing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
+
+/*------------------------------------*\
+  #CLEARING
+\*------------------------------------*/
 /* Self Clearing Goodness */
 .container:after,
 .row:after,
@@ -392,8 +460,12 @@ hr {
   clear: both; }
 
 
-/* Media Queries
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
+/*------------------------------------*\
+  #MEDIA QUERIES
+\*------------------------------------*/
 /*
 Note: The best way to structure the use of media queries is to create the queries
 near the relevant code. For example, if you wanted to change the styles for buttons
