@@ -1,0 +1,14 @@
+<h2>PROFILE!!</h2>
+<section ng-controller="User as vm">
+  <ul>
+    <li>{{vm.username}}</li>
+    <li>{{vm.email}}</li>
+    <li>{{vm.password}}</li>
+  </ul>
+</section>
+
+
+<input type="text" placeholder="Edit Username" ng-model="User.updated.username">
+<input type="text" placeholder="Edit Email" ng-model="User.updated.email">
+<input type="password" placeholder="Edit Password" ng-model="User.updated.password">
+<button type="button" ng-click="User.update(User.updated)"></button>
