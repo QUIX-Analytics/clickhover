@@ -23,6 +23,16 @@
                     controller: 'Dashboard',
                     controllerAs: 'Dashboard',
                 }
+            },
+            {
+
+                state: 'heatmap',
+                config: {
+                    url: '/heatmap',
+                    templateUrl: '/app/layout/heatmap.html',
+                    controller: 'Heatmap',
+                    controllerAs: 'Heatmap',
+                }
             }
         ];
     }
