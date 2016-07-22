@@ -1,29 +1,31 @@
 <section ng-controller="Site as Site">
   <h2>Dashboard</h2><hr>
-  <h3>QUIXstory</h3>
-      <div ng-repeat="site in Site.data">
-          QXID: {{site.qxid}} | {{site.URL}}<br>
-          <ol>
-              <div ng-repeat="session in site.sessions">
-                <div style="display: inline-block; padding: 1px; border-bottom: 1px solid black" class="sessioninfo">
-                  {{session.sessionId}} {{session.browser}}<br>
-                  {{session.createdAt | date: 'mediumTime'}}<br>
-                  {{session.updatedAt | date: 'mediumTime'}}<br>
-                  {{session.platform}} | {{session.vh}}x{{session.vw}}
-                </div>
-                <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
-                  <ul>
-                    <li style="display: inline-block; margin-left: 3px">Clicks:<br>
-                      {{session.clicks.length}}</li>
-                    <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
-                      {{ click.target.tagName }}<br>
-                      {{ click.timeStamp/1000 | number: 2 }}<br>
-                      seconds
-                    </li>
-                  </ul>
-                </div>
-              </div>
-          </ol>
-          <hr>
-      </div>
+
 </section>
+
+<!-- <h3>QUIXstory</h3>
+    <div ng-repeat="site in Site.data">
+        QXID: {{site.qxid}} | {{site.URL}}<br>
+        <ol>
+            <div ng-repeat="session in site.sessions">
+              <div style="display: inline-block; padding: 1px; border-bottom: 1px solid black" class="sessioninfo">
+                {{session.sessionId}} {{session.browser}}<br>
+                {{session.createdAt | date: 'mediumTime'}}<br>
+                {{session.updatedAt | date: 'mediumTime'}}<br>
+                {{session.platform}} | {{session.vh}}x{{session.vw}}
+              </div>
+              <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
+                <ul>
+                  <li style="display: inline-block; margin-left: 3px">Clicks:<br>
+                    {{session.clicks.length}}</li>
+                  <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
+                    {{ click.target.tagName }}<br>
+                    {{ click.timeStamp/1000 | number: 2 }}<br>
+                    seconds
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </ol>
+        <hr>
+    </div> -->
