@@ -36,8 +36,10 @@ gulp.task('js', function() {
 gulp.task('start', function () {
   nodemon({
     script: './src/server/app.js'
-  , ext: 'js html'
+  , ext: 'js html scss'
   , env: { 'NODE_ENV': 'development' }
+  , tasks: ['js', 'sass']
+  , ignore: ['dist/*.*']
   })
 });
 gulp.task('sass', function () {
@@ -58,11 +60,11 @@ gulp.task('sass', function () {
 // WATCH TASKS
 // ============================================================
 gulp.task('watch', function() {
-  gulp.watch(paths.jsSource, ['js', 'start']);
-  gulp.watch(paths.sassWatchSource, ['sass', 'start']);
+  // gulp.watch(paths.jsSource, ['js']);
+  // gulp.watch(paths.sassWatchSource, ['sass']);
   // gulp.watch(paths.bundleSource, ['start']);
 // gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['js', 'sass', 'watch', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['watch', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
