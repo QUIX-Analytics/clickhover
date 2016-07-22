@@ -8,7 +8,7 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
-// var nodemon = require('gulp-nodemon');
+var nodemon = require('gulp-nodemon');
 var postcss = require('gulp-postcss');
 var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
@@ -33,13 +33,13 @@ gulp.task('js', function() {
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest('./src/dist'));
 });
-// gulp.task('start', function () {
-//   nodemon({
-//     script: './src/server/app.js'
-//   , ext: 'js html'
-//   , env: { 'NODE_ENV': 'development' }
-//   })
-// })
+gulp.task('start', function () {
+  nodemon({
+    script: './src/server/app.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  })
+});
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sourcemaps.init())
@@ -58,11 +58,11 @@ gulp.task('sass', function () {
 // WATCH TASKS
 // ============================================================
 gulp.task('watch', function() {
-  gulp.watch(paths.jsSource, ['js']);
-  gulp.watch(paths.sassWatchSource, ['sass']);
+  gulp.watch(paths.jsSource, ['js', 'start']);
+  gulp.watch(paths.sassWatchSource, ['sass', 'start']);
   // gulp.watch(paths.bundleSource, ['start']);
 // gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['js', 'sass', 'watch']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['js', 'sass', 'watch', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
