@@ -18,16 +18,32 @@
 
     vm.filterDataToStateClicks = function() {
       var states = [];
-      var exists = true;
-      for(var i = 0; i < vm.data.sessions.length; i++){
-        for(var t = 0; t < states.length; t++){
-          if(states[t].stateName === )
-        }
-        for(var j = 0; j < vm.data.sessions[i].clicks.length; j++){
+
+      for(var i = 0; i < vm.data[0].sessions.length; i++){
+        for(var j = 0; j < vm.data[0].sessions[i].clicks.length; j++){
+          var existsAtIndex = stateIsInArray(vm.data[0].sessions[i].clicks[j].currentState)
+          if(existsAtIndex){
+            states[existsAtIndex].clicks.push(vm.data[0].sessions[i].clicks[j]);
+          } else {
+            states.push({
+              stateName: vm.data[0].sessions[i].clicks[j].currentState,
+              states[states.length - 1].clicks.push(vm.data[0].sessions[i].clicks[j]);
+            })
+          }
 
         }
       }
+
+      console.log(states);
+
+      function stateIsInArray(stateName){
+        for(var i = 0; i < states.length; i++){
+          if(states[i].stateName === stateName) return i;
+        }
+        return false;
+      }
     }
+    vm.filterDataToStateClicks();
 
   }
 
