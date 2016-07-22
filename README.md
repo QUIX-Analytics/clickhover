@@ -2,11 +2,10 @@
 
 
 ## callsigns
+* Pueblo = @gidgicken
+* Iceman = @taylormunnerlyn
+* Jedda = @joseph-tohdjojo
+* Aero = @jonathanjames86
+* Silky = @jaredmpeterson
 
-* Pueblo = jordan
-* Iceman = taylor
-* Jedda = joe
-* Aero = james
-* Silky = jared
-
-* brett = debby
+* Debby = @asBrettisay

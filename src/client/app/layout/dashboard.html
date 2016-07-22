@@ -1,25 +1,29 @@
 <section ng-controller="Dashboard as Dashboard">
   <h2>Dashboard</h2><hr>
   <h3>QUIXstory</h3>
-  <ul>
       <div ng-repeat="site in Dashboard.data">
           QXID: {{site.qxid}} | {{site.URL}}<br>
           <ol>
               <div ng-repeat="session in site.sessions">
-                <div style="display: block; padding: 1px" class="sessioninfo">
-                  {{session.sessinId}}<br>
-                  {{session.createdAt | date: 'short'}} to {{session.updatedAt | date: 'short'}}<br>
-                  {{session.browser}} {{session.platform}}<br>
-                  {{session.vh}} x {{session.vw}}
+                <div style="display: inline-block; padding: 1px; border-bottom: 1px solid black" class="sessioninfo">
+                  {{session.sessionId}} {{session.browser}}<br>
+                  {{session.createdAt | date: 'mediumTime'}}<br>
+                  {{session.updatedAt | date: 'mediumTime'}}<br>
+                  {{session.platform}} | {{session.vh}}x{{session.vw}}
                 </div>
-                <div style="display: inline-block; padding: 1px">
-                  <ul ng-if="session.clicks[0]">
-                    <li style="display: inline-block; padding: 1px" ng-repeat="click in session.clicks"> {{ click.target.tagName }}<br>{{session.timeStarted + click.timeStamp | date: 'short'}}</li>
+                <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
+                  <ul>
+                    <li style="display: inline-block; margin-left: 3px">Clicks:<br>
+                      {{session.clicks.length}}</li>
+                    <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
+                      {{ click.target.tagName }}<br>
+                      {{ click.timeStamp/1000 | number: 2 }}<br>
+                      seconds
+                    </li>
                   </ul>
                 </div>
               </div>
           </ol>
           <hr>
       </div>
-  </ul>
 </section>
