@@ -1,10 +1,10 @@
 (function() {
 
     angular
-        .module('quix.auth')
-        .service('authService', authService)
+        .module('quix.user')
+        .service('userService', userService)
 
-    function authService($http) {
+    function userService($http) {
 
         this.login = function(user) {
             return $http({
@@ -12,7 +12,7 @@
                 url: '/auth/login',
                 data: user
             }).then(function(response) {
-                return response;
+                
             })
         }
         this.logout = function() {
@@ -31,6 +31,15 @@
             }).then(function(response) {
                 return response;
             })
+        }
+        this.updateUser = function(updatedUser) {
+          return $http({
+            method: 'PUT',
+            url: "/auth/:id",
+            data: updatedUser
+          }).then(function(response) {
+            return response;
+          });
         }
         this.getUser = function() {
             return $http({

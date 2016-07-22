@@ -21,17 +21,7 @@
                     url: '/dashboard',
                     templateUrl: '/app/layout/dashboard.html',
                     controller: 'Dashboard',
-                    controllerAs: 'Dashboard',
-                }
-            },
-            {
-
-                state: 'profile',
-                config: {
-                    url: '/profile',
-                    templateUrl: '/app/layout/profile.html',
-                    controller: 'Dashboard',
-                    controllerAs: 'Dashboard',
+                    controllerAs: 'Dashboard'
                 }
             }
         ];

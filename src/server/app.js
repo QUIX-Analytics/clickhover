@@ -150,11 +150,11 @@ app.delete('/api/user/:id', function (req, res, next) {
 	})
 });
 
-// Auth Endpoints
+// User Endpoints
 app.post('/auth/register', userCtrl.register);
 app.get('/auth/me', userCtrl.me);
-// app.get('/user', userCtrl.read);
-// app.put('/user/:id', userCtrl.update);
+app.get('/auth', userCtrl.read);
+app.put('/auth/:id', userCtrl.update);
 app.post('/auth/login', passport.authenticate('local', {
     successRedirect: '/auth/me'
 }));
