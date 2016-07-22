@@ -209,11 +209,13 @@ a:hover {
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"]
+{
+	color: $primary;
+  border: 1px solid $primary;
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: $primary;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
@@ -223,7 +225,6 @@ input[type="button"] {
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border: 1px solid $primary;
   cursor: pointer;
   box-sizing: border-box;
   outline: 0;
@@ -234,42 +235,43 @@ input[type="button"] {
 	  background-color: $primary;
 	  outline: 0;
 	}
+	&:active{
+		color: $dark1;
+	  border: 1px solid $medium1;
+	  background-color: $medium1;
+	  outline: 0;
+	}
+}
 
+.button {
 	&_primary {
+		background-color: $primary;
+		&:hover,
+		&:focus {
 
+		}
 	}
 	&_warning {
+		background-color: $warning;
+		&:hover,
+		&:focus {
 
+		}
 	}
-	&_primary {
+	&_success {
+		background-color: $success;
+		&:hover,
+		&:focus {
 
+		}
 	}
-}
+	&_accent {
+		background-color: $accent;
+		&:hover,
+		&:focus {
 
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
-  color: $dark1;
-  background-color: $primary;
-  border: 1px solid $primary;
-  outline: 0;
-}
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
-  color: $primary;
-  background-color: transparent;
-  border: 1px solid $primary;
-  outline: 0;
+		}
+	}
 }
 
 
@@ -535,3 +537,7 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+
+.header__nav--blue
+.nav--blue
