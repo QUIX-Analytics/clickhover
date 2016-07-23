@@ -147,7 +147,7 @@ app.delete('/api/user/:id', function (req, res, next) {
 	User.findByIdAndRemove(req.params.id, function (err, user) {
 		if (err) res.status(500).send(err);
 		res.status(200).send(user);
-	})
+	});
 });
 
 // User Endpoints
@@ -156,17 +156,21 @@ app.get('/auth/me', userCtrl.me);
 app.get('/auth', userCtrl.read);
 app.put('/auth/:id', userCtrl.update);
 app.post('/auth/login', passport.authenticate('local', {
-    successRedirect: '/auth/me'
+  successRedirect: '/auth/me',
+	failureRedirect: '/auth/unauthorized'
 }));
+app.get('/auth/unauthorized', function(req, res, next) {
+	res.send('Unauthorized');
+});
 app.get('/auth/logout', function(req, res, next) {
-    req.logout();
-    return res.status(200).send('logged out');
-})
+  req.logout();
+  return res.status(200).send('logged out');
+});
 
 // Enable HTML5 model
 app.all('/*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('index.html', {root: './src/client/'});
+  // Just send the index.html for other files to support HTML5Mode
+  res.sendFile('index.html', {root: './src/client/'});
 });
 
 //Listen
