@@ -25,7 +25,7 @@
                       currentUser: function(userService) {
                         userService.getUser()
                           .then(function(response) {
-                            return response
+                            return response;
                           })
                       }
                     }
@@ -37,8 +37,8 @@
                 config: {
                     url: '/register',
                     templateUrl: '/app/user/register.html',
-                    controller: 'User',
-                    controllerAs: 'User',
+                    controller: 'Register',
+                    controllerAs: 'registerCtrl',
                 }
             },
             {
@@ -46,8 +46,8 @@
                 config: {
                     url: '/profile',
                     templateUrl: '/app/user/profile.html',
-                    controller: 'User',
-                    controllerAs: 'User',
+                    controller: 'Profile',
+                    controllerAs: 'profileCtrl',
                     resolve: {
                       currentUser: function(userService) {
                         userService.getUser()
