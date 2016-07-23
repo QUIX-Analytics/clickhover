@@ -17,6 +17,15 @@ var passport = require('./services/passport');
 
 
 
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+
+var port = process.env.PORT || 3000;
+
+
+
+
 
 /*------------------------------------*\
   #APP
@@ -53,16 +62,6 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
-
-
-
-
-/*------------------------------------*\
-  #VARIABLES
-\*------------------------------------*/
-
-var port = process.env.PORT || 3000;
 
 
 
@@ -201,11 +200,7 @@ app.post('/auth/register', userCtrl.register);
 app.get('/auth/me', userCtrl.me);
 app.get('/auth', userCtrl.read);
 app.put('/auth/:id', userCtrl.update);
-app.post('/auth/login', passport.authenticate('local', {
-  successRedirect: '/auth/me',
-	failureRedirect: '/auth/unauthorized'
-}));
-app.get('/auth/unauthorized', userCtrl.unauthorized);
+app.post('/auth/login', userCtrl.login);
 app.get('/auth/logout', userCtrl.logout);
 
 

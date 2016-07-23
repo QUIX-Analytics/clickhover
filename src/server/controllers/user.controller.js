@@ -1,6 +1,22 @@
 var User = require('../models/user.model');
+var passport = require('./../services/passport');
 
 module.exports = {
+
+	login: function(req, res, next) {
+	  passport.authenticate('local', function(err, user, info) {
+	    if (err) { return next(err); }
+	    if (!user) {
+				return res.redirect('/');
+			}
+	    req.logIn(user, function(err) {
+	      if (err) {
+					return next(err);
+				}
+	      return res.send('Logged In');
+	    });
+	  })(req, res, next);
+	},
 
   register: function(req, res, next) {
     User.create(req.body, function(err, result) {
@@ -33,10 +49,6 @@ module.exports = {
       res.status(200).send('user updated');
     });
   },
-
-	unauthorized: function(req, res, next) {
-		res.send('Unauthorized');
-	},
 
 	logout: function(req, res, next) {
 	  req.logout();
