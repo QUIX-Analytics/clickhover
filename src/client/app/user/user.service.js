@@ -2,11 +2,23 @@
 
   angular
     .module('quix.user')
-    .service('userService', userService);
+    .factory('userService', userService);
 
   function userService($http, $state) {
 
-    this.login = function(user) {
+		var service = {
+			login: login,
+			logout: logout,
+			register: register,
+			updateUser: updateUser,
+			getUser: getUser
+		}
+
+		return service;
+
+		////////////////////////////////////////////////
+
+		function login(user) {
       return $http({
         method: 'POST',
         url: '/auth/login',
@@ -16,22 +28,21 @@
 					console.log(response);
 					// Notify the user that they entered the wrong credentials
 				} else {
-					console.log('you good');
 					$state.go('profile');
 				}
       });
-    };
+    }
 
-    this.logout = function() {
+    function logout() {
       return $http({
         method: 'GET',
         url: '/auth/logout'
       }).then(function(response) {
         return response;
       });
-    };
+    }
 
-    this.register = function(user) {
+    function register(user) {
       return $http({
         method: 'POST',
         url: '/auth/register',
@@ -41,7 +52,7 @@
       });
     };
 
-    this.updateUser = function(updatedUser) {
+    function updateUser(updatedUser) {
       return $http({
         method: 'PUT',
         url: "/auth/:id",
@@ -49,16 +60,16 @@
       }).then(function(response) {
         return response;
       });
-    };
+    }
 
-    this.getUser = function() {
+    function getUser() {
       return $http({
         method: 'GET',
         url: '/auth/me'
       }).then(function(response) {
         return response;
       });
-    };
+    }
 
   }
 
