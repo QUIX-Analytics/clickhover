@@ -1,5 +1,10 @@
 'use strict';
-// Dependencies
+
+
+/*------------------------------------*\
+  #DEPENDENCIES
+\*------------------------------------*/
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -9,7 +14,14 @@ var config = require('./config/config');
 var userCtrl = require('./controllers/user.controller');
 var passport = require('./services/passport');
 
-//App
+
+
+
+
+/*------------------------------------*\
+  #APP
+\*------------------------------------*/
+
 var app = express();
 app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
@@ -20,7 +32,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-//Auth Setup
+
+
+
+
+/*------------------------------------*\
+  #AUTH SETUP
+\*------------------------------------*/
+
 var isAuthed = function(req, res, next) {
     if (!req.isAuthenticated()) return res.status(401).send();
     return next();
@@ -36,17 +55,37 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-//Variables
+
+
+
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+
 var port = process.env.PORT || 3000;
 
-//Database
+
+
+
+
+/*------------------------------------*\
+  #DATABASE
+\*------------------------------------*/
+
 mongoose.set('debug', true);
 mongoose.connect(config.mongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('QUIX database now connected!')
 });
 
-//Endpoints
+
+
+
+
+/*------------------------------------*\
+  #ENDPOINTS
+\*------------------------------------*/
+
 var Site = require('./models/site.model.js');
 var User = require('./models/user.model.js');
 var ClickSession = require('./models/sessionSchema.js')
@@ -150,7 +189,14 @@ app.delete('/api/user/:id', function (req, res, next) {
 	});
 });
 
-// User Endpoints
+
+
+
+
+/*------------------------------------*\
+  #USER ENDPOINTS
+\*------------------------------------*/
+
 app.post('/auth/register', userCtrl.register);
 app.get('/auth/me', userCtrl.me);
 app.get('/auth', userCtrl.read);
@@ -159,21 +205,30 @@ app.post('/auth/login', passport.authenticate('local', {
   successRedirect: '/auth/me',
 	failureRedirect: '/auth/unauthorized'
 }));
-app.get('/auth/unauthorized', function(req, res, next) {
-	res.send('Unauthorized');
-});
-app.get('/auth/logout', function(req, res, next) {
-  req.logout();
-  return res.status(200).send('logged out');
-});
+app.get('/auth/unauthorized', userCtrl.unauthorized);
+app.get('/auth/logout', userCtrl.logout);
 
-// Enable HTML5 model
+
+
+
+
+/*------------------------------------*\
+  #ENABLE HTML MODEL
+\*------------------------------------*/
+
 app.all('/*', function(req, res, next) {
   // Just send the index.html for other files to support HTML5Mode
   res.sendFile('index.html', {root: './src/client/'});
 });
 
-//Listen
+
+
+
+
+/*------------------------------------*\
+  #LISTEN
+\*------------------------------------*/
+
 app.listen(port, function () {
 	console.log('QUIX Express server listening on ' + port);
 });

@@ -32,5 +32,14 @@ module.exports = {
       if (err) next(err);
       res.status(200).send('user updated');
     });
-  }
+  },
+
+	unauthorized: function(req, res, next) {
+		res.send('Unauthorized');
+	},
+
+	logout: function(req, res, next) {
+	  req.logout();
+	  return res.status(200).send('logged out');
+	}
 };
