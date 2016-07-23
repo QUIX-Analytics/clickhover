@@ -7,7 +7,7 @@ module.exports = {
 	  passport.authenticate('local', function(err, user, info) {
 	    if (err) { return next(err); }
 	    if (!user) {
-				return res.redirect('/');
+				return res.send('Unauthorized');
 			}
 	    req.logIn(user, function(err) {
 	      if (err) {

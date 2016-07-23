@@ -2,7 +2,7 @@
 
   angular
     .module('quix.user')
-    .service('userService', userService)
+    .service('userService', userService);
 
   function userService($http, $state) {
 
@@ -12,10 +12,15 @@
         url: '/auth/login',
         data: user
       }).then(function(response) {
-				console.log(response);
-				return response;
+				if(response.data === 'Unauthorized') {
+					console.log(response);
+					// Notify the user that they entered the wrong credentials
+				} else {
+					console.log('you good');
+					$state.go('profile');
+				}
       });
-    }
+    };
 
     this.logout = function() {
       return $http({
@@ -24,7 +29,7 @@
       }).then(function(response) {
         return response;
       });
-    }
+    };
 
     this.register = function(user) {
       return $http({
@@ -34,7 +39,7 @@
       }).then(function(response) {
         return response;
       });
-    }
+    };
 
     this.updateUser = function(updatedUser) {
       return $http({
@@ -44,7 +49,7 @@
       }).then(function(response) {
         return response;
       });
-    }
+    };
 
     this.getUser = function() {
       return $http({
@@ -53,8 +58,8 @@
       }).then(function(response) {
         return response;
       });
-    }
+    };
 
   }
 
-})()
+})();
