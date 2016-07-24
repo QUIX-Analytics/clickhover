@@ -199,7 +199,7 @@ app.delete('/api/user/:id', function (req, res, next) {
 app.post('/auth/register', userCtrl.register);
 app.get('/auth/me', userCtrl.me);
 app.get('/auth', userCtrl.read);
-app.put('/auth/:id', userCtrl.update);
+app.put('/auth/:id', isAuthed, userCtrl.update);
 app.post('/auth/login', userCtrl.login);
 app.get('/auth/logout', userCtrl.logout);
 

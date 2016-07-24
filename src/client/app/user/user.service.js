@@ -52,10 +52,10 @@
       });
     };
 
-    function updateUser(updatedUser) {
+    function updateUser(updatedUser, id) {
       return $http({
         method: 'PUT',
-        url: "/auth/:id",
+        url: "/auth/" + id,
         data: updatedUser
       }).then(function(response) {
         return response;

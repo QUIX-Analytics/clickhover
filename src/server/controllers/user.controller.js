@@ -44,9 +44,9 @@ module.exports = {
   },
 
   update: function(req, res, next) {
-    User.findByIdAndUpdate(req.params._id, req.body, function(err, result) {
+    User.findByIdAndUpdate(req.params.id, { $set: req.body }, function(err, user) {
       if (err) next(err);
-      res.status(200).send('user updated');
+      res.status(200).send(user);
     });
   },
 
