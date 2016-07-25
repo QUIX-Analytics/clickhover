@@ -3,6 +3,7 @@ var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
 var session = require('./sessionSchema');
 // var ObjectId = Schema.ObjectId;
+var shortid = require('shortid');
 
 var siteSchema = new Schema({
   // qxid: { type: String, required: true },
