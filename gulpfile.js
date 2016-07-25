@@ -80,4 +80,4 @@ gulp.task('watch', function() {
 });
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['watch', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['js', 'sass', 'watch', 'start']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
