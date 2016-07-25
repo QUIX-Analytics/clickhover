@@ -19,8 +19,8 @@
                 config: {
                     url: '/site/' + _id + '/dashboard',
                     templateUrl: '/app/site/views/dashboard.html',
-                    controller: '',
-                    controllerAs: ''
+                    controller: 'Dashboard',
+                    controllerAs: 'Dashboard'
                 }
             },
             {
@@ -28,8 +28,8 @@
                 config: {
                     url: '/site/'+_id+'/quixtory',
                     templateUrl: '/app/site/views/quixtory.html',
-                    controller: '',
-                    controllerAs: ''
+                    controller: 'Quixtory',
+                    controllerAs: 'Quixtory'
                 }
             },
             {
@@ -37,8 +37,8 @@
                 config: {
                     url: '/site/' + _id + '/heatmap',
                     templateUrl: '/app/site/views/heatmap.html',
-                    controller: '',
-                    controllerAs: ''
+                    controller: 'Heatmap',
+                    controllerAs: 'Heatmap'
                 }
             }
         ];
