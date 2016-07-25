@@ -4,11 +4,19 @@ var mongoose = require('mongoose');
 var ShortId = require('mongoose-shortid-nodeps');
 
 
-
 module.exports = {
   getSite: function(req, res, next){
     console.log('API read Site');
   	Site.find(req.query)
+  		.exec(function (err, site) {
+  			if (err) res.status(500).send(err);
+  			res.status(200).send(site);
+  		});
+  },
+
+  mySite: function(req, res, next){
+    console.log('My Site');
+  	Site.findById(req.params.id)
   		.exec(function (err, site) {
   			if (err) res.status(500).send(err);
   			res.status(200).send(site);
