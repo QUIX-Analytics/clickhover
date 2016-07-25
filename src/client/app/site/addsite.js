@@ -3,9 +3,9 @@
   'use strict';
   angular
     .module('quix.site')
-    .controller('New', New)
+    .controller('AddSite', AddSite)
 
-  function New($scope, siteService) {
+  function AddSite($scope, siteService) {
 
     var vm = this;
 

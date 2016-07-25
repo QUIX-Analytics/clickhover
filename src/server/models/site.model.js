@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
 var session = require('./sessionSchema');
-var shortid = require('shortid');
 // var ObjectId = Schema.ObjectId;
 
 var siteSchema = new Schema({
