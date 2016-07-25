@@ -20,23 +20,55 @@ body {
 				justify-content: center;
 				color: $accent;
 				// border: 2px solid white;
+				img{
+					width: 70%;
+					height: auto;
+				}
 	  }
 	}
 
 	quixnav {
 	  width: $nav-width;
 	  height: 100vh;
-	  margin-top: $topbar-height;
+	  // margin-top: $topbar-height;
 	  position: fixed;
 	  background-color: $black;
 	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
-	   .sidenavbutton{
+		}
+	   .sidenavbutton {
 	    width: $nav-width;
 	    height: $topbar-height;
-
-	  }
-	}
-
+			margin-top: $login-top-margin;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover{
+				background-color: $medium2;
+			}
+		}
+		.sidenavbutton-two{
+			width: $nav-width;
+			height: $topbar-height;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover{
+				background-color: $medium2;
+			}
+		}
+		.sidenav-bottom{
+			width: $nav-width;
+			height: $topbar-height;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover{
+				background-color: $medium2;
+			}
+		}
 		quixsub {
 			display: none;
 	}

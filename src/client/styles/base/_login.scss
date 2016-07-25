@@ -2,32 +2,33 @@
   width: $login-width;
   height: $login-height;
   margin: $login-top-margin auto;
-  padding-left: 12.5%;
   background-color: $dark1;
+  // border: 2px solid white;
+  .login-logo{
+    width:65%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6.5rem;
+    color: $accent;
+    margin: 0 auto $topbar-height;
+  }
    input{
     width: 75%;
     height: $topbar-height;
     margin:0 12.5% 2rem;
   }
     button{
-      // margin-left:12.5%;
+      margin-left:12.5%;
     }
     p{
-      position: absolute;
-      top: 0px;
-      // margin-left: 12.5%;
+      position: relative;
+      z-index: 100;
+      top: 1rem;
+      margin-left: 12.5%;
       color: $error;
     }
   // font-weight: bold;
   // font-size: 3rem;
-}
-.login-logo{
-  width:65%;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 6.5rem;
-  color: $accent;
-  margin: 0 auto $topbar-height;
 }
