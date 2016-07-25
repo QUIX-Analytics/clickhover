@@ -26,7 +26,7 @@
             {
                 state: 'dashboard',
                 config: {
-                    url: '/site/' + _id + '/dashboard',
+                    url: '/site/qxid/dashboard',
                     templateUrl: '/app/site/views/dashboard.html',
                     controller: 'Dashboard',
                     controllerAs: 'Dashboard'
@@ -35,7 +35,7 @@
             {
                 state: 'quixtory',
                 config: {
-                    url: '/site/'+_id+'/quixtory',
+                    url: '/site/qxid/quixtory',
                     templateUrl: '/app/site/views/quixtory.html',
                     controller: 'Quixtory',
                     controllerAs: 'Quixtory'
@@ -44,7 +44,7 @@
             {
                 state: 'heatmap',
                 config: {
-                    url: '/site/' + _id + '/heatmap',
+                    url: '/site/qxid/heatmap',
                     templateUrl: '/app/site/views/heatmap.html',
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
