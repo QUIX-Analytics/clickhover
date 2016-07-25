@@ -21,8 +21,10 @@
         url: '/api/site',
         data: site
       }).then(function(response) {
-        console.log(site);
+        // console.log(site);
         return response;
+      }, function(err) {
+        console.log(err);
       });
     }
 

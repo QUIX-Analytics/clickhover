@@ -10,9 +10,9 @@
     var vm = this;
 
     vm.newSite = function(site) {
-      console.log(site.URL);
-      // site.URL = site.URL.toLowerCase()
 
+      site.URL = site.URL.toLowerCase()
+      console.log(site);
       siteService.addSite(site).then(function(response) {
         site = {};
         console.log(site);
