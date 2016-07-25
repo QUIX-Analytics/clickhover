@@ -11,7 +11,8 @@
 			logout: logout,
 			register: register,
 			updateUser: updateUser,
-			getUser: getUser
+			getUser: getUser,
+      deleteUser: deleteUser
 		}
 
 		return service;
@@ -57,6 +58,15 @@
         method: 'PUT',
         url: "/auth/" + id,
         data: updatedUser
+      }).then(function(response) {
+        return response;
+      });
+    }
+
+    function deleteUser(id) {
+      return $http({
+        method: 'DELETE',
+        url: "/auth/" +id
       }).then(function(response) {
         return response;
       });

@@ -2,19 +2,19 @@
 
   'use strict';
   angular
-    .module('quix.layout')
+    .module('quix.site')
     .controller('Dashboard', Dashboard)
 
-  function Dashboard($scope, dashboardService) {
+  function Dashboard($scope, siteService) {
 
     var vm = this;
-    vm.getData = function() {
-      dashboardService.getData().then(function(response) {
+    vm.getSite = function() {
+      siteService.getSite().then(function(response) {
         console.log(response);
         vm.data = response.data;
       })
     }
-    vm.getData();
+    vm.getSite();
 
 
   }
