@@ -22,3 +22,47 @@ body {
 	}
 
 }
+
+.topbar{
+  width: 100vw;
+  height: $topbar-height;
+  position: fixed;
+  background-color: $dark1;
+  &__topbarbutton{
+    height: $topbar-height;
+    width: $nav-width;
+  }
+}
+
+.sidenav {
+  width: $nav-width;
+  height: calc(100vh - $topbar-height);
+  margin-top: $topbar-height;
+  position: fixed;
+  background-color: $dark1;
+  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+  &__sidenavbutton{
+    width: $nav-width;
+    height: $topbar-height;
+  }
+}
+
+.subnav {
+  width: $subnav-width;
+  height: calc(100vh - $topbar-height);
+  margin-top: $topbar-height;
+  position: fixed;
+  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+  background-color: $dark1;
+  &--open {
+    margin-left: $nav-width;
+
+  }
+}
+
+.main {
+  background-color: $dark1;
+  width: calc(100% - $nav-width);
+  height: calc(100vh - $topbar-height);
+  margin-left: $nav-width;
+}

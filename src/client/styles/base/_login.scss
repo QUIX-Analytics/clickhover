@@ -1,0 +1,13 @@
+.login-container{
+  width: $login-width;
+  height: $login-height;
+  margin: $topbar-height auto;
+  background-color: $primary;
+  font-weight: bold;
+  font-size: 3rem;
+}
+.login-logo{
+  width:75%;
+  height: auto;
+  margin: 0 auto;
+}
