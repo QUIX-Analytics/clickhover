@@ -15,6 +15,15 @@ module.exports = {
   		});
   },
 
+  mySite: function(req, res, next){
+    console.log('My Site');
+  	Site.findById(req.params.id)
+  		.exec(function (err, site) {
+  			if (err) res.status(500).send(err);
+  			res.status(200).send(site);
+  		});
+  },
+
   createSite: function(req, res, next){
     console.log('API create Site', req.body);
   	// Site.create(req.body, function (err, site) {
