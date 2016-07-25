@@ -121,13 +121,13 @@
 			return stringified;
 		}
 
-		var randomString = function(){
-			var text = "";
-		    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-				for( var i=0; i < 8; i++ )
-		        text += possible.charAt(Math.floor(Math.random() * possible.length));
-				return text;
-		}
+		// var randomString = function(){
+		// 	var text = "";
+		//     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		// 		for( var i=0; i < 8; i++ )
+		//         text += possible.charAt(Math.floor(Math.random() * possible.length));
+		// 		return text;
+		// }
 
 		var sendClick = function(clickInfo){
 			if(clickInfo !== 'recurse'){
@@ -151,7 +151,7 @@
 			getBrowserType: getBrowserType,
 			platformCheck: platformCheck,
 			stringifyPath: stringifyPath,
-			randomString: randomString,
+			// randomString: randomString,
 			sendClick: sendClick
 		}
 	})();
@@ -163,15 +163,15 @@
 
 document.addEventListener('click', clicks.onClick);
 
-if (typeof(Storage) !== "undefined"){
-	var sessionId = clickHelperFunctions.randomString();
-	localStorage.setItem('sessionId', sessionId);
-}
+// if (typeof(Storage) !== "undefined"){
+// 	var sessionId = clickHelperFunctions.randomString();
+// 	localStorage.setItem('sessionId', sessionId);
+// }
 
 var url = 'http://localhost:3000/api/';
 
 axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
-	sessionId: localStorage.getItem('sessionId'),
+	sessionId: null,
 	browser: clickHelperFunctions.getBrowserType(),
 	vh: window.innerHeight,
 	vw: window.innerWidth,
@@ -180,6 +180,7 @@ axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page 
 })
 	.then(function(response) {
 		console.log(response);
+		localStorage.setItem('sessionId', response.data.sessions[response.data.sessions.length - 1].sessionId);
 	});
 
 
