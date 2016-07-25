@@ -82,73 +82,19 @@ mongoose.connect(config.mongoURI, function (err, res) {
 
 
 /*------------------------------------*\
-  #ENDPOINTS
+  #SITE ENDPOINTS
 \*------------------------------------*/
 
-var Site = require('./models/site.model.js');
+var siteCtrl = require('./controllers/site.controller.js');
+
+app.get('/api/site', siteCtrl.getSite);
+app.post('/api/site', siteCtrl.createSite);
+app.patch('/api/site/:id', siteCtrl.addClick);
+
+
+
+
 var User = require('./models/user.model.js');
-var ClickSession = require('./models/sessionSchema.js')
-
-app.get('/api/site', function (req, res, next) {
-	console.log('API read Site');
-	Site.find(req.query)
-		.exec(function (err, site) {
-			if (err) res.status(500).send(err);
-			res.status(200).send(site);
-		});
-	// Site.find(req.query, function(err, site) {
-	//   if (err) res.status(500).send(err);
-	//   res.status(200).send(site);
-	// })
-});
-app.post('/api/site', function (req, res, next) {
-	console.log('API create Site', req.body);
-	Site.create(req.body, function (err, site) {
-		if (err) res.status(500).send(err);
-		res.status(200).send(site);
-	})
-});
-app.patch('/api/site/:id', function(req, res, next){
-	console.log('API add click to site of id', req.params.id);
-	Site.findOne({qxid: req.params.id}, function(err, site){
-		if(err) res.status(500).send(err);
-		var sessionToUpdate = {};
-		var sessionExists = false;
-		for(var i = 0; i < site.sessions.length; i++){
-			if(site.sessions[i].sessionId == req.body.sessionId){
-				sessionExists = true;
-				sessionToUpdate = site.sessions[i];
-			}
-		}
-		if(sessionExists){
-			sessionToUpdate.clicks.push(req.body.click);
-			site.markModified('sessions');
-			site.save(function(err, s){
-				if (err) res.status(500).send(err);
-				res.status(200).send('Click added to session');
-			})
-		} else {
-      // var newSession = {
-      //   sessionId: req.body.sessionId,
-      //   browser: req.body.browser,
-      //   vh: req.body.vh,
-      //   vw: req.body.vw,
-      //   platform: req.body.platform,
-			// 	clicks: []
-      // }
-      var newSession = req.body;
-      // newSession.clicks = [];
-			site.sessions.push(newSession);
-      // site.sessions[site.sessions.length - 1].sessionId = req.body.sessionId;
-      site.markModified('sessions');
-			site.save(function(err, s){
-				if (err) res.status(500).send(err);
-				res.status(200).send('Started new session');
-			})
-		}
-	})
-
-})
 
 app.get('/api/user', function (req, res, next) {
 	console.log('read', req.body);
