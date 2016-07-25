@@ -16,5 +16,6 @@
 		vm.register = function(user) {
 			userService.register(user);
 		}
+		
 	}
 })();
