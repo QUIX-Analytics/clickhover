@@ -15,12 +15,12 @@
     function getStates() {
         return [
             {
-                state: 'newsite',
+                state: 'addsite',
                 config: {
                     url: '/site/',
-                    templateUrl: '/app/site/views/newsite.html',
-                    controller: 'New',
-                    controllerAs: 'New'
+                    templateUrl: '/app/site/views/addsite.html',
+                    controller: 'AddSite',
+                    controllerAs: 'AddSite'
                 }
             },
             {
