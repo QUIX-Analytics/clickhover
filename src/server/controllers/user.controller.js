@@ -7,9 +7,11 @@ module.exports = {
 	read: read,
 	me: me,
 	update: update,
-	logout: logout,
-	delete
+	delete: delete,
+	logout: logout
 };
+
+//////////////////////////////////////////
 
 function login(req, res, next) {
 	passport.authenticate('local', function(err, user, info) {
