@@ -21,7 +21,7 @@ var passport = require('./services/passport');
   #VARIABLES
 \*------------------------------------*/
 
-var port = config.PORT
+var port = config.PORT;
 
 
 
