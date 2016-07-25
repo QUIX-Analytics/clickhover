@@ -207,16 +207,19 @@ a:hover {
 /* Normal */
 .button,
 button,
+input[type="text"],
 input[type="submit"],
 input[type="reset"],
-input[type="button"]
+input[type="button"],
+input[type="password"]
 {
-	// color: $primary;
-  // border: 1px solid $primary;
+  opacity: .35;
+	color: $primary;
+  border: 1px solid $primary;
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  text-align: center;
+  // text-align: center;
   font-size: 11px;
   font-weight: 600;
   line-height: 38px;
@@ -230,15 +233,16 @@ input[type="button"]
   outline: 0;
 	&:hover,
 	&:focus {
-		// color: $dark1;
-	  // border: 1px solid $primary;
-	  // background-color: $primary;
+    opacity: 1;
+		color: $dark1;
+	  border: 1px solid $primary;
+	  background-color: $primary;
 	  outline: 0;
 	}
 	&:active{
-		// color: $dark1;
-	  // border: 1px solid $medium1;
-	  // background-color: $medium1;
+		color: $dark1;
+	  border: 1px solid $medium1;
+	  background-color: $medium1;
 	  outline: 0;
 	}
 }
