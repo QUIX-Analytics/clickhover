@@ -14,8 +14,15 @@
     }
 
 		vm.register = function(user) {
-			userService.register(user);
+			userService.register(user)
+			.then(function(response) {
+				if(response.status === 200) {
+					$state.go('profile');
+				} else {
+					// show error message
+				}
+			});
 		}
-		
+
 	}
 })();
