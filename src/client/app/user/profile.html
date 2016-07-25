@@ -14,8 +14,8 @@
 		<input type="text" ng-model="Profile.updatedUser.username">
 		<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
 	</div>
-	<div>
-		<p>Success or error message</p>
+	<div ng-if="Profile.alertUsername">
+		<p>{{Profile.alertUsername}}</p>
 	</div>
 </div>
 
@@ -27,9 +27,9 @@
 	</div>
 	<div>
 		<input type="text" ng-model="Profile.updatedUser.email">
-		<button>Update</button>
+		<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
 	</div>
-	<div>
+	<div ng-if="Profile.alertEmail">
 		<p>Success or error message</p>
 	</div>
 </div>
@@ -59,7 +59,7 @@
 		<p>DELETE ACCOUNT</p>
 	</div>
 	<div>
-		<input type="text" placeholder="Enter your email address to delete your account">
-		<button>DELETE</button>
+		<input ng-model="Profile.deleteUserInput" type="text" placeholder="Enter your email address to delete your account">
+		<button ng-click="Profile.deleteUser(Profile.deleteUserInput)">DELETE</button>
 	</div>
 </div>
