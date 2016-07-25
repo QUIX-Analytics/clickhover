@@ -15,7 +15,7 @@
     function getStates() {
         return [
             {
-                state: 'new',
+                state: 'newsite',
                 config: {
                     url: '/site/',
                     templateUrl: '/app/site/views/newsite.html',
