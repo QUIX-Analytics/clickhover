@@ -13,11 +13,12 @@
 
       site.URL = site.URL.toLowerCase()
       console.log(site.URL);
-      siteService.addSite(site).then(function(response) {
-        site = {};
-        alert('Success!');
-        $state.go('dashboard');
-      })
+      siteService.addSite(site)
+        .then(function(response) {
+          site = {};
+          alert('Success!');
+          $state.go('dashboard');
+        })
     }
 
 

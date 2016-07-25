@@ -1,4 +1,5 @@
 var Site = require('../models/site.model.js');
+var User = require('../models/user.model.js');
 var ClickSession = require('../models/sessionSchema.js');
 var mongoose = require('mongoose');
 
@@ -32,8 +33,10 @@ module.exports = {
     var newSite = new Site(req.body);
     newSite.save(function(err,s){
       if(err) return res.status(500).json(err);
-      
-      return res.json(s);
+      User.findByIdandUpdate(req.user._id, newData, {upsert:true}, function(err, response) {
+        if(err) return res.status(500).send(err);
+        return res.json(response);
+      })
     })
   },
 
