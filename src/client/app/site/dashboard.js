@@ -3,19 +3,18 @@
   'use strict';
   angular
     .module('quix.site')
-    .controller('Site', Site);
+    .controller('Dashboard', Dashboard)
 
-  function Site($scope, siteService) {
+  function Dashboard($scope, siteService) {
 
     var vm = this;
-
     vm.getData = function() {
       siteService.getData().then(function(response) {
         console.log(response);
         vm.data = response.data;
       })
-    };
-    // vm.getData();
+    }
+    vm.getData();
 
 
   }
