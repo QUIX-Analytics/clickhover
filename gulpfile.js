@@ -17,7 +17,7 @@ var path = require('path');
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
-  jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/layout/layout.module.js', './src/client/app/user/user.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
+  jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/site/site.module.js', './src/client/app/layout/layout.module.js', './src/client/app/user/user.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
   sassSource: ['./src/client/styles/main.scss'],
 	sassWatchSource: ['./src/client/styles/*.scss', './src/client/styles/**/*.scss'],
   bundleSource: ['./src/dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss

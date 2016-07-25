@@ -202,6 +202,7 @@ app.get('/auth', userCtrl.read);
 app.put('/auth/:id', isAuthed, userCtrl.update);
 app.post('/auth/login', userCtrl.login);
 app.get('/auth/logout', userCtrl.logout);
+app.delete('/auth/:id', userCtrl.delete)
 
 
 
