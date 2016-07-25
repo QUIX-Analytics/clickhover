@@ -2,23 +2,118 @@ body {
 	display: flex;
 	flex-direction: row;
 
-	quixnav {
-		width: 5rem;
-		height: 100vh;
-		position: fixed;
-		background-color: $dark2;
-		box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+	quixtop{
+	  width: 100vw;
+	  height: $topbar-height;
+	  position: fixed;
+		display: flex;
+		z-index: 100;
+	  background-color: $black;
+		box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 0.6);
+	  	.topbar-menu{
+	    	height: $topbar-height;
+	  	  width: $nav-width;
+				margin-right: 2rem;
+				float: left;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $accent;
+				img{
+					width: 70%;
+					height: auto;
+				}
+	    }
+			.topbar-user{
+				height: $topbar-height;
+	  	  width: 15rem;
+				position: absolute;
+				right: 0px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $accent;
+				font-size: 2rem;
+			}
 	}
+
+	quixnav {
+	  width: $nav-width;
+	  height: 100vh;
+	  padding-top: $login-top-margin;
+	  position: fixed;
+		z-index: 50;
+	  background-color: $black;
+	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
+		}
+	   .sidenavbutton {
+			 opacity: .35;
+	    width: $nav-width;
+	    height: $topbar-height;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover{
+				opacity: 1;
+				background-color: $dark1;
+			}
+		}
+		.sidenav-bottom{
+			opacity: .35;
+			width: $nav-width;
+			height: $topbar-height;
+			position: absolute;
+			bottom: 15rem;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover{
+				opacity: 1;
+				background-color: $dark1;
+			}
+
+	}
+
+		}
+		ui-view {
+			background-color: $dark1;
+			width: calc(100% - 3.2rem);
+			height: 100vh;
+			margin-left: 5rem;
+		}
 
 	quixsub {
-		display: none;
+  width: $subnav-width;
+  height: 100vh;
+	padding-top: $login-top-margin;
+	margin-left: $nav-width;
+  position: fixed;
+  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
+  background-color: $black;
+  &--open {
+    margin-left: $nav-width;
+  }
+	.subnav-button{
+		opacity: .35;
+		width: 13rem;
+		height: $topbar-height;
+		padding-right: 2rem;
+		color: $primary;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		&:hover{
+			opacity: 1;
+			background-color: $dark1;
+		}
 	}
 
-	ui-view {
-		background-color: $dark1;
-		width: calc(100% - 3.2rem);
-		height: 100vh;
-		margin-left: 5rem;
-	}
+}
 
+.main {
+  background-color: $dark1;
+  width: calc(100% - $nav-width);
+  height: calc(100vh - $topbar-height);
+  margin-left: $nav-width;
 }
