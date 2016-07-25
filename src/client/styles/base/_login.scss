@@ -15,12 +15,13 @@
     margin: 0 auto $topbar-height;
   }
    input{
-    width: 75%;
-    height: $topbar-height;
-    margin:0 12.5% 2rem;
+    width: 100%;
+    height: $input-height;
+    margin:0 0 2rem;
+    font-size: 1.25rem;
   }
     button{
-      margin-left:12.5%;
+      float: right;
     }
     p{
       position: relative;
