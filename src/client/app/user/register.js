@@ -19,7 +19,7 @@
 				function success(response) {
 					console.log(registerUser);
 					if(response.status === 200) {
-						$state.go('newsite');
+						$state.go('addsite');
 					}
 				},
 				function error(response) {

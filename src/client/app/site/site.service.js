@@ -5,6 +5,8 @@
     .service('siteService', siteService)
 
   function siteService($http, $state) {
+
+
     this.getSite = function() {
       return $http({
         method: 'GET',
@@ -21,7 +23,8 @@
         url: '/api/site',
         data: site
       }).then(function(response) {
-        // console.log(site);
+        // push 'response.data._id' to currentuser.sites[];
+        console.log(response.data._id);
         return response;
       }, function(err) {
         console.log(err);
