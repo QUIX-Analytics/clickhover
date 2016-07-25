@@ -2,8 +2,14 @@ var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
+var ShortId = require('mongoose-shortid-nodeps');
 
 var userSchema = new Schema({
+	_id: {
+    type: ShortId,
+		len: 7,
+		alphabet: '0123456789'
+	},
 	username: {
 		type: String,
 		unique: true,
