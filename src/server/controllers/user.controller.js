@@ -7,8 +7,8 @@ module.exports = {
 	read: read,
 	me: me,
 	update: update,
-	delete: delete,
-	logout: logout
+	logout: logout,
+	delete: deleteUser
 };
 
 //////////////////////////////////////////
@@ -62,7 +62,7 @@ function update(req, res, next) {
 	});
 }
 
-function delete(req, res, next) {
+function deleteUser(req, res, next) {
 	User.findByIdAndRemove(req.params.id, function(err, user) {
 		if (err) next(err);
 		res.status(200).send(user);
