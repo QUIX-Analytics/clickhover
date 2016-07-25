@@ -21,7 +21,7 @@
                     url: '/dashboard',
                     templateUrl: '/app/layout/dashboard.html',
                     controller: 'Dashboard',
-                    controllerAs: 'Dashboard',
+                    controllerAs: 'Dashboard'
                 }
             }
         ];
