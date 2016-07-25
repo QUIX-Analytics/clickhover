@@ -50,6 +50,13 @@ module.exports = {
     });
   },
 
+	delete: function(req, res, next) {
+		User.findByIdAndRemove(req.params.id, function(err, user) {
+			if (err) next(err);
+			res.status(200).send(user);
+		});
+	},
+
 	logout: function(req, res, next) {
 	  req.logout();
 	  return res.status(200).send('logged out');
