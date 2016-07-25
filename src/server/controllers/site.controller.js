@@ -22,11 +22,13 @@ module.exports = {
   	// 	if (err) res.status(500).send(err);
   	// 	res.status(200).send(site);
   	// })
-    var newSite = new Site({
-      URL: req.body.URL,
-      // _id: mongoose.Types.ObjectId(req.body.qxid)
-      _id: shortid.generate()
-    });
+    var newSite = new Site(req.body
+    //   {
+    //   URL: req.body.URL,
+    //   // _id: mongoose.Types.ObjectId(req.body.qxid)
+    //   _id: shortid.generate()
+    // }
+  );
     // newSite._id = new mongoose.Types.ObjectId(req.body.qxid);
     newSite.save(function(err,s){
       if(err) return res.status(500).json(err);

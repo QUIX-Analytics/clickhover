@@ -59,7 +59,7 @@
 		<p>DELETE ACCOUNT</p>
 	</div>
 	<div>
-		<input type="text" placeholder="Enter your email address to delete your account">
-		<button>DELETE</button>
+		<input ng-model="Profile.deleteUserInput" type="text" placeholder="Enter your email address to delete your account">
+		<button ng-click="Profile.deleteUser(Profile.deleteUserInput)">DELETE</button>
 	</div>
 </div>

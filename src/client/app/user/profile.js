@@ -18,7 +18,7 @@
 		vm.updatedUser.username = currentUser.username;
 		vm.updatedUser.email = currentUser.email;
 		vm.updateUser = updateUser;
-		vm.alertUsername = false;
+		vm.deleteUser = deleteUser;
 
 		function updateUser(updatedUser) {
 			vm.alertUsername = false;
@@ -36,6 +36,14 @@
 			}
 
 			userService.updateUser(updatedUser, currentUser._id);
+		}
+
+		function deleteUser(email) {
+			if (currentUser.email !== email) return console.log('wrong email');
+			userService.deleteUser(currentUser._id).then(function(response) {
+			  console.log(response);
+				$state.go('register')
+			});
 		}
 
 	}

@@ -4,7 +4,7 @@
     .module('quix.site')
     .service('siteService', siteService)
 
-  function siteService($http) {
+  function siteService($http, $state) {
     this.getSite = function() {
       return $http({
         method: 'GET',
@@ -12,17 +12,21 @@
         // need to GET /api/site/:id
       }).then(function(response) {
           return response;
-      })
-    };
-    this.newSite = function() {
+      });
+    }
+
+    this.addSite = function(site) {
       return $http({
         method: 'POST',
-        url: '/api/site'
-        // need to GET /api/site/:id
+        url: '/api/site',
+        data: site
       }).then(function(response) {
-          return response;
-      })
+        // console.log(site);
+        return response;
+      }, function(err) {
+        console.log(err);
+      });
     }
-  }
 
+  }
 })()

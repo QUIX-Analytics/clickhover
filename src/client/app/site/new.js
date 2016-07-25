@@ -9,13 +9,17 @@
 
     var vm = this;
 
-    vm.getData = function() {
-      siteService.getData().then(function(response) {
-        console.log(response);
-        vm.data = response.data;
+    vm.newSite = function(site) {
+
+      site.URL = site.URL.toLowerCase()
+      console.log(site);
+      siteService.addSite(site).then(function(response) {
+        site = {};
+        console.log(site);
+        alert('Success!');
+        $state.go('dashboard');
       })
-    };
-    // vm.getData();
+    }
 
 
   }

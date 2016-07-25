@@ -7,7 +7,8 @@ module.exports = {
 	read: read,
 	me: me,
 	update: update,
-	logout: logout
+	logout: logout,
+	delete
 };
 
 function login(req, res, next) {
@@ -59,7 +60,14 @@ function update(req, res, next) {
 	});
 }
 
+function delete(req, res, next) {
+	User.findByIdAndRemove(req.params.id, function(err, user) {
+		if (err) next(err);
+		res.status(200).send(user);
+	});
+}
+
 function logout(req, res, next) {
-	req.logout();
-	return res.status(200).send('logged out');
+  req.logout();
+  return res.status(200).send('logged out');
 }
