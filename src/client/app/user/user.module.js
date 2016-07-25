@@ -2,6 +2,6 @@
 
   'use strict';
 
-  angular.module('quix.auth', []);
+  angular.module('quix.user', []);
 
 })();

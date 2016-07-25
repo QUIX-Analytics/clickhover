@@ -12,10 +12,12 @@ var nodemon = require('gulp-nodemon');
 var postcss = require('gulp-postcss');
 var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
+var path = require('path');
+
 // DECLARE FILE PATHS
 // ============================================================
 var paths = {
-  jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/layout/layout.module.js', './src/client/app/auth/auth.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
+  jsSource: ['./src/client/app/quix.module.js', './src/client/app/core/core.module.js', './src/client/app/layout/layout.module.js', './src/client/app/user/user.module.js', './src/client/app/**/*.js'], // We need to change where the fil paths according to our file structure.
   sassSource: ['./src/client/styles/main.scss'],
 	sassWatchSource: ['./src/client/styles/*.scss', './src/client/styles/**/*.scss'],
   bundleSource: ['./src/dist'] // Add to array or change current path to './public/styles/**/*.scss' to use Scss
@@ -38,8 +40,19 @@ gulp.task('start', function () {
     script: './src/server/app.js'
   , ext: 'js html scss'
   , env: { 'NODE_ENV': 'development' }
-  , tasks: ['js', 'sass']
   , ignore: ['dist/*.*']
+  , tasks: function(files) {
+      const tasks = [];
+      files.forEach(function(file) {
+        if (path.extname(file) === '.js' && !tasks.includes('js')) {
+          tasks.push('js')
+        }
+        if (path.extname(file) === '.scss' && !tasks.includes('.scss')) {
+          tasks.push('sass')
+        }
+      })
+      return tasks;
+    }
   })
 });
 gulp.task('sass', function () {

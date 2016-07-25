@@ -1,6 +1,22 @@
 var User = require('../models/user.model');
+var passport = require('./../services/passport');
 
 module.exports = {
+
+	login: function(req, res, next) {
+	  passport.authenticate('local', function(err, user, info) {
+	    if (err) { return next(err); }
+	    if (!user) {
+				return res.send('Unauthorized');
+			}
+	    req.logIn(user, function(err) {
+	      if (err) {
+					return next(err);
+				}
+	      return res.send('Logged In');
+	    });
+	  })(req, res, next);
+	},
 
   register: function(req, res, next) {
     User.create(req.body, function(err, result) {
@@ -22,15 +38,20 @@ module.exports = {
   },
 
   me: function(req, res, next) {
-    if (!req.user) return res.status(401).send('current user not defined');
+    if (!req.user) return res.send('current user not defined');
     req.user.password = null;
     return res.status(200).json(req.user);
   },
 
   update: function(req, res, next) {
-    User.findByIdAndUpdate(req.params._id, req.body, function(err, result) {
+    User.findByIdAndUpdate(req.params.id, { $set: req.body }, function(err, user) {
       if (err) next(err);
-      res.status(200).send('user updated');
+      res.status(200).send(user);
     });
-  }
+  },
+
+	logout: function(req, res, next) {
+	  req.logout();
+	  return res.status(200).send('logged out');
+	}
 };
