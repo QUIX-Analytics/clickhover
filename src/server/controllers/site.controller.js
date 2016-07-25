@@ -17,19 +17,7 @@ module.exports = {
 
   createSite: function(req, res, next){
     console.log('API create Site', req.body);
-  	// Site.create(req.body, function (err, site) {
-    //   site._id = req.body.qxid;
-  	// 	if (err) res.status(500).send(err);
-  	// 	res.status(200).send(site);
-  	// })
-    var newSite = new Site(req.body
-    //   {
-    //   URL: req.body.URL,
-    //   // _id: mongoose.Types.ObjectId(req.body.qxid)
-    //   _id: shortid.generate()
-    // }
-  );
-    // newSite._id = new mongoose.Types.ObjectId(req.body.qxid);
+    var newSite = new Site(req.body);
     newSite.save(function(err,s){
       if(err) return res.status(500).json(err);
       return res.json(s);
@@ -59,28 +47,6 @@ module.exports = {
             res.status(200).send(s);
           })
       }
-      // for(var i = 0; i < site.sessions.length; i++){
-      //   if(site.sessions[i].sessionId == req.body.sessionId){
-      //     sessionExists = true;
-      //     sessionToUpdate = site.sessions[i];
-      //   }
-      // }
-      // if(sessionExists){
-      //   sessionToUpdate.clicks.push(req.body.click);
-      //   site.markModified('sessions');
-      //   site.save(function(err, s){
-      //     if (err) res.status(500).send(err);
-      //     res.status(200).send(s);
-      //   })
-      // } else {
-      //   var newSession = req.body;
-      //   site.sessions.push(newSession);
-      //   site.markModified('sessions');
-      //   site.save(function(err, s){
-      //     if (err) res.status(500).send(err);
-      //     res.status(200).send(s);
-      //   })
-      // }
     })
   }
 
