@@ -28,7 +28,7 @@ function login(req, res, next) {
 function register(req, res, next) {
 	var that = this;
 	User.create(req.body, function(err, result) {
-		if(err) return res.status(500).send(err);
+		if(err) return res.status(409).send(err);
 		var newUser = result.toObject();
 		// newUser.password = null;
 		req.user = newUser;

@@ -15,13 +15,17 @@
 
 		vm.register = function(user) {
 			userService.register(user)
-			.then(function(response) {
-				if(response.status === 200) {
-					$state.go('profile');
-				} else {
-					// show error message
+			.then(
+				function success(response) {
+					if(response.status === 200) {
+						$state.go('profile');
+					}
+				},
+				function error(response) {
+					// handle error
+					console.log(response);
 				}
-			});
+			);
 		}
 
 	}
