@@ -40,16 +40,16 @@
                     controller: 'Quixtory',
                     controllerAs: 'Quixtory'
                 }
-            },
-            {
-                state: 'heatmap',
-                config: {
-                    url: '/site/qxid/heatmap',
-                    templateUrl: '/app/site/views/heatmap.html',
-                    controller: 'Heatmap',
-                    controllerAs: 'Heatmap'
-                }
             }
+            // {
+            //     state: 'heatmap',
+            //     config: {
+            //         url: '/site/qxid/heatmap',
+            //         templateUrl: '/app/site/views/heatmap.html',
+            //         controller: 'Heatmap',
+            //         controllerAs: 'Heatmap'
+            //     }
+            // }
         ];
     }
 })();
