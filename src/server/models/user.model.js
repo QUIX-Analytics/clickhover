@@ -11,7 +11,7 @@ var userSchema = new Schema({
 		required: true,
 		validate: {
 			validator: validateLength,
-			message: 'The username needs to be 4-20 characters long.'
+			message: 'Your username needs to be 4-20 characters long.'
 		}
 	},
 	email: {

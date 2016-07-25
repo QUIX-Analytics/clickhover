@@ -1,5 +1,5 @@
-var User = require('../models/user.model');
-var passport = require('./../services/passport');
+var User = require('./../models/user.model.js');
+var passport = require('./../services/passport.js');
 
 module.exports = {
 
@@ -21,7 +21,7 @@ module.exports = {
   register: function(req, res, next) {
     User.create(req.body, function(err, result) {
       if(err) return res.status(500).send(err);
-      newUser = result.toObject();
+      var newUser = result.toObject();
       newUser.password = null;
       res.status(200).json(newUser);
     });
