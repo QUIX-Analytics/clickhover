@@ -2,52 +2,60 @@ body {
 	display: flex;
 	flex-direction: row;
 
+	quixtop{
+	  width: 100vw;
+	  height: $topbar-height;
+	  position: fixed;
+		display: flex;
+		z-index: 100;
+	  background-color: $black;
+		box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.3);
+	  	.topbar-menu{
+	    	height: $topbar-height;
+	  	  width: $nav-width;
+				margin-right: 2rem;
+				float: left;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $accent;
+				// border: 2px solid white;
+	  }
+	}
+
 	quixnav {
-		width: 5rem;
-		height: 100vh;
-		position: fixed;
-		background-color: $dark2;
-		box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+	  width: $nav-width;
+	  height: 100vh;
+	  margin-top: $topbar-height;
+	  position: fixed;
+	  background-color: $black;
+	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+	   .sidenavbutton{
+	    width: $nav-width;
+	    height: $topbar-height;
+
+	  }
 	}
 
-	quixsub {
-		display: none;
+		quixsub {
+			display: none;
 	}
 
-	ui-view {
-		background-color: $dark1;
-		width: calc(100% - 3.2rem);
-		height: 100vh;
-		margin-left: 5rem;
-	}
+		ui-view {
+			background-color: $dark1;
+			width: calc(100% - 3.2rem);
+			height: 100vh;
+			margin-left: 5rem;
+		}
 
 }
 
-.topbar{
-  width: 100vw;
-  height: $topbar-height;
-  position: fixed;
-  background-color: $dark1;
-  &__topbarbutton{
-    height: $topbar-height;
-    width: $nav-width;
-  }
-}
 
-.sidenav {
-  width: $nav-width;
-  height: calc(100vh - $topbar-height);
-  margin-top: $topbar-height;
-  position: fixed;
-  background-color: $dark1;
-  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
-  &__sidenavbutton{
-    width: $nav-width;
-    height: $topbar-height;
-  }
-}
+
+
 
 .subnav {
+	display: none;
   width: $subnav-width;
   height: calc(100vh - $topbar-height);
   margin-top: $topbar-height;
