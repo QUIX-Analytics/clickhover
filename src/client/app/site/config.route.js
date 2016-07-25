@@ -15,6 +15,15 @@
     function getStates() {
         return [
             {
+                state: 'new',
+                config: {
+                    url: '/site/',
+                    templateUrl: '/app/site/views/newsite.html',
+                    controller: 'New',
+                    controllerAs: 'New'
+                }
+            },
+            {
                 state: 'dashboard',
                 config: {
                     url: '/site/' + _id + '/dashboard',
