@@ -1,8 +1,6 @@
 var Site = require('../models/site.model.js');
 var ClickSession = require('../models/sessionSchema.js');
 var mongoose = require('mongoose');
-var shortid = require('shortid');
-
 
 
 module.exports = {
