@@ -33,10 +33,6 @@
 				}
 
 				clickHelperFunctions.sendClick(clickInfo);
-				// axios.patch(url + 'site/' + window.qxid, clickInfo)
-				// 	.then(function(response) {
-				// 		console.log(response);
-				// 	});
 			}
 
 		return {

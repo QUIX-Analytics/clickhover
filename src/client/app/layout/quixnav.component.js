@@ -5,7 +5,7 @@
   angular
     .module('quix.layout')
     .component('quixnav', {
-      templateUrl: '/app/layout/nav/nav.html'
+      templateUrl: '/app/layout/quixnav.html'
     })
 
 })()
