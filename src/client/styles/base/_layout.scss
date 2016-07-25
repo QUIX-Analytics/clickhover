@@ -9,7 +9,7 @@ body {
 		display: flex;
 		z-index: 100;
 	  background-color: $black;
-		box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.3);
+		box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 0.6);
 	  	.topbar-menu{
 	    	height: $topbar-height;
 	  	  width: $nav-width;
@@ -19,60 +19,63 @@ body {
 				align-items: center;
 				justify-content: center;
 				color: $accent;
-				// border: 2px solid white;
 				img{
 					width: 70%;
 					height: auto;
 				}
-	  }
+	    }
+			.topbar-user{
+				height: $topbar-height;
+	  	  width: 15rem;
+				position: absolute;
+				right: 0px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $accent;
+				font-size: 2rem;
+			}
 	}
 
 	quixnav {
 	  width: $nav-width;
 	  height: 100vh;
-	  // margin-top: $topbar-height;
+	  padding-top: $login-top-margin;
 	  position: fixed;
+		z-index: 50;
 	  background-color: $black;
-	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
+	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
 		}
 	   .sidenavbutton {
+			 opacity: .35;
 	    width: $nav-width;
 	    height: $topbar-height;
-			margin-top: $login-top-margin;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			&:hover{
-				background-color: $medium2;
-			}
-		}
-		.sidenavbutton-two{
-			width: $nav-width;
-			height: $topbar-height;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			&:hover{
-				background-color: $medium2;
+				opacity: 1;
+				background-color: $dark1;
 			}
 		}
 		.sidenav-bottom{
+			opacity: .35;
 			width: $nav-width;
 			height: $topbar-height;
 			position: absolute;
-			bottom: 0;
+			bottom: 15rem;
 			left: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			&:hover{
-				background-color: $medium2;
+				opacity: 1;
+				background-color: $dark1;
 			}
-		}
-		quixsub {
-			display: none;
+
 	}
 
+		}
 		ui-view {
 			background-color: $dark1;
 			width: calc(100% - 3.2rem);
@@ -80,24 +83,32 @@ body {
 			margin-left: 5rem;
 		}
 
-}
-
-
-
-
-
-.subnav {
-	display: none;
+	quixsub {
   width: $subnav-width;
-  height: calc(100vh - $topbar-height);
-  margin-top: $topbar-height;
+  height: 100vh;
+	padding-top: $login-top-margin;
+	margin-left: $nav-width;
   position: fixed;
-  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.2);
-  background-color: $dark1;
+  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
+  background-color: $black;
   &--open {
     margin-left: $nav-width;
-
   }
+	.subnav-button{
+		opacity: .35;
+		width: 13rem;
+		height: $topbar-height;
+		padding-right: 2rem;
+		color: $primary;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		&:hover{
+			opacity: 1;
+			background-color: $dark1;
+		}
+	}
+
 }
 
 .main {
