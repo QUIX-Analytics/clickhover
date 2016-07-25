@@ -8,13 +8,13 @@
   function Quixtory($scope, siteService) {
 
     var vm = this;
-    vm.getData = function() {
-      siteService.getData().then(function(response) {
+    vm.getSite = function() {
+      siteService.getSite().then(function(response) {
         console.log(response);
         vm.data = response.data;
       })
     }
-    vm.getData();
+    vm.getSite();
 
 
   }
