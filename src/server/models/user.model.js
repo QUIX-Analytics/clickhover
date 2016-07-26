@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
+// var ObjectId = Schema.ObjectId;
 var ShortId = require('mongoose-shortid-nodeps');
 
 var userSchema = new Schema({
