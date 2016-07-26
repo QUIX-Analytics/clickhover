@@ -408,9 +408,9 @@ td:last-child {
 \*------------------------------------*/
 button,
 .button,
-// {
-//   margin-bottom: 1rem;
-// }
+{
+  border-radius: $border-radius;
+}
 input,
 textarea,
 select,

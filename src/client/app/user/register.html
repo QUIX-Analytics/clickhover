@@ -1,4 +1,16 @@
-<input type="text" placeholder="username" ng-model="Register.newUser.username">
-<input type="text" placeholder="Email" ng-model="Register.newUser.email">
-<input type="password" placeholder="Password" ng-model="Register.newUser.password">
-<button type="button" ng-click="Register.register(Register.newUser)">Go</button>
+
+<section class="login-container">
+  <div class="login-logo">
+    QUIX
+    <!-- not sure if this is going to be an svg or an img -->
+  </div>
+  <div>
+		<p>That email address is already in use.</p>
+	</div>
+
+
+    <input type="text" placeholder="username" ng-model="Register.newUser.username">
+    <input type="text" placeholder="Email" ng-model="Register.newUser.email">
+    <input type="password" placeholder="Password" ng-model="Register.newUser.password">
+    <button type="button" ng-click="Register.register(Register.newUser)">Register</button>
+</section>
