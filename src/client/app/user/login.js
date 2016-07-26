@@ -12,8 +12,8 @@
     }
 
 		vm.login = function(user) {
-			userService.login(user)
-		}
+			userService.login(user);
+		};
 
 	}
 
