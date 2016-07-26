@@ -21,7 +21,7 @@ var passport = require('./services/passport');
   #VARIABLES
 \*------------------------------------*/
 
-var port = process.env.PORT || 3000;
+var port = config.PORT;
 
 
 
