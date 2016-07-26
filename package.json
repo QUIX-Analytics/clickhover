@@ -4,11 +4,10 @@
   "description": "QUIX - insights and visualizations for UI/UX designers",
   "main": "src/server/app.js",
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-ui-router": "^0.3.1",
     "babel-core": "^6.11.4",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
     "cors": "^2.7.1",
     "eslint": "^3.1.1",
     "express": "^4.14.0",
@@ -43,7 +42,8 @@
     "nodemon": "^1.9.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",

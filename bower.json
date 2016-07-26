@@ -1,0 +1,25 @@
+{
+  "name": "quix",
+  "description": "QUIX - insights and visualizations for UI/UX designers",
+  "main": "src/server/app.js",
+  "authors": [
+    "Jared M. Peterson <jared@peteyinc.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/JTJTJ-Analytics/clickhover",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "angular": "^1.5.8",
+    "moment": "^2.14.1",
+    "font-awesome": "fontawesome#^4.6.3",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "angular-animate": "^1.5.8"
+  }
+}
