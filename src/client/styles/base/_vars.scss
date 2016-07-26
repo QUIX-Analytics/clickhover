@@ -1,4 +1,32 @@
 /*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+
+@font-face {
+	font-family: 'mononoki';
+	src: url('./../../../fonts/mononoki.eot');
+	src:
+		local('mononoki'),
+		url('./../../../fonts/mononoki.ttf')
+		format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src:
+		local('Roboto'),
+		url('./../../../fonts/Roboto.ttf')
+		format('truetype');
+}
+
+$font-mono: 'mononoki', Courier, monospace;
+$font-main: 'Roboto', Arial, sans-serif;
+
+
+
+
+
+/*------------------------------------*\
   #COLORS
 \*------------------------------------*/
 
@@ -25,6 +53,10 @@ $light3: #EAEAEA;
 
 $error : #9E3828;
 
+
+
+
+
 /*------------------------------------*\
   #NAV
 \*------------------------------------*/
@@ -33,16 +65,24 @@ $topbar-height: 5.5rem;
 $nav-width: 5.5rem;
 $subnav-width: 15rem;
 
+
+
+
+
 /*------------------------------------*\
   #LOGIN
 \*------------------------------------*/
+
 $login-top-margin: 15rem;
 $login-height: 65vh;
 $login-width: 33.33%;
 
 
 
+
+
 /*------------------------------------*\
   #INPUTS & BUTTONS
 \*------------------------------------*/
+
 $border-radius: 2px;
