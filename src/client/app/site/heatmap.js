@@ -8,16 +8,18 @@
   function Heatmap($scope, siteService) {
 
         var vm = this;
+        var SITE = '';
         vm.getSite = function() {
           siteService.getSite().then(function(response) {
             // console.log(response);
             vm.data = response.data;
+            for(var i = 0; i < vm.data.length; i++){
+              if(vm.data[i].URL = "allenbros.com") SITE = vm.data[i];
+            }
             filterDataToStateClicks();
           })
         }
         vm.getSite();
-
-        var SITE = vm.data[1];
 
 
 
@@ -47,7 +49,9 @@
               }
             }
           }
-          console.log('here');
+          console.log(states);
+          vm.clicksByStates = states;
+          addClickDivs();
 
 
 
@@ -103,16 +107,16 @@
         function addClickDivs(){
           console.log('YOOOOO');
           var clickHolderElement = document.getElementById('click-holder');
-          for(var i = 0; i < vm.heatmapData[0].clicks.length; i++){
+          for(var i = 0; i < vm.clicksByStates[0].clicks.length; i++){
             var clickDot = document.createElement("DIV");
-            clickDot.style.height = "20px";
-            clickDot.style.width = "20px";
+            clickDot.style.height = "10px";
+            clickDot.style.width = "10px";
             clickDot.style.background = "red";
             clickDot.style.borderRadius = "50%";
             clickDot.style.opacity = "1";
             clickDot.style.position = "absolute";
-            clickDot.style.top = (vm.heatmapData[0].clicks[i].clickY / vm.heatmapData[0].clicks[i].vh) * 600 + vm.heatmapData[0].clicks[i].scrollY * .6 + "px";
-            clickDot.style.left = (vm.heatmapData[0].clicks[i].clickX / vm.heatmapData[0].clicks[i].vw) * 900 + "px";
+            clickDot.style.top = (vm.clicksByStates[0].clicks[i].clickY / vm.clicksByStates[0].clicks[i].vh) * 600 + vm.clicksByStates[0].clicks[i].scrollY * .6 + "px";
+            clickDot.style.left = (vm.clicksByStates[0].clicks[i].clickX / vm.clicksByStates[0].clicks[i].vw) * 900 + "px";
             clickHolderElement.appendChild(clickDot);
           }
         }
