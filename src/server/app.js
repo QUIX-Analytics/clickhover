@@ -88,6 +88,7 @@ mongoose.connect(config.mongoURI, function (err, res) {
 var siteCtrl = require('./controllers/site.controller.js');
 
 app.get('/api/site', siteCtrl.getSite);
+app.get('/api/site/:id', siteCtrl.mySite);
 app.post('/api/site', siteCtrl.createSite);
 app.patch('/api/site/:id', siteCtrl.addClick);
 

@@ -16,7 +16,7 @@ module.exports = {
   },
 
   mySite: function(req, res, next){
-    console.log('My Site');
+    console.log('GET My Site');
   	Site.findById(req.params.id)
   		.exec(function (err, site) {
   			if (err) res.status(500).send(err);

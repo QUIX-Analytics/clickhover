@@ -10,9 +10,10 @@
     this.getSite = function() {
       return $http({
         method: 'GET',
-        url: '/api/site'
+        url: '/api/site/:id'
         // need to GET /api/site/:id
       }).then(function(response) {
+        console.log("this.getSite " + response)
           return response;
       });
     }

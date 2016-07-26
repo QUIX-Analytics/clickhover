@@ -15,9 +15,9 @@
     function getStates() {
         return [
             {
-                state: 'addsite',
+                state: 'site.add',
                 config: {
-                    url: '/site',
+                    url: '/add',
                     templateUrl: '/app/site/views/addsite.html',
                     controller: 'AddSite',
                     controllerAs: 'AddSite'
@@ -26,7 +26,7 @@
             {
                 state: 'dashboard',
                 config: {
-                    url: '/site/qxid/dashboard',
+                    url: '/site/:id/dashboard',
                     templateUrl: '/app/site/views/dashboard.html',
                     controller: 'Dashboard',
                     controllerAs: 'Dashboard'
@@ -35,7 +35,7 @@
             {
                 state: 'quixtory',
                 config: {
-                    url: '/site/qxid/quixtory',
+                    url: '/site/:id/quixtory',
                     templateUrl: '/app/site/views/quixtory.html',
                     controller: 'Quixtory',
                     controllerAs: 'Quixtory'
@@ -44,7 +44,7 @@
             {
                 state: 'heatmap',
                 config: {
-                    url: '/site/qxid/heatmap',
+                    url: '/site/:id/heatmap',
                     templateUrl: '/app/site/views/heatmap.html',
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
