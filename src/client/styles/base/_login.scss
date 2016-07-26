@@ -2,8 +2,6 @@
   width: $login-width;
   height: $login-height;
   margin: $login-top-margin auto;
-  background-color: $dark1;
-  // border: 2px solid white;
   .login-logo{
     width:65%;
     height: 10vh;
@@ -15,18 +13,21 @@
     margin: 0 auto $topbar-height;
   }
    input{
-    width: 75%;
-    height: $topbar-height;
-    margin:0 12.5% 2rem;
+
+    width: 100%;
+    height: $input-height;
+    margin:0 0 2rem 0;
+    font-size: 1.15rem;
   }
     button{
-      margin-left:12.5%;
+      float: right;
     }
     p{
       position: relative;
       z-index: 100;
+      text-align: center;
+      font-size: .9rem;
       top: 1rem;
-      margin-left: 12.5%;
       color: $error;
     }
   // font-weight: bold;
