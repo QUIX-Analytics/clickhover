@@ -83,7 +83,8 @@ body {
 			background-color: $dark1;
 			width: calc(100% - 3.2rem);
 			height: 100vh;
-			margin-left: 5rem;
+			margin-top: $topbar-height;
+			margin-left: $leftnav-total-width;
 		}
 
 	quixsub {
@@ -118,5 +119,5 @@ body {
   background-color: $dark1;
   width: calc(100% - $nav-width);
   height: calc(100vh - $topbar-height);
-  margin-left: $nav-width;
+  margin-left: $leftnav-total-width;
 }

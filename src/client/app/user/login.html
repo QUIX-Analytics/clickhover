@@ -1,33 +1,34 @@
 <!-- LOGO -->
-<section class="login-container">
 
-	<div class="login-logo">
-		QUIX
-		<!-- not sure if this is going to be an svg or an img -->
-	</div>
+	<section class="login-container">
 
-
-	<!-- Warning message -->
-	<div>
-		<p>That email address is already in use.</p>
-	</div>
+		<div class="login-logo">
+			QUIX
+			<!-- not sure if this is going to be an svg or an img -->
+		</div>
 
 
-	<!-- EMAIL -->
-	<div>
-		<input type="text" placeholder="Email" ng-model="Login.user.email">
-	</div>
+		<!-- Warning message -->
+		<div>
+			<p>That email address is already in use.</p>
+		</div>
 
 
-	<!-- PASSWORD -->
-	<div>
-		<input type="password" placeholder="Password" ng-model="Login.user.password">
-	</div>
+		<!-- EMAIL -->
+		<div>
+			<input type="text" placeholder="Email" ng-model="Login.user.email">
+		</div>
 
 
-	<!-- LOGIN -->
-	<div>
-		<button ng-click="Login.login(Login.user)">LOGIN</button>
-	</div>
+		<!-- PASSWORD -->
+		<div>
+			<input type="password" placeholder="Password" ng-model="Login.user.password">
+		</div>
 
-</section>
+
+		<!-- LOGIN -->
+		<div>
+			<button ng-click="Login.login(Login.user)">LOGIN</button>
+		</div>
+
+	</section>
