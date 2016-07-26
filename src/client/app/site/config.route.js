@@ -17,7 +17,7 @@
             {
                 state: 'addsite',
                 config: {
-                    url: '/site/',
+                    url: '/site',
                     templateUrl: '/app/site/views/addsite.html',
                     controller: 'AddSite',
                     controllerAs: 'AddSite'
