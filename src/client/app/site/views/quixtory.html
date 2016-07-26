@@ -1,9 +1,11 @@
 <section ng-controller="Site as Site">
   <h2>QUIXstory</h2><hr>
-      <div ng-repeat="site in Site.data">
-          QXID: {{site.qxid}} | {{site.URL}}<br>
+  <!-- {{Site.data.data}} -->
+  <!-- {{data}} -->
+      <div>
+          QXID: {{Site.data._id}} | {{Site.data.URL}}<br>
           <ol>
-              <div ng-repeat="session in site.sessions">
+              <div ng-repeat="session in Site.data.sessions">
                 <div style="display: inline-block; padding: 1px; border-bottom: 1px solid black" class="sessioninfo">
                   {{session.sessionId}} {{session.browser}}<br>
                   {{session.createdAt | date: 'mediumTime'}}<br>

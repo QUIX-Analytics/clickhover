@@ -4,16 +4,15 @@
     .module('quix.site')
     .service('siteService', siteService)
 
-  function siteService($http, $state) {
+  function siteService($http, $state, $stateParams) {
 
 
     this.getSite = function() {
       return $http({
         method: 'GET',
-        url: '/api/site/:id'
-        // need to GET /api/site/:id
+        url: '/api/site/' + $stateParams.id
       }).then(function(response) {
-        console.log("this.getSite " + response)
+        // console.log(response.data)
           return response;
       });
     }

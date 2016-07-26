@@ -15,6 +15,14 @@
     function getStates() {
         return [
             {
+                state: 'site',
+                config: {
+                    abstract: true,
+                    url: '/site',
+                    template: '<ui-view/>'
+                }
+            },
+            {
                 state: 'site.add',
                 config: {
                     url: '/add',
@@ -24,27 +32,36 @@
                 }
             },
             {
-                state: 'dashboard',
+                state: 'site.detail',
                 config: {
-                    url: '/site/:id/dashboard',
-                    templateUrl: '/app/site/views/dashboard.html',
-                    controller: 'Dashboard',
-                    controllerAs: 'Dashboard'
+                    url: '/:id',
+                    templateUrl: '/app/site/views/site.html',
+                    controller: 'Site',
+                    controllerAs: 'Site'
                 }
             },
             {
-                state: 'quixtory',
+                state: 'detail.dashboard',
                 config: {
-                    url: '/site/:id/quixtory',
+                    url: '/dashboard',
+                    templateUrl: '/app/site/views/dashboard.html'
+                    // controller: 'Dashboard',
+                    // controllerAs: 'Dashboard'
+                }
+            },
+            {
+                state: 'site.detail.quixtory',
+                config: {
+                    url: '/quixtory',
                     templateUrl: '/app/site/views/quixtory.html',
-                    controller: 'Quixtory',
-                    controllerAs: 'Quixtory'
+                    controller: 'Site',
+                    controllerAs: 'Site'
                 }
             },
             {
-                state: 'heatmap',
+                state: 'site.detail.heatmap',
                 config: {
-                    url: '/site/:id/heatmap',
+                    url: '/heatmap',
                     templateUrl: '/app/site/views/heatmap.html',
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
