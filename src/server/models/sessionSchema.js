@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
+var shortid = require('shortid');
 
 var sessionSchema = new Schema({
-  sessionId: { type: String },
+  _id: { type: String, default: shortid.generate },
   browser: { type: String },
   vh: { type: Number },
   vw: { type: Number },
