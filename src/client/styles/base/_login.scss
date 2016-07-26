@@ -15,10 +15,11 @@
     margin: 0 auto $topbar-height;
   }
    input{
+
     width: 100%;
     height: $input-height;
-    margin:0 0 2rem;
-    font-size: 1.25rem;
+    margin:0 0 2rem 0;
+    font-size: 1.15rem;
   }
     button{
       float: right;
@@ -26,6 +27,8 @@
     p{
       position: relative;
       z-index: 100;
+      text-align: center;
+      font-size: .9rem;
       top: 1rem;
       color: $error;
     }
