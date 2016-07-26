@@ -27,8 +27,8 @@
                 config: {
                     url: '/add',
                     templateUrl: '/app/site/views/addsite.html',
-                    controller: 'AddSite',
-                    controllerAs: 'AddSite'
+                    controller: 'Site',
+                    controllerAs: 'Site'
                 }
             },
             {

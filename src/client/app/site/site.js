@@ -16,14 +16,15 @@
 		}
 		vm.getSite();
 
-		vm.newSite = function (site) {
+		vm.newSite = function(site) {
 			site.URL = site.URL.toLowerCase()
-			console.log(site.URL);
+			// console.log(site.URL);
 			siteService.addSite(site)
-				.then(function (response) {
-					site = {};
-					alert('Success!');
-					$state.go('site.my');
+				.then(function(response) {
+					// site = {};
+					console.log(site);
+					// $state.go('site.my');
+					// $stateParams = site._id
 				})
 		}
 
