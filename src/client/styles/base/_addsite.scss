@@ -1,0 +1,7 @@
+.addsite-container{
+  width: calc(100% - $leftnav-total-width);
+  height: 150vh;
+  margin-left: $leftnav-total-width;
+  background: $dark1;
+  margin-top: $login-top-margin;
+}
