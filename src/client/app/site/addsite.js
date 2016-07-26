@@ -16,8 +16,8 @@
       siteService.addSite(site)
         .then(function(response) {
           site = {};
-          alert('Success!');
-          $state.go('dashboard');
+          console.log('Success!');
+          $state.go('site.my');
         })
     }
 

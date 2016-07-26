@@ -29,10 +29,9 @@ module.exports = {
     var newSite = new Site(req.body);
     newSite.save(function(err,s){
       if(err) return res.status(500).json(err);
-      User.findByIdandUpdate(req.user._id, newData, {upsert:true}, function(err, response) {
-        if(err) return res.status(500).send(err);
-        return res.json(response);
-      })
+      // User.findByIdandUpdate(req.user._id, newData, {upsert:true}, function(err, response) {
+      //   if(err) return res.status(500).send(err);})
+      return res.json(s);
     })
   },
 
