@@ -7,7 +7,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-// var cors = require('cors');
+var cors = require('cors');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var config = require('./config/config');
@@ -39,7 +39,7 @@ app.use("/assets", express.static(__dirname + "./../assets"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 
 
