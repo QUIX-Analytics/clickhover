@@ -36,7 +36,7 @@
     input{
       width:85%;
       height: 100%;
-      margin-bottom: 12rem;
+      margin-bottom: 2rem;
     }
     button{
       float: right;
@@ -52,5 +52,31 @@
   }
   .change-password input{
     width: 100%;
+  }
+  .new-password{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+    input{
+      width: 42%;
+    }
+    button{
+      float: right;
+      height: 100%;
+      width: 14%;
+    }
+    p{
+      width:100%;
+    }
+  }
+  .error{
+    position: relative;
+    bottom: 9rem;
+    float: left;
+    color: $warning;
+
+  }
+  .success{
+    color: $success;
   }
 }
