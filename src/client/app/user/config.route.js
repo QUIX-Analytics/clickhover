@@ -12,6 +12,15 @@
     routerHelper.configureStates(getStates());
   }
 
+	function currentUser($http) {
+		return $http({
+			method: 'GET',
+			url: '/auth/me'
+		}).then(function(response) {
+			return response;
+		});
+	}
+
   function getStates() {
     return [
       {
@@ -20,7 +29,10 @@
           url: '/',
           templateUrl: '/app/user/login.html',
           controller: 'Login',
-          controllerAs: 'Login'
+          controllerAs: 'Login',
+          resolve: {
+            loginUser: currentUser
+          }
         }
       },
 
@@ -30,7 +42,10 @@
           url: '/register',
           templateUrl: '/app/user/register.html',
           controller: 'Register',
-          controllerAs: 'Register'
+          controllerAs: 'Register',
+					resolve: {
+            registerUser: currentUser
+          }
         }
       },
 
@@ -40,7 +55,10 @@
           url: '/profile',
           templateUrl: '/app/user/profile.html',
           controller: 'Profile',
-          controllerAs: 'Profile'
+          controllerAs: 'Profile',
+          resolve: {
+            profileUser: currentUser
+          }
         }
       }
 
