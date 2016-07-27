@@ -239,6 +239,7 @@ input[type="password"]
 	  border: 1px solid $primary;
 	  background-color: $primary;
 	  outline: 0;
+    cursor: pointer;
 	}
 	&:active{
 		color: $dark1;
