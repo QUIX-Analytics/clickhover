@@ -14,12 +14,12 @@
 		<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
   </head>
-  <body>
+  <body ng-controller="Layout as Layout">
 
-      <quixtop></quixtop>
-      <quixnav></quixnav>
-  		<quixsub></quixsub>
-      <ui-view></ui-view>
+    <quixtop></quixtop>
+    <quixnav></quixnav>
+		<quixsub></quixsub>
+    <ui-view></ui-view>
 
     <script src="/node_modules/angular/angular.js" charset="utf-8"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>

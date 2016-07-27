@@ -6,12 +6,8 @@
 		.module('quix.user')
 		.controller('Register', Register);
 
-	function Register($scope, $state, userService, registerUser) {
+	function Register($scope, $state, userService) {
 		var vm = this;
-
-		if(registerUser.data !== 'current user not defined') {
-			$state.go('profile');
-    }
 
 		vm.register = function(user) {
 			userService.register(user)

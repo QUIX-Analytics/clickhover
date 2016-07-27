@@ -6,9 +6,8 @@
 		.module('quix.layout')
 		.controller('Quixtop', Quixtop);
 
-	function Quixtop() {
+	function Quixtop($scope) {
 		var vm = this;
-
 
 	}
 
