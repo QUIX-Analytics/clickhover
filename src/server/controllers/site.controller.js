@@ -1,4 +1,5 @@
 var Site = require('../models/site.model.js');
+var User = require('../models/user.model.js');
 var ClickSession = require('../models/sessionSchema.js');
 var mongoose = require('mongoose');
 var ShortId = require('mongoose-shortid-nodeps');
@@ -15,7 +16,7 @@ module.exports = {
   },
 
   mySite: function(req, res, next){
-    console.log('My Site');
+    console.log('GET My Site');
   	Site.findById(req.params.id)
   		.exec(function (err, site) {
   			if (err) res.status(500).send(err);
@@ -28,6 +29,8 @@ module.exports = {
     var newSite = new Site(req.body);
     newSite.save(function(err,s){
       if(err) return res.status(500).json(err);
+      // User.findByIdandUpdate(req.user._id, newData, {upsert:true}, function(err, response) {
+      //   if(err) return res.status(500).send(err);})
       return res.json(s);
     })
   },
