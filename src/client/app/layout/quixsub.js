@@ -4,10 +4,11 @@
 
 	angular
 		.module('quix.layout')
-		.controller('Quixtop', Quixtop);
+		.controller('Quixsub', Quixsub);
 
-	function Quixtop($scope) {
+	function Quixsub() {
 		var vm = this;
+
 
 	}
 
