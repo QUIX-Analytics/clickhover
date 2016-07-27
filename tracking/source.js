@@ -21,7 +21,6 @@
 					sessionId: localStorage.getItem('sessionId'),
 					click: {
 						currentState: document.getElementsByTagName('ui-view')[0].baseURI,
-						// targetElementId: assignElementId(event),
 						target: clickHelperFunctions.resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
 						time: event.timeStamp,
 						clickX: event.x,
@@ -44,13 +43,6 @@
 	var clickQueue = [];
 
 	var clickHelperFunctions = (function(){
-		// var assignElementId = function(event){
-		// 	var elementPath = '';
-		// 	for(var element in event.path){
-		// 		elementPath += event.path[element].localName;
-		// 	}
-		// 	return (elementPath + event.currentState).hashCode();
-		// }
 
 		var resolveCircularReference = function(target){
 			var resolveChild = function(child){
@@ -137,13 +129,20 @@
 			}
 		}
 
+		var randomID = function(){
+			var t = "";
+    	var p = "abcdefghijklmnopqrstuvwxyz0123456789";
+			for( var i=0; i < 7; i++ ) t += p.charAt(Math.floor(Math.random() * p.length));
+			return t;
+		}
+
 		return {
-			// assignElementId: assignElementId,
 			resolveCircularReference: resolveCircularReference,
 			getBrowserType: getBrowserType,
 			platformCheck: platformCheck,
 			stringifyPath: stringifyPath,
-			sendClick: sendClick
+			sendClick: sendClick,
+			randomID: randomID
 		}
 	})();
 
@@ -156,12 +155,17 @@ document.addEventListener('click', clicks.onClick);
 
 var url = 'http://localhost:3000/api/';
 
+(function setAnonID() {
+	if(!localStorage.getItem('qu')) localStorage.setItem('qu', clickHelperFunctions.randomID());
+})()
+
 axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 	browser: clickHelperFunctions.getBrowserType(),
 	vh: window.innerHeight,
 	vw: window.innerWidth,
 	platform: clickHelperFunctions.platformCheck(),
-	entryState: document.getElementsByTagName('ui-view')[0].baseURI
+	entryState: document.getElementsByTagName('ui-view')[0].baseURI,
+	qu:
 })
 	.then(function(response) {
 		console.log(response);
@@ -170,17 +174,3 @@ axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page 
 
 
 })(document, window);
-
-
-
-//Hash function creates key out of string
-String.prototype.hashCode = function() {
-  var hash = 0, i, chr, len;
-  if (this.length === 0) return hash;
-  for (i = 0, len = this.length; i < len; i++) {
-    chr   = this.charCodeAt(i);
-    hash  = ((hash << 5) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
-  }
-  return hash;
-};
