@@ -1,60 +1,5 @@
-
 <section class="addsite-container">
-    <section class="addsite-content">
-        <div class="addsite-steps">
-            Step 1: Add URL {{Site.user}}
-        </div>
-        <div class="add-url-input">
-            <input type="text" placeholder="URL" ng-model="site.URL">
-            <button type="button" name="button" ng-click="Site.newSite(site)">Update</button>
-        </div>
-        <div class="addsite-steps" ng-if="Site.mySite">
-            Step 2: Paste this code</div>
-        <div class="addsite-paste-script" ng-if="Site.mySite">
-          Add the following script tag to your main HTML File<br />
-          <em>Currently only works with AngularJS applications using ui-router</em><br />
-          Be sure to paste right before your first < script > tag.<br />
-          <code>
-       		&lt;script>
-         	window.qxid = {{Site.mySite}}<br />
-         		var wa = document.createElement('script');<br />
-         		wa.type = 'text/javascript';<br />
-         		wa.async = true;<br />
-            wa.src = './grab.js';<br />
-         		var s = document.getElementsByTagName('script')[0];<br />
-         		s.parentNode.insertBefore(wa, s);<br />
-           &lt;/script>
-        </code><br/>
-            <a ng-href="/site/{{Site.mySite}}">Site Home</a>
-        </div>
-        <!-- <div class="addsite-paste-textarea">
-      <textarea name="name" placeholder="<script></script>" rows="8" cols="40"></textarea>
-    </div>
-        <div class="addsite-steps" ng-if="Site.mySite">Example</div>
 
-        <div class="addsite-paste-textarea" ng-if="Site.mySite">
-            <textarea name="name" rows="8" cols="40"></textarea>
-        </div> -->
-    </section>
-</section>
-<!--
-<section class="content">
-  <h2></h2>
-  <div class="input">
-    <h3></h3>
-    <input type="button" name="name" value="">
-  </div>
-  <div class="steps" ng-if="Site.mySite">
-    <h3></h3>
-    <p>
-      <code></code>
-      <button type="button" name="button"></button>
-    </p>
-    <h3></h3>
-    <img src="" alt="" />
-  </div>
-</section> -->
-<!--
   <section class="addsite-content">
     <div class="addsite-steps">
       Step 1: Add your site url
@@ -79,4 +24,4 @@
     <div class="addsite-example">
     </div>
   </section>
-</section> -->
+</section>
