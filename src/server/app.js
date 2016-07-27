@@ -34,6 +34,7 @@ var port = config.PORT;
 
 var app = express();
 app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
+app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
 app.use("/dist", express.static(__dirname + "./../dist"));
 app.use("/assets", express.static(__dirname + "./../assets"));

@@ -3,11 +3,11 @@
 	angular.module('quix.core')
 		.factory('dataService', dataService);
 
-	function dataService($http) {
+	function dataService($http, $q) {
+		var currentUser;
 
 		var service = {
-			getUser: getUser,
-			currentUser: ''
+			getUser: getUser
 		}
 
 		return service;
@@ -15,13 +15,18 @@
 		////////////////////////////////////////////////
 
 		function getUser() {
-      return $http({
-        method: 'GET',
-        url: '/auth/me'
-      }).then(function success(response) {
-				service.currentUser = response.data;
-				return response.data;
-    	});
+			if(!currentUser) {
+	      return $http({
+	        method: 'GET',
+	        url: '/auth/me'
+	      }).then(function success(response) {
+					currentUser = response.data;
+					return currentUser;
+	    	});
+			}
+			else {
+				return currentUser;
+			}
     }
 
 	}

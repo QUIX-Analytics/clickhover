@@ -12,17 +12,27 @@
 		// when state changes, check to see if user exists in sessions. reroute if false
 		$rootScope.$on('$stateChangeStart', getUser);
 
+
+
 		////////////////////////////////////////////////////////////////////////
 
 		function getUser(e, next) {
-			var allowedStates = ['login', 'register'];
-			if(allowedStates.indexOf(next.name) === -1) {
+			var allowedStates = ['login', 'register', 'landingpage'];
+
+			if(next.name !== 'landingpage') {
+
 				dataService.getUser()
-					.then(function(response) {
-						if(!response) {
+					.then(function(user) {
+
+						if(user && allowedStates.indexOf(next.name) > -1) {
+							$state.go('profile');
+						}
+						if(!user && next.name !== 'register') {
 							$state.go('login');
 						}
+
 					});
+
 			}
 		}
 

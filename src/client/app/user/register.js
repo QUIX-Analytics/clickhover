@@ -13,9 +13,8 @@
 			userService.register(user)
 			.then(
 				function success(response) {
-					console.log(registerUser);
 					if(response.status === 200) {
-						$state.go('addsite');
+						$state.go('site.add');
 					}
 				},
 				function error(response) {
