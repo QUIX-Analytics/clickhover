@@ -14,18 +14,20 @@
 
 		////////////////////////////////////////////////
 
-			function getUser() {
-				if (!currentUser) {
-					return $http({
-						method: 'GET',
-						url: '/auth/me'
-					}).then(function success(response) {
-						currentUser = response.data;
-						return currentUser;
-					});
-				} else {
-					return $q.when(currentUser);
-				}
+		function getUser() {
+			if(!currentUser) {
+	      return $http({
+	        method: 'GET',
+	        url: '/auth/me'
+	      }).then(function(response) {
+					currentUser = response.data;
+					return currentUser;
+	    	});
 			}
+			else {
+				return $q.when(currentUser);
+			}
+    }
+
 	}
 })();
