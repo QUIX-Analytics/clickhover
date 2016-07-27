@@ -1,5 +1,4 @@
 <section class="addsite-container">
-    <!-- <h2>Add Site</h2> -->
     <section class="addsite-content">
         <div class="addsite-steps">
             Step 1: Add URL
@@ -9,24 +8,32 @@
             <button type="button" name="button" ng-click="Site.newSite(site)">Update</button>
         </div>
         <div class="addsite-steps" ng-if="Site.mySite">
-            Step 2: Paste this code Be sure to paste right before your first < script > tag.
-        </div>
+            Step 2: Paste this code</div>
         <div class="addsite-paste-script" ng-if="Site.mySite">
-            <code>script
-                {{Site.mySite}}
-                script</code><br/>
+          Add the following script tag to your main HTML File<br />
+          <em>Currently only works with AngularJS applications using ui-router</em><br />
+          Be sure to paste right before your first < script > tag.<br />
+          <code>
+       		&lt;script>
+         	window.qxid = {{Site.mySite}}<br />
+         		var wa = document.createElement('script');<br />
+         		wa.type = 'text/javascript';<br />
+         		wa.async = true;<br />
+            wa.src = './grab.js';<br />
+         		var s = document.getElementsByTagName('script')[0];<br />
+         		s.parentNode.insertBefore(wa, s);<br />
+           &lt;/script>
+        </code><br/>
             <a ng-href="/site/{{Site.mySite}}">Site Home</a>
         </div>
         <!-- <div class="addsite-paste-textarea">
-      <code>script script</code>
       <textarea name="name" placeholder="<script></script>" rows="8" cols="40"></textarea>
-    </div> -->
+    </div>
         <div class="addsite-steps" ng-if="Site.mySite">Example</div>
 
         <div class="addsite-paste-textarea" ng-if="Site.mySite">
             <textarea name="name" rows="8" cols="40"></textarea>
-        </div>
-
+        </div> -->
     </section>
 </section>
 <!--
@@ -48,7 +55,6 @@
 </section> -->
 
 <!-- <section class="addsite-container">
-
   <section class="addsite-content">
     <div class="addsite-steps">
       <h3>Step 1: Add your site url</h3>
@@ -74,9 +80,6 @@
         <textarea name="name" rows="8" cols="40"></textarea>
     </div>
   </section>
-
-
   <input type="text" placeholder="URL" ng-model="site.URL">
   <button type="button" ng-click="AddSite.newSite(site)">Go</button>
-
 </section> -->
