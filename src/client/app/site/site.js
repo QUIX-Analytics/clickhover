@@ -23,6 +23,7 @@
 		}
 		vm.getUser();
 
+
 		vm.newSite = function (site) {
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)

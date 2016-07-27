@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
 	angular.module('quix.core')
 		.factory('dataService', dataService);
@@ -30,5 +30,4 @@
     }
 
 	}
-
 })();
