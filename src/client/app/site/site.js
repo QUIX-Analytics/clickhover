@@ -22,7 +22,7 @@
 				.then(function(response) {
 					vm.mySite = response.data._id;
 					console.log(vm.mySite);
-					// $state.go('site.my');
+					// $state.go('site.my', vm.mySite);
 					// $stateParams = site._id
 				})
 		}
