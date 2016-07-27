@@ -4,21 +4,23 @@
     .module('quix.user')
     .controller('Profile', Profile);
 
-	function Profile($state, $timeout, userService, profileUser) {
+	function Profile($state, $timeout, dataService, userService) {
 
 		var vm = this;
-		var currentUser = profileUser.data;
+		var currentUser;
 
-		// Check to see if there is a user in session
-		if(currentUser === 'current user not defined') {
-			$state.go('login');
-    }
+		dataService.getUser()
+			.then(function(user) {
+				currentUser = user;
 
-		vm.updatedUser = {};
-		vm.updatedUser.username = currentUser.username;
-		vm.updatedUser.email = currentUser.email;
-		vm.updateUser = updateUser;
-		vm.deleteUser = deleteUser;
+				vm.updatedUser = {};
+				vm.updatedUser.username = currentUser.username;
+				vm.updatedUser.email = currentUser.email;
+				vm.updateUser = updateUser;
+				vm.deleteUser = deleteUser;
+			})
+
+
 
 		function updateUser(updatedUser) {
 			vm.alertUsername = false;
@@ -41,7 +43,6 @@
 		function deleteUser(email) {
 			if (currentUser.email !== email) return console.log('wrong email');
 			userService.deleteUser(currentUser._id).then(function(response) {
-			  console.log(response);
 				$state.go('register')
 			});
 		}
