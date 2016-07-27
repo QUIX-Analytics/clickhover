@@ -16,18 +16,13 @@
 		}
 		vm.getSite();
 
-		// vm.getUser = function () {
-		// 	dataService.getUser().then(function (response) {
-		// 		vm.user = response;
-		// 	})
-		// }
-		// vm.getUser();
-
-		vm.user = function() {
+		vm.getUser = function () {
 			dataService.getUser().then(function (response) {
-				return response;
+				vm.user = response;
 			})
 		}
+		vm.getUser();
+
 
 		vm.newSite = function (site) {
 			site.URL = site.URL.toLowerCase()
