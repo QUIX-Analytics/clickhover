@@ -29,6 +29,8 @@
 						clickY: event.y,
 						scrollX: window.scrollX,
 						scrollY: window.scrollY,
+						vh: window.innerHeight,
+						vw: window.innerWidth,
 						path: clickHelperFunctions.stringifyPath(event),
 					}
 				}
@@ -180,8 +182,6 @@ var url = 'http://localhost:3000/api/';
 
 axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 	browser: clickHelperFunctions.getBrowserType(),
-	vh: window.innerHeight,
-	vw: window.innerWidth,
 	platform: clickHelperFunctions.platformCheck(),
 	entryState: document.getElementsByTagName('ui-view')[0].baseURI,
 	qu: localStorage.getItem('qu')
