@@ -1,4 +1,4 @@
-//########CLICK TRACKER#################
+()//########CLICK TRACKER#################
 //   Add the following script tag to your main HTML File( works only on Angular applications using ui-router)
 // 		<script>
 //     	window.qxid = 00000; //Replace with ID provided by Quix.com
@@ -28,7 +28,9 @@
 						clickY: event.y,
 						scrollX: window.scrollX,
 						scrollY: window.scrollY,
-						path: clickHelperFunctions.stringifyPath(event.path),
+						vh: window.innerHeight,
+						vw: window.innerWidth,
+						path: clickHelperFunctions.stringifyPath(event.path)
 					}
 				}
 
@@ -158,8 +160,6 @@ var url = 'http://localhost:3000/api/';
 
 axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 	browser: clickHelperFunctions.getBrowserType(),
-	vh: window.innerHeight,
-	vw: window.innerWidth,
 	platform: clickHelperFunctions.platformCheck(),
 	entryState: document.getElementsByTagName('ui-view')[0].baseURI
 })

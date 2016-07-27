@@ -1,32 +1,24 @@
 <section ng-controller="Heatmap as heatmap">
   <h2>Heatmap</h2><hr>
 
-  <!-- <div style="width: 1500px; height: 1000px; position: relative; overflow: scroll">
-    <iframe id="testframe" onscroll="runTest()" src="http://theallenbros.com/#/" width="100%" height="100%" sandbox="allow-scripts allow-same-origin" style="-webkit-transform:scale(.6);-moz-transform-scale(.6); z-index: 0; opacity: 1;"></iframe>
-    <div id="click-holder" ng-style="{'height': heatmap.maxScrollY * .6 + 'px'}" style="width: 2px; height: 60%; background: red; z-index: 1; top:20%; left:20%; position: absolute; opacity: .5;"></div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div id="heatmap-container" style="width: 900px; height: 600px; position: relative; overflow: hidden;">
+    <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: fixed; margin-left: -300px; margin-top: -200px;"></iframe>
+    <div id="click-holder" style="width: 900px; height: 600px; background: none; z-index: 1; position: absolute; opacity: 1;"></div>
   </div>
 
+  <div style="width: 900px; display: flex; align-items: center;">
+    <button ng-click="heatmap.heatmapScrollUp(600)">UP 600</button>
+    <button ng-click="heatmap.heatmapScrollUp(300)">UP 300</button>
+    <button ng-click="heatmap.heatmapScrollUp(100)">UP 100</button>
+    <button ng-click="heatmap.heatmapScrollDown(100)">DOWN 100</button>
+    <button ng-click="heatmap.heatmapScrollDown(300)">DOWN 300</button>
+    <button ng-click="heatmap.heatmapScrollDown(600)">DOWN 600</button>
+  </div>
+</div>
 
-      <ul><li ng-repeat="state in heatmap.heatmapData">State: {{state.stateName}}
+        <button type="button" ng-repeat="state in heatmap.clicksByStates" ng-click="heatmap.updateState(state)">{{state.stateName}}</button>
 
-          <ul><li ng-repeat="click in state.clicks">Click: {{click.clickX}} x {{click.clickY}}, Scroll: {{click.scrollX}} x {{click.scrollY}}, Dimensions: {{click.vw}} x {{click.vh}}
-
-          </li></ul>
-        </li></ul>
-        HEYTHERE {{heatmap.maxScrollY}}
-
-        <div style="height: 1000px; width: 1000px; background: grey; overflow: scroll;" onscroll="{heatmap.runTest()}">
-          <div style="height: 2000px; width: 100px; backgounrd: darkgrey;">
-
-          </div>
-        </div> -->
-
-        <div style="width: 1500px; height: 1000px; position: relative; overflow: scroll">
-          <iframe id="testframe" onscroll="runTest()" src="http://theallenbros.com/#/" width="100%" height="100%" sandbox="allow-scripts allow-same-origin" style="-webkit-transform:scale(.6);-moz-transform-scale(.6); z-index: 0; opacity: 1;"></iframe>
-          <div id="click-holder" ng-style="{'height': heatmap.maxScrollY * .6 + 'px'}" style="width: 2px; height: 60%; background: red; z-index: 1; top:20%; left:20%; position: absolute; opacity: .5;"></div>
-        </div>
-        <h3 ng-repeat="site in heatmap.data">{{site.URL}}</h3>
-        <h4 ng-repeat="state in heatmap.heatmapData">HEY</h4>
 
 
 </section>
