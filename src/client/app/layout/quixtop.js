@@ -19,8 +19,7 @@
 				.then(function(user) {
 					vm.currentUser = user;
 				});
-
-			console.log(event, next);
+				
 			vm.title = next.name;
 		}
 
