@@ -11,7 +11,7 @@
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
-
+		$('.topbar-user').on('click', profileMenu);
 		///////////////////////////////////////////
 
 		function renderQuixtop(event, next) {
@@ -23,6 +23,7 @@
 			console.log(event, next);
 			vm.title = next.name;
 		}
+
 	}
 
 })();
