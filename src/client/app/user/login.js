@@ -4,16 +4,12 @@
     .module('quix.user')
     .controller('Login', Login);
 
-	function Login(userService, $state, loginUser) {
+	function Login($state, $rootScope, dataService, userService) {
 		var vm = this;
 
-		if(loginUser.data !== 'current user not defined') {
-			$state.go('profile');
-    }
-
 		vm.login = function(user) {
-			userService.login(user)
-		}
+			userService.login(user);
+		};
 
 	}
 

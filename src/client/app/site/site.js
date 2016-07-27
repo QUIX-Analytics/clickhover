@@ -5,7 +5,7 @@
 		.module('quix.site')
 		.controller('Site', Site)
 
-	function Site($scope, $state, siteService, dataService) {
+	function Site($scope, $state, siteService) {
 
 		var vm = this;
 		vm.getSite = function () {
@@ -15,13 +15,6 @@
 			})
 		}
 		vm.getSite();
-
-		vm.getUser = function () {
-			dataService.getUser().then(function (response) {
-				vm.user = response;
-			})
-		}
-		vm.getUser();
 
 		vm.newSite = function(site) {
 			site.URL = site.URL.toLowerCase()

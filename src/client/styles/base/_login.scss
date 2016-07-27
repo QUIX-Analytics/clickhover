@@ -1,7 +1,7 @@
 .login-container{
   width: $login-width;
   height: $login-height;
-  margin: $login-top-margin auto 0;
+  margin: $login-top-margin auto;
   .login-logo{
     width:65%;
     height: 10vh;
@@ -13,6 +13,7 @@
     margin: 0 auto $topbar-height;
   }
    input{
+
     width: 100%;
     height: $input-height;
     margin:0 0 2rem 0;
@@ -25,9 +26,9 @@
       position: relative;
       z-index: 100;
       text-align: center;
-      font-size: 1rem;
+      font-size: .9rem;
       top: 1rem;
-      color: $warning;
+      color: $error;
     }
   // font-weight: bold;
   // font-size: 3rem;
