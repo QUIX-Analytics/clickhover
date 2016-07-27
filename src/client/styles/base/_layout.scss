@@ -54,6 +54,7 @@ body {
 	    width: $nav-width;
 	    height: $topbar-height;
 			display: flex;
+
 			justify-content: center;
 			align-items: center;
 			&:hover{
@@ -67,7 +68,9 @@ body {
 			width: $nav-width;
 			height: $topbar-height;
 			position: absolute;
-			bottom: 15rem;
+			color: white;
+			background-color: gray;
+			bottom: 18rem;
 			left: 0;
 			display: flex;
 			justify-content: center;
@@ -80,7 +83,7 @@ body {
 
 	}
 
-		}
+}
 		ui-view {
 			background-color: $dark1;
 			width: calc(100% - 3.2rem);
