@@ -17,6 +17,8 @@
 
 		var onClick = function(event) {
 
+			console.log(event);
+
 			var clickInfo = {
 					sessionId: localStorage.getItem('sessionId'),
 					click: {
@@ -27,7 +29,7 @@
 						clickY: event.y,
 						scrollX: window.scrollX,
 						scrollY: window.scrollY,
-						path: clickHelperFunctions.stringifyPath(event.path),
+						path: clickHelperFunctions.stringifyPath(event),
 					}
 				}
 
@@ -101,16 +103,33 @@
 		  return check ? 'mobile' : 'desktop';
 		};
 
-		var stringifyPath = function(path){
-			var stringified = '';
-			for(var i = path.length - 1; i >= 0; i--){
-				if(path[i].localName) {
-					stringified += '>' + path[i].localName;
-					if(path[i].className) stringified += '.' + path[i].className;
-					if(path[i].id) stringified += '#' + path[i].id;
+		var stringifyPath = function(event){
+
+			if(event.path){
+				var path = event.path;
+				var stringified = '';
+				for(var i = path.length - 1; i >= 0; i--){
+					if(path[i].localName) {
+						stringified += '>' + path[i].localName;
+						if(path[i].className) stringified += '.' + path[i].className;
+						if(path[i].id) stringified += '#' + path[i].id;
+					}
 				}
+				return stringified;
+			} else {
+				var pathIterator = event.target;
+				var stringified = '';
+				while(pathIterator){
+					var elementString = '';
+					elementString += '>' + pathIterator.localName;
+					if(pathIterator.className) elementString += '.' + pathIterator.className;
+					if(pathIterator.id) elementString += '#' + pathIterator.id;
+					stringified = elementString + stringified;
+					pathIterator = pathIterator.parentElement;
+				}
+				return stringified;
 			}
-			return stringified;
+
 		}
 
 		var sendClick = function(clickInfo){
@@ -165,7 +184,7 @@ axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page 
 	vw: window.innerWidth,
 	platform: clickHelperFunctions.platformCheck(),
 	entryState: document.getElementsByTagName('ui-view')[0].baseURI,
-	qu:
+	qu: localStorage.getItem('qu')
 })
 	.then(function(response) {
 		console.log(response);
