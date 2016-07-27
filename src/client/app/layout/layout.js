@@ -21,7 +21,6 @@
 
 				dataService.getUser()
 					.then(function(user) {
-						console.log(user);
 						vm.currentUser = user;
 
 						if(user && allowedStates.indexOf(next.name) > -1) {
