@@ -6,7 +6,7 @@
 
   function userService($http, $state) {
 
-		var service = {
+		return {
 			login: login,
 			logout: logout,
 			register: register,
@@ -14,8 +14,6 @@
 			getUser: getUser,
       deleteUser: deleteUser
 		}
-
-		return service;
 
 		////////////////////////////////////////////////
 

@@ -4,6 +4,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	background-color: $dark1;
+
 	quixtop{
 	  width: 100vw;
 	  height: $topbar-height;
@@ -38,6 +39,7 @@ body {
 				font-size: 2rem;
 			}
 	}
+
 	quixnav {
 	  width: $nav-width;
 	  height: 100vh;
@@ -54,7 +56,6 @@ body {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			transition: opacity .03s ease 0s;
 			&:hover{
 				opacity: 1;
 				background-color: $dark1;
@@ -65,23 +66,24 @@ body {
 			width: $nav-width;
 			height: $topbar-height;
 			position: absolute;
-			bottom: 20rem;
+			bottom: 15rem;
 			left: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			transition: opacity .03s ease 0s;
 			&:hover{
 				opacity: 1;
 				background-color: $dark1;
 			}
-	  }
-}
+
+	}
+
+		}
 		ui-view {
 			background-color: $dark1;
 			width: calc(100% - 3.2rem);
-			height: calc(100% - 15.5rem);
-			// padding-top: $topbar-height;
+			height: 100vh;
+			margin-top: $topbar-height;
 			margin-left: $leftnav-total-width;
 		}
 
@@ -105,7 +107,6 @@ body {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		transition: opacity .03s ease 0s;
 		&:hover{
 			opacity: 1;
 			background-color: $dark1;

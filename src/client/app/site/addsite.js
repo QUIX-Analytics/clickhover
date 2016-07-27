@@ -1,27 +1,28 @@
-(function() {
-
-  'use strict';
-  angular
-    .module('quix.site')
-    .controller('AddSite', AddSite)
-
-  function AddSite($scope, siteService) {
-
-    var vm = this;
-
-    vm.newSite = function(site) {
-
-      site.URL = site.URL.toLowerCase()
-      console.log(site);
-      siteService.addSite(site).then(function(response) {
-        site = {};
-        console.log(site);
-        alert('Success!');
-        $state.go('dashboard');
-      })
-    }
-
-
-  }
-
-})()
+// (function() {
+//
+//   'use strict';
+//   angular
+//     .module('quix.site')
+//     .controller('AddSite', AddSite)
+//
+//   function AddSite($scope, $state, $stateParams, siteService) {
+//
+//     var vm = this;
+//
+//     vm.newSite = function(site) {
+//
+//       site.URL = site.URL.toLowerCase()
+//       console.log(site.URL);
+//       siteService.addSite(site)
+//         .then(function(response) {
+//           // site = {};
+//           console.log(site);
+//           // $state.go('site.my');
+//           // $stateParams = site._id
+//         })
+//     }
+//
+//
+//   }
+//
+// })()

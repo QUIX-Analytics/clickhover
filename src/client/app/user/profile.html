@@ -2,65 +2,68 @@
 
 	<section class="profile-container">
 
-			<div class="profile-avatar">
-				<img src="http://cdn.collider.com/wp-content/uploads/2015/11/top-gun-val-kilmer-iceman-volleyball.jpg" alt="topgun" />
-				<button type="button">Choose File</button>
+			<div>
+				<div>Avatar placeholder</div>
+				<input type="file">
 			</div>
-			<div class="profile-info">
-				USERNAME
-			</div>
-				<div class="update-profile-input">
+
+
+			<!-- USERNAME -->
+			<div>
+				<div>
+					<p>USERNAME</p>
+				</div>
+				<div>
 					<input type="text" ng-model="Profile.updatedUser.username">
 					<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
-					<p class="success">Username successfully updated</p>
 				</div>
 				<div ng-if="Profile.alertUsername">
 					<p>{{Profile.alertUsername}}</p>
 				</div>
 			</div>
+
+
 			<!-- EMAIL -->
 			<div>
-				<div class="profile-info">
-					EMAIL
+				<div>
+					<p>EMAIL</p>
 				</div>
-				<div class="update-profile-input">
+				<div>
 					<input type="text" ng-model="Profile.updatedUser.email">
 					<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
-					<p class="success">Email successfully updated</p>
 				</div>
 				<div ng-if="Profile.alertEmail">
-					<p class="error">All fields required</p>
+					<p>Success or error message</p>
 				</div>
 			</div>
+
+
 			<!-- CHANGE PASSWORD -->
 			<div>
-				<div class="profile-info">
-					CHANGE PASSWORD
+				<div>
+					<p>CHANGE PASSWORD</p>
 				</div>
-				<div class="change-password">
+				<div>
 					<input type="text" placeholder="Current password">
 				</div>
-				<div class="new-password">
+				<div>
 					<input type="text" placeholder="New password">
 					<input type="text" placeholder="Type it again">
-					<button type="button">UPDATE</button>
 				</div>
 				<div>
-					<p class="error">All fields required</p>
-				</div>
-				<div>
-
+					<p>Success or error message</p>
 				</div>
 			</div>
 
 
 			<!-- DELETE ACCOUNT -->
 			<div>
-				<div class="profile-info">
-					DELETE ACCOUNT
+				<div>
+					<p>DELETE ACCOUNT</p>
 				</div>
-				<div class="update-profile-input">
+				<div>
 					<input ng-model="Profile.deleteUserInput" type="text" placeholder="Enter your email address to delete your account">
 					<button ng-click="Profile.deleteUser(Profile.deleteUserInput)">DELETE</button>
+				</div>
 			</div>
 	</section>
