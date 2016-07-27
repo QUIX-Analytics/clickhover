@@ -22,13 +22,13 @@
 				dataService.getUser()
 					.then(function(user) {
 						vm.currentUser = user;
-
-						if(user && allowedStates.indexOf(next.name) > -1) {
-							$state.go('profile');
-						}
-						if(!user && next.name !== 'register') {
-							$state.go('login');
-						}
+						// Uncomment these if statements when ready to launch	
+						// if(user && allowedStates.indexOf(next.name) > -1) {
+						// 	$state.go('profile');
+						// }
+						// if(!user && next.name !== 'register') {
+						// 	$state.go('login');
+						// }
 
 					});
 
