@@ -18,11 +18,10 @@
 
 		vm.newSite = function(site) {
 			site.URL = site.URL.toLowerCase()
-			// console.log(site.URL);
 			siteService.addSite(site)
 				.then(function(response) {
-					// site = {};
-					console.log(site);
+					vm.mySite = response.data._id;
+					console.log(vm.mySite);
 					// $state.go('site.my');
 					// $stateParams = site._id
 				})

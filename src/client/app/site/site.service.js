@@ -5,7 +5,7 @@
     .service('siteService', siteService)
 
   function siteService($http, $state, $stateParams) {
-
+  
 
     this.getSite = function() {
       return $http({
@@ -24,7 +24,7 @@
         data: site
       }).then(function(response) {
         // push 'response.data._id' to currentuser.sites[];
-        console.log(response.data._id);
+        // console.log(response.data._id);
         return response;
       }, function(err) {
         console.log(err);
