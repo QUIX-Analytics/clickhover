@@ -35,7 +35,7 @@ var userSchema = new Schema({
 		type: String,
 		required: true
 	},
-	sites: [{type: String, ref: 'Site'}]
+	sites: [{type: Schema.Types.ObjectId, ref: 'Site'}]
 });
 
 userSchema.plugin(timestamps);

@@ -5,7 +5,6 @@
   angular
     .module('quix.layout')
     .component('quixtop', {
-      templateUrl: '/app/layout/quixtop.html',
-			controller: 'Quixtop'
+      templateUrl: '/app/layout/quixtop.html'
     })
 })()
