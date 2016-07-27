@@ -1,29 +1,82 @@
 <section class="addsite-container">
-  <section class="addsite-content">
-    <div class="addsite-steps">
-      Step 1: Add your site url
-    </div>
-    <div class="add-url-input">
-      <input type="text" placeholder="URL" ng-model="site.URL">
-      <button type="button" name="button" ng-click="Site.newSite(site)">Update</button>
-    </div>
-    <div class="addsite-steps" ng-if="Site.mySite">
-      Step 2: Paste this code into your site right before your first < script > tag.
-    </div>
-      <div class="addsite-paste-script">
-      <code>script {{Site.mySite}} script</code><br />
-        <a ng-href="/site/{{Site.mySite}}">Site Home</a>
-    </div>
-    <!-- <div class="addsite-paste-textarea">
+    <!-- <h2>Add Site</h2> -->
+    <section class="addsite-content">
+        <div class="addsite-steps">
+            Step 1: Add URL
+        </div>
+        <div class="add-url-input">
+            <input type="text" placeholder="URL" ng-model="site.URL">
+            <button type="button" name="button" ng-click="Site.newSite(site)">Update</button>
+        </div>
+        <div class="addsite-steps" ng-if="Site.mySite">
+            Step 2: Paste this code Be sure to paste right before your first < script > tag.
+        </div>
+        <div class="addsite-paste-script" ng-if="Site.mySite">
+            <code>script
+                {{Site.mySite}}
+                script</code><br/>
+            <a ng-href="/site/{{Site.mySite}}">Site Home</a>
+        </div>
+        <!-- <div class="addsite-paste-textarea">
       <code>script script</code>
       <textarea name="name" placeholder="<script></script>" rows="8" cols="40"></textarea>
     </div> -->
+        <div class="addsite-steps" ng-if="Site.mySite">Example</div>
+
+        <div class="addsite-paste-textarea" ng-if="Site.mySite">
+            <textarea name="name" rows="8" cols="40"></textarea>
+        </div>
+
+    </section>
+</section>
+<!--
+<section class="content">
+  <h2></h2>
+  <div class="input">
+    <h3></h3>
+    <input type="button" name="name" value="">
+  </div>
+  <div class="steps" ng-if="Site.mySite">
+    <h3></h3>
+    <p>
+      <code></code>
+      <button type="button" name="button"></button>
+    </p>
+    <h3></h3>
+    <img src="" alt="" />
+  </div>
+</section> -->
+
+<!-- <section class="addsite-container">
+
+  <section class="addsite-content">
     <div class="addsite-steps">
+      <h3>Step 1: Add your site url</h3>
+    </div>
+    <div class="add-url-input">
+      <input type="text" placeholder="URL">
+      <button type="button" name="button">Update</button>
+    </div>
+    <div class="addsite-steps">
+      Step 2: Paste this code into your site
+    </div>
+    <div class="addsite-paste-script">
+      Paste this code right before your first < script > tag.
+    </div>
+    <div class="addsite-paste-textarea">
+      <textarea name="name" rows="8" cols="40"></textarea>
+    </div>
+    <div class="addsite-steps">
+
     </div>
      Example
     <div class="addsite-paste-textarea">
         <textarea name="name" rows="8" cols="40"></textarea>
     </div>
-
   </section>
-</section>
+
+
+  <input type="text" placeholder="URL" ng-model="site.URL">
+  <button type="button" ng-click="AddSite.newSite(site)">Go</button>
+
+</section> -->
