@@ -17,11 +17,12 @@ var passport = require('./services/passport');
 
 
 
+
 /*------------------------------------*\
   #VARIABLES
 \*------------------------------------*/
 
-var port = process.env.PORT || 3000;
+var port = config.PORT;
 
 
 
@@ -32,6 +33,7 @@ var port = process.env.PORT || 3000;
 \*------------------------------------*/
 
 var app = express();
+app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/node_modules", express.static(__dirname + "./../../node_modules"));
 app.use("/", express.static(__dirname + "./../client"));
 app.use("/dist", express.static(__dirname + "./../dist"));
@@ -88,6 +90,7 @@ mongoose.connect(config.mongoURI, function (err, res) {
 var siteCtrl = require('./controllers/site.controller.js');
 
 app.get('/api/site', siteCtrl.getSite);
+app.get('/api/site/:id', siteCtrl.mySite);
 app.post('/api/site', siteCtrl.createSite);
 app.patch('/api/site/:id', siteCtrl.addClick);
 

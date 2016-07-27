@@ -144,7 +144,7 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 300;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: $font-main;
   color: $primary;
 }
 
@@ -238,6 +238,7 @@ input[type="password"]
 	  border: 1px solid $primary;
 	  background-color: $primary;
 	  outline: 0;
+    cursor: pointer;
 	}
 	&:active{
 		color: $dark1;
@@ -408,9 +409,9 @@ td:last-child {
 \*------------------------------------*/
 button,
 .button,
-// {
-//   margin-bottom: 1rem;
-// }
+{
+  border-radius: $border-radius;
+}
 input,
 textarea,
 select,

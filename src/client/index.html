@@ -14,15 +14,19 @@
 		<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	  <link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
   </head>
-  <body>
+  <body ng-controller="Layout as Layout">
 
-      <quixtop></quixtop>
-      <quixnav></quixnav>
-  		<quixsub></quixsub>
-      <ui-view></ui-view>
+    <quixtop></quixtop>
+    <quixnav></quixnav>
+		<quixsub></quixsub>
+    <ui-view></ui-view>
 
-    <script src="/node_modules/angular/angular.js" charset="utf-8"></script>
-    <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- <script src="/bower_components/angular-ui-router.stateHelper/statehelper.js"></script> -->
+    <script src="/bower_components/moment/moment.js"></script>
     <script src="/dist/bundle.js"></script>
   </body>
 </html>
