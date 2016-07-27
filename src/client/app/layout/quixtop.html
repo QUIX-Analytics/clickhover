@@ -3,9 +3,9 @@
       <h3 class="topbar-menu">
         <img src="../../assets/images/Logosvg-01.svg" alt="QUIX" />
       </h3>
-      <h5 class="topbar-menu">TITLE</h5>
+      <h5 class="topbar-menu">{{Quixtop.title}}</h5>
 
-      <h3 class="topbar-user">{{req.user}}</h3>
+      <h3 class="topbar-user" ng-if="Quixtop.currentUser">@{{Quixtop.currentUser.username}}</h3>
 
 
     </div>
