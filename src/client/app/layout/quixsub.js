@@ -9,7 +9,7 @@
 	function Quixsub(dataService) {
 		var vm = this;
 		//Temp SideNav Animation Here
-		vm.sideNav = sidNav;
+		vm.sideNav = sideNav;
 
 		/////////////////////////////////////
 
