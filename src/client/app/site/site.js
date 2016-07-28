@@ -11,6 +11,7 @@
 		vm.getSite = function (id) {
 			siteService.getSite(id).then(function (response) {
 				vm.data = response.data;
+				console.log(vm.data);
 			})
 		}
 		vm.getSite($stateParams.id);
@@ -28,7 +29,7 @@
 			siteService.addSite(site)
 				.then(function (response) {
 					vm.mySite = response.data._id;
-					// console.log(vm.mySite);
+					console.log(vm.mySite);
 				})
 		}
 
