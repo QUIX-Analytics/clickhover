@@ -49,6 +49,17 @@ userSchema.pre('save', function(next) {
   return next(null, user);
 });
 
+userSchema
+	.virtual('userInfo')
+	.get(function() {
+		return {
+			'_id' : this._id,
+			'username' : this.username,
+			'email' : this.email,
+			'sites' : this.sites
+		}
+	});
+
 userSchema.methods.verifyPassword = function(reqBodyPassword) {
   var user = this;
   return bcrypt.compareSync(reqBodyPassword, user.password);

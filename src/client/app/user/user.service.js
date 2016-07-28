@@ -24,8 +24,7 @@
         data: user
       }).then(function(response) {
 				if(response.data === 'Unauthorized') {
-					console.log(response);
-					// Notify the user that they entered the wrong credentials
+					return response;
 				} else {
 					$state.go('profile');
 				}
@@ -37,6 +36,9 @@
         method: 'GET',
         url: '/auth/logout'
       }).then(function(response) {
+				if(response.data === 'logged out') {
+					sessionStorage.clear();
+				}
         return response;
       });
     }

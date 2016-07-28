@@ -14,7 +14,8 @@
 			getUser: getUser,
 			//ANIMATIONS TEMP LIVE HERE
 			dropMenu: dropMenu,
-			sideNav: sideNav
+			sideNav: sideNav,
+			refreshSessionUser: refreshSessionUser
 		};
 
 		return service;
@@ -25,7 +26,7 @@
 		function getUser() {
       // var currentUser = JSON.parse(sessionStorage.getItem('quixUser'));
 			if(!currentUser) {
-        console.log('RETRIEVING USER');
+        // console.log('RETRIEVING USER');
 	      return $http({
 	        method: 'GET',
 	        url: '/auth/me'
@@ -38,6 +39,12 @@
 				return $q.when(currentUser);
 			}
     }
+
+		function refreshSessionUser(user) {
+
+			sessionStorage.setItem('quixUser', JSON.stringify(user));
+
+		}
 
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
