@@ -7,7 +7,9 @@
 
       <h3 ng-click="Quixtop.dropMenu()"  class="topbar-user"  ng-if="Quixtop.currentUser">@{{Quixtop.currentUser.username}}&#9662</h3>
       <div id="profile-menu">
-
+        <div ng-click="Quixtop.logout()" class="log-out">
+          Log Out
+        </div>
       </div>
 
     </div>

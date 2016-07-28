@@ -7,11 +7,12 @@
 		.controller('Quixtop', Quixtop
 );
 
-	function Quixtop($scope, $rootScope, dataService) {
+	function Quixtop($scope, $rootScope, dataService, userService ) {
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
 		vm.dropMenu = dropMenu;
+		vm.logout = logout;
 
 		///////////////////////////////////////////
 
@@ -25,9 +26,13 @@
 			vm.title = next.name;
 		}
 
+		function logout(){
+			userService.logout();
+		}
+
 		function dropMenu(){
 			dataService.dropMenu();
-		};
+		}
 	}
 
 })();
