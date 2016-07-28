@@ -5,7 +5,7 @@
 		.module('quix.site')
 		.controller('Site', Site)
 
-	function Site($scope, $state, siteService) {
+	function Site($scope, $state, siteService, dataService) {
 
 		var vm = this;
 		vm.getSite = function () {
@@ -16,10 +16,18 @@
 		}
 		vm.getSite();
 
-		vm.newSite = function(site) {
+		vm.getUser = function () {
+			dataService.getUser().then(function (response) {
+				vm.user = response;
+			})
+		}
+		vm.getUser();
+
+
+		vm.newSite = function (site) {
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
-				.then(function(response) {
+				.then(function (response) {
 					vm.mySite = response.data._id;
 					console.log(vm.mySite);
 					// $state.go('site.my', vm.mySite);
