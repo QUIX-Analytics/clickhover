@@ -28,6 +28,7 @@
 	        method: 'GET',
 	        url: '/auth/me'
 	      }).then(function success(response) {
+					console.log(response);
 					sessionStorage.setItem('quixUser', JSON.stringify(response.data));
 					return response.data;
 	    	});
