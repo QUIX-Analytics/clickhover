@@ -28,8 +28,7 @@
 			siteService.addSite(site)
 				.then(function (response) {
 					vm.mySite = response.data._id;
-					console.log(vm.mySite);
-					// $state.go('site.my', vm.mySite);
+					// console.log(vm.mySite);
 				})
 		}
 
