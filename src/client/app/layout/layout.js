@@ -22,7 +22,10 @@
 				dataService.getUser()
 					.then(function(user) {
 						vm.currentUser = user;
-						// Uncomment these if statements when ready to launch	
+
+						/*--------------------------------------------------*\
+						  Uncomment these if statements when ready to launch
+						\*--------------------------------------------------*/
 						// if(user && allowedStates.indexOf(next.name) > -1) {
 						// 	$state.go('profile');
 						// }
