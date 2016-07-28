@@ -50,9 +50,12 @@ function read(req, res, next) {
 }
 
 function me(req, res, next) {
-	if (!req.user) return res.send('');
-	req.user.password = null;
-	return res.status(200).json(req.user);
+	if (!req.user) return res.json(undefined);
+	User.findById(req.user._id)
+		.populate('sites')
+		.exec(function(err, resp) {
+			return res.status(200).json(resp.userInfo);
+		});
 }
 
 function update(req, res, next) {
