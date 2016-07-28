@@ -36,6 +36,7 @@
                   states[existsAtIndex].clicks.push(SITE.sessions[i].clicks[j]); //Adds to existing state's click array
                   states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].browser = SITE.sessions[i].browser;
                   states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].platform = SITE.sessions[i].platform;
+                  states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].createdAt = SITE.sessions[i].createdAt;
                 } else {
                   states.push({
                     stateName: SITE.sessions[i].clicks[j].currentState, //Creates new state in states array and adds the click to that state
@@ -44,6 +45,7 @@
                   states[states.length - 1].clicks.push(SITE.sessions[i].clicks[j]);
                   states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].browser = SITE.sessions[i].browser;
                   states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].platform = SITE.sessions[i].platform;
+                  states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].createdAt = SITE.sessions[i].createdAt;
                 }
               }
             }
@@ -103,17 +105,22 @@
           iframe.contentWindow.postMessage({direction: 'down', distance: scrollDifference / .6}, '*');
         }
 
-        vm.updateHeatmap = function(state, browser){
+        vm.updateHeatmap = function(state, browser, time){
           state = JSON.parse(state);
           vm.iframeState = state;
-          var iframe = document.getElementById("testframe").src = state.stateName;
+          var iframe = document.getElementById("testframe");
+          iframe.src = state.stateName;
+          var heatmapContainer = document.getElementById("heatmap-container");
+
+          heatmapContainer.scrollTop = 0;
+          iframe.contentWindow.postMessage({direction: 'up', distance: 99999}, '*')
 
           for(var i = 0; i < vm.clicksByStates.length; i++){
-            if(vm.clicksByStates[i].stateName === state.stateName) addClickDivs(i, browser);
+            if(vm.clicksByStates[i].stateName === state.stateName) addClickDivs(i, browser, time);
           }
         }
 
-        function addClickDivs(index, browser){
+        function addClickDivs(index, browser, time){
           // console.log('YOOOOO');
           var clickHolderElement = document.getElementById('click-holder');
           while(clickHolderElement.firstChild){

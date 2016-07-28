@@ -23,18 +23,28 @@
 
 </div>
 
-<select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected)">
+<select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
   <option ng-repeat="state in heatmap.clicksByStates" value="{{state}}">{{state.stateName}}</option>
 </select>
 
 <div>
   <h3>Browser:</h3>
-  <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected)">
+  <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
     <option>Chrome</option>
     <option>Firefox</option>
     <option>Safari</option>
     <option>IE</option>
     <option>Other...</option>
+  </select>
+</div>
+<div>
+  <h3>Time:</h3>
+  <select name="timeSelect" ng-model="timeSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+    <option>24 Hours</option>
+    <option>48 Hours</option>
+    <option>1 week</option>
+    <option>1 month</option>
+    <option>Forever</option>
   </select>
 </div>
 
