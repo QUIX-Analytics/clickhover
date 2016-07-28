@@ -59,7 +59,7 @@ function me(req, res, next) {
 }
 
 function update(req, res, next) {
-	User.findByIdAndUpdate(req.params.id, { $set: req.body }, function(err, user) {
+	User.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true},function(err, user) {
 		if (err) next(err);
 		res.status(200).send(user);
 	});
