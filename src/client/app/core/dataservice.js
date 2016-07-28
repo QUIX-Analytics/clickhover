@@ -12,6 +12,7 @@
 
 		var service = {
 			getUser: getUser,
+			refreshSessionUser: refreshSessionUser
 		}
 
 		return service;
@@ -35,6 +36,12 @@
 				return $q.when(currentUser);
 			}
     }
+
+		function refreshSessionUser(user) {
+
+			sessionStorage.setItem('quixUser', JSON.stringify(user));
+
+		}
 
 	}
 })();
