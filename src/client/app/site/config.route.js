@@ -62,9 +62,9 @@
                 state: 'heatmap',
                 config: {
                     url: '/site/:id/heatmap',
-                    templateUrl: '/app/site/views/heatmap.html'
-                    // controller: 'Heatmap',
-                    // controllerAs: 'Heatmap'
+                    templateUrl: '/app/site/views/heatmap.html',
+                    controller: 'Heatmap',
+                    controllerAs: 'Heatmap'
                 }
             }
         ];

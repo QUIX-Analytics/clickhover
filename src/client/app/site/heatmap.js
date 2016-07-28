@@ -5,7 +5,7 @@
     .module('quix.site')
     .controller('Heatmap', Heatmap)
 
-  function Heatmap($scope, siteService) {
+  function Heatmap($scope, heatmapService) {
 
         var vm = this;
         var SITE = '';
