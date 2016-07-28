@@ -10,12 +10,13 @@
         var vm = this;
         var SITE = '';
         vm.getSite = function() {
-          siteService.getSite().then(function(response) {
+          heatmapService.getSite().then(function(response) {
             // console.log(response);
-            vm.data = response.data;
-            for(var i = 0; i < vm.data.length; i++){
-              if(vm.data[i].URL = "allenbros.com") SITE = vm.data[i];
-            }
+            // vm.data = response.data;
+            // for(var i = 0; i < vm.data.length; i++){
+            //   if(vm.data[i].URL = "allenbros.com") SITE = vm.data[i];
+            // }
+            SITE = response.data;
             filterDataToStateClicks();
           })
         }

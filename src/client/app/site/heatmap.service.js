@@ -4,7 +4,7 @@
     .module('quix.site')
     .service('heatmapService', heatmapService)
 
-  function siteService($http, $state, $stateParams) {
+  function heatmapService($http, $state, $stateParams) {
 
 
     this.getSite = function() {

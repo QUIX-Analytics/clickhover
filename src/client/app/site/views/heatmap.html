@@ -1,10 +1,10 @@
 <section ng-controller="Heatmap as heatmap">
   <h2>Heatmap</h2><hr>
 
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <div id="heatmap-container" style="width: 900px; height: 600px; position: relative; overflow: hidden;">
-    <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: fixed; margin-left: -300px; margin-top: -200px;"></iframe>
-    <div id="click-holder" style="width: 900px; height: 600px; background: none; z-index: 1; position: absolute; opacity: 1;"></div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform(0deg); position: relative;">
+  <div id="heatmap-container" style="width: 900px; position: relative; height: 600px; overflow: hidden;">
+    <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: fixed; top: 0; margin-left: -300px; margin-top: -200px;"></iframe>
+    <div id="click-holder" style="width: 900px; height: 600px; position: absolute; background: none; z-index: 1; opacity: 1;"></div>
   </div>
 
   <div style="width: 900px; display: flex; align-items: center;">
@@ -22,3 +22,27 @@
 
 
 </section>
+<!-- <section ng-controller="Heatmap as heatmap">
+  <h2>Heatmap</h2><hr>
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div id="heatmap-container" style="width: 900px; height: 600px; position: relative; overflow: hidden;">
+    <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: absolute; top: 0; margin-left: -300px; margin-top: -200px;"></iframe>
+    <div id="click-holder" style="width: 900px; height: 600px; background: none; z-index: 1; opacity: 1;"></div>
+  </div>
+
+  <div style="width: 900px; display: flex; align-items: center;">
+    <button ng-click="heatmap.heatmapScrollUp(600)">UP 600</button>
+    <button ng-click="heatmap.heatmapScrollUp(300)">UP 300</button>
+    <button ng-click="heatmap.heatmapScrollUp(100)">UP 100</button>
+    <button ng-click="heatmap.heatmapScrollDown(100)">DOWN 100</button>
+    <button ng-click="heatmap.heatmapScrollDown(300)">DOWN 300</button>
+    <button ng-click="heatmap.heatmapScrollDown(600)">DOWN 600</button>
+  </div>
+</div>
+
+        <button type="button" ng-repeat="state in heatmap.clicksByStates" ng-click="heatmap.updateState(state)">{{state.stateName}}</button>
+
+
+
+</section> -->
