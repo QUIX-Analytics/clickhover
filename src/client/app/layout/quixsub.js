@@ -6,8 +6,16 @@
 		.module('quix.layout')
 		.controller('Quixsub', Quixsub);
 
-	function Quixsub() {
+	function Quixsub(dataService) {
 		var vm = this;
+		//Temp SideNav Animation Here
+		vm.sideNav = sideNav;
+
+		/////////////////////////////////////
+
+		function sideNav(){
+			dataService.sideNav();
+		}
 
 
 	}
