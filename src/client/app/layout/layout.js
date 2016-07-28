@@ -12,8 +12,6 @@
 		// when state changes, check to see if user exists in sessions. reroute if false
 		$rootScope.$on('$stateChangeStart', getUser);
 
-
-
 		////////////////////////////////////////////////////////////////////////
 
 		function getUser(e, next) {
@@ -23,13 +21,14 @@
 
 				dataService.getUser()
 					.then(function(user) {
-
-						if(user && allowedStates.indexOf(next.name) > -1) {
-							$state.go('profile');
-						}
-						if(!user && next.name !== 'register') {
-							$state.go('login');
-						}
+						vm.currentUser = user;
+						// Uncomment these if statements when ready to launch	
+						// if(user && allowedStates.indexOf(next.name) > -1) {
+						// 	$state.go('profile');
+						// }
+						// if(!user && next.name !== 'register') {
+						// 	$state.go('login');
+						// }
 
 					});
 
