@@ -5,6 +5,10 @@
 		.factory('dataService', dataService);
 
 	function dataService($http, $q) {
+    function retrieveSession() {
+      return JSON.parse(sessionStorage.getItem('quixUser'));
+    }
+    var currentUser = retrieveSession();
 
 		var service = {
 			getUser: getUser,
@@ -16,8 +20,9 @@
 
 
 		function getUser() {
-      var currentUser = JSON.parse(sessionStorage.getItem('quixUser'));
+      // var currentUser = JSON.parse(sessionStorage.getItem('quixUser'));
 			if(!currentUser) {
+        console.log('RETRIEVING USER');
 	      return $http({
 	        method: 'GET',
 	        url: '/auth/me'
