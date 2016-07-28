@@ -26,12 +26,11 @@
 		function getUser() {
       // var currentUser = JSON.parse(sessionStorage.getItem('quixUser'));
 			if(!currentUser) {
-        console.log('RETRIEVING USER');
+        // console.log('RETRIEVING USER');
 	      return $http({
 	        method: 'GET',
 	        url: '/auth/me'
 	      }).then(function success(response) {
-					console.log(response);
 					sessionStorage.setItem('quixUser', JSON.stringify(response.data));
 					return response.data;
 	    	});

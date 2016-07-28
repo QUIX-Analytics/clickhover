@@ -7,7 +7,7 @@
 		.controller('Quixtop', Quixtop
 );
 
-	function Quixtop($scope, $rootScope, dataService, userService ) {
+	function Quixtop($scope, $state, $rootScope, dataService, userService ) {
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
@@ -27,7 +27,10 @@
 		}
 
 		function logout(){
-			userService.logout();
+			userService.logout()
+				.then(function(response) {
+					$state.go('login');
+				});
 		}
 
 		function dropMenu(){
