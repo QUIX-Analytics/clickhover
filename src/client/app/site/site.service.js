@@ -18,6 +18,7 @@
     }
 
     this.addSite = function(site) {
+
       return $http({
         method: 'POST',
         url: '/api/site',

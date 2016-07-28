@@ -28,6 +28,7 @@
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {
+					// console.log(vm.user._id)
 					vm.mySite = response.data._id;
 					console.log(vm.mySite);
 				})
