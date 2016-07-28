@@ -39,27 +39,28 @@ module.exports = {
     console.log('API add click to site of id', req.params.id);
     Site.findById(req.params.id, function(err, site){
       if(err) res.status(500).send(err);
-      console.log(site);
-      var sessionToUpdate = {};
-      var sessionExists = false;
-      if(req.body.sessionId){
-        console.log('1');
-        var sessionToUpdate = site.sessions.id(req.body.sessionId)
-        sessionToUpdate.clicks.push(req.body.click);
-        site.markModified('sessions');
-          site.save(function(err, s){
-            if (err) res.status(500).send(err);
-            res.status(200).send(s);
-          })
+      if(!site) {
+        res.status(400).send('No site exists with this qxid');
       } else {
-        console.log('2');
-          var newSession = req.body;
-          site.sessions.push(newSession);
+        var sessionToUpdate = {};
+        var sessionExists = false;
+        if(req.body.sessionId && site){
+          var sessionToUpdate = site.sessions.id(req.body.sessionId)
+          sessionToUpdate.clicks.push(req.body.click);
           site.markModified('sessions');
           site.save(function(err, s){
             if (err) res.status(500).send(err);
             res.status(200).send(s);
           })
+        } else {
+          var newSession = req.body;
+          site.sessions.push(newSession);
+          site.markModified('sessions');
+          site.save(function(err, s){
+          if (err) res.status(500).send(err);
+            res.status(200).send(s);
+          })
+        }
       }
     })
   }
