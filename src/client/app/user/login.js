@@ -8,7 +8,12 @@
 		var vm = this;
 
 		vm.login = function(user) {
-			userService.login(user);
+			userService.login(user)
+				.then(function(user) {
+					if(user.data === 'Unauthorized') {
+						vm.wrongCredentials = true;
+					}
+				});
 		};
 
 	}

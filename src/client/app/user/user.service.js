@@ -24,8 +24,7 @@
         data: user
       }).then(function(response) {
 				if(response.data === 'Unauthorized') {
-					console.log(response);
-					// Notify the user that they entered the wrong credentials
+					return response;
 				} else {
 					$state.go('profile');
 				}
