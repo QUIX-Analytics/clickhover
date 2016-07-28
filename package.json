@@ -13,6 +13,7 @@
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "gulp-watch": "^4.3.9",
+    "iframe-resizer": "^3.5.5",
     "mongoose": "^4.5.7",
     "mongoose-shortid-nodeps": "^0.6.5",
     "mongoose-timestamp": "^0.6.0",
