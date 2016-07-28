@@ -6,20 +6,10 @@
 		.module('quix.layout')
 		.controller('Quixnav', Quixnav);
 
-	function Quixnav($scope, $rootScope, dataService) {
+	function Quixnav() {
 		var vm = this;
 
-		$rootScope.$on('$stateChangeSuccess', getSites);
-
-		////////////////////////////////////////////////////////////////////////
-
-		function getSites() {
-			dataService.getUser()
-				.then(function(user) {
-					vm.sites = user.sites;
-				});
-		}
-
+		
 	}
 
 })();

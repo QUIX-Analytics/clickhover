@@ -10,7 +10,6 @@ var sessionSchema = new Schema({
   vw: { type: Number },
   platform: { type: String },
   entryState: { type: String },
-  qu: { type: String }, //Persistent user ID that tracks a user across multiple sessions
   clicks: { type: Array }
 });
 

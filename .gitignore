@@ -5,5 +5,3 @@ config.js
 bundle.js
 dist
 npm-debug.log
-*.eot
-*.ttf
