@@ -12,7 +12,11 @@ var siteSchema = new Schema({
     len: 7,
     alphabet: '0123456789'
   },
-  URL: { type: String },
+  URL: {
+    type: String,
+    unique: true,
+    index: true,
+    required: true },
   sessions: [session]
 });
 
