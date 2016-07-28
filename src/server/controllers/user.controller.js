@@ -50,7 +50,7 @@ function read(req, res, next) {
 }
 
 function me(req, res, next) {
-	if (!req.user) return res.json(undefined);
+	if (!req.user) return res.json('');
 	User.findById(req.user._id)
 		.populate('sites')
 		.exec(function(err, resp) {

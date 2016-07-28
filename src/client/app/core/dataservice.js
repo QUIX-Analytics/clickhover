@@ -5,23 +5,30 @@
 		.factory('dataService', dataService);
 
 	function dataService($http, $q) {
-    function retrieveSession() {
-      return JSON.parse(sessionStorage.getItem('quixUser'));
-    }
+
     var currentUser = retrieveSession();
 
 		var service = {
 			getUser: getUser,
+			refreshSessionUser: refreshSessionUser,
 			//ANIMATIONS TEMP LIVE HERE
 			dropMenu: dropMenu,
-			sideNav: sideNav,
-			refreshSessionUser: refreshSessionUser
+			sideNav: sideNav
 		};
 
 		return service;
 
-		////////////////////////////////////////////////
 
+
+
+
+		/*---------------------------------*\
+			All function definitions go here
+		\*---------------------------------*/
+
+		function retrieveSession() {
+      return JSON.parse(sessionStorage.getItem('quixUser'));
+    }
 
 		function getUser() {
       // var currentUser = JSON.parse(sessionStorage.getItem('quixUser'));

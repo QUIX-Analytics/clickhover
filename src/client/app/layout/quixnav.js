@@ -16,6 +16,7 @@
 		function getSites() {
 			dataService.getUser()
 				.then(function(user) {
+					console.log(user);
 					vm.sites = user.sites;
 				});
 		}

@@ -58,8 +58,9 @@
         method: 'PUT',
         url: "/auth/" + id,
         data: updatedUser
-      }).then(function(response) {
-        return response;
+      }).then(function(user) {
+				console.log(user);
+        return user.data;
       });
     }
 
