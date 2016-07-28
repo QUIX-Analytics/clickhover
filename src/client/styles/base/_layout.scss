@@ -129,10 +129,11 @@ body {
   }
 	.subnav-button{
 		opacity: .35;
-		width: 13rem;
+		width: 100%;
 		height: $topbar-height;
 		padding-right: 2rem;
 		color: $primary;
+		white-space: nowrap;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
@@ -142,14 +143,15 @@ body {
 			background-color: $dark1;
 		}
 	}
-	.nav-toggle{
+	#nav-toggle{
 		width: 3rem;
 		height: 3rem;
-		// background: $primary;
+		background: $primary;
 		position: absolute;
-		left: ($subnav-width + .5rem);
+		left: 15.5rem;
 		top: ($topbar-height + .5rem);
 		cursor: pointer;
+		transition: left 0.3s ease-in-out 0s;
 	}
 
 }

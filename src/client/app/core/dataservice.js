@@ -60,15 +60,17 @@
 		}
 
 		function sideNav(){
-			var subNav = document.getElementById('quixsub');
-			var uiView = document.getElementById('ui-view');
-			maxW = "15rem";
-			if(subNav.style.width === maxW){
+			var subNav = document.getElementsByTagName("quixsub")[0];
+			var toggleBtn = document.getElementById("nav-toggle");
+			var maxW = "15rem";
+			var maxT = "15.5rem";
+
+			if (subNav.style.width === maxW){
 				subNav.style.width = "0px";
-				uiView.style.marginLeft = "5.5rem";
+				toggleBtn.style.left = ".5rem";
 			} else {
 				subNav.style.width = maxW;
-				uiView.style.marginLeft = "20.5rem";
+				toggleBtn.style.left = maxT;
 			}
 		}
 	}
