@@ -31,12 +31,26 @@ body {
 				height: $topbar-height;
 	  	  width: 15rem;
 				position: absolute;
-				right: 0px;
+				right: 4rem;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				color: $accent;
 				font-size: 2rem;
+				&:hover{
+					cursor: pointer;
+				}
+			}
+			#profile-menu{
+				width: 25rem;
+				height: 0px;
+				position:absolute;
+				z-index: -100;
+				right: 4rem;
+				top: $topbar-height;
+				background: $primary;
+				border-bottom: none;
+				transition: height 0.3s ease-in-out 0s;
 			}
 	}
 
@@ -82,12 +96,12 @@ body {
 	}
 
 }
-		ui-view {
+	ui-view {
 			background-color: $dark1;
 			width: calc(100% - 3.2rem);
 			height: 100%;
 			margin-left: $leftnav-total-width;
-		}
+	}
 
 	quixsub {
   width: $subnav-width;

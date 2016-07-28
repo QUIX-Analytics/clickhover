@@ -11,7 +11,10 @@
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
+		vm.dropMenu = dropMenu;
+
 		///////////////////////////////////////////
+
 
 		function renderQuixtop(event, next) {
 			dataService.getUser()
@@ -22,6 +25,9 @@
 			vm.title = next.name;
 		}
 
+		function dropMenu(){
+			dataService.dropMenu();
+		};
 	}
 
 })();

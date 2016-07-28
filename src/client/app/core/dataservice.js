@@ -7,8 +7,10 @@
 		var currentUser;
 
 		var service = {
-			getUser: getUser
-		}
+			getUser: getUser,
+			//ANIMATIONS TEMP LIVE HERE 
+			dropMenu: dropMenu
+		};
 
 		return service;
 
@@ -29,5 +31,20 @@
 			}
     }
 
+		function dropMenu(){
+			var menu = document.getElementById('profile-menu');
+			maxH = "20rem";
+			if (menu.style.height === maxH) {
+					menu.style.height = "0px";
+					menu.style.border = "none";
+			} else {
+					menu.style.height = maxH;
+					menu.style.borderBottom = "2px solid #E68D35";
+
+			}
+		}
+
 	}
+
+
 })();
