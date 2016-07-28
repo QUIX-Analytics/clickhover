@@ -1,15 +1,11 @@
 <section class="addsite-container">
     <section class="addsite-content">
-        <div class="addsite-steps">Step 1: Add URL</div>
+        <div class="addsite-steps">Add URL</div>
         <div class="add-url-input">
             <input type="text" placeholder="URL" ng-model="site.URL"><br />
             <button type="button" name="button" ng-click="Site.newSite(site)">Add Site</button>
         </div>
-        <!-- <div class="addsite-steps" ng-if="Site.mySite">
-            Step 2: Paste this code</div> -->
         <div class="addsite-paste-script" ng-if="Site.mySite">
-            {{Site.user.sites}}
-
             <a ng-href="/site/{{Site.mySite}}">Site Home</a>
         </div>
     </section>
