@@ -1,14 +1,6 @@
 //########CLICK TRACKER#################
-//   Add the following script tag to your main HTML File( works only on Angular applications using ui-router)
-// 		<script>
-//     	window.qxid = 00000; //Replace with ID provided by Quix.com
-//   		var wa = document.createElement('script');
-//   		wa.type = 'text/javascript';
-//   		wa.async = true;
-//   		wa.src = './grab.js';
-//   		var s = document.getElementsByTagName('script')[0];
-//   		s.parentNode.insertBefore(wa, s);
-//     </script>
+//   COPYRIGHT by decree of the DCA (Debby Copyright Association)
+//	 Special thanks to Foosball, whipped cream, and GPOM
 //######################################
 
 (function(document, window) {
@@ -64,18 +56,6 @@
 				if(typeof target[prop] !== "function" && typeof target[prop] !== "object"){
 					targetWithoutCircular[prop] = target[prop]
 				}
-				// else if ( prop === "firstChild" || prop === "firstElementChild" || prop === "lastChild" || prop === "lastElementChild"
-				// 						|| prop === "nextElementSibling" || prop === "nextSibling" || prop === "offsetParent" || prop == "parentElement"
-				// 						|| prop === "parentNode" || prop === "previousSibling" || prop === "previousElementSibling"){
-				//
-				// 								targetWithoutCircular[prop] = resolveChild(target[prop]);
-				//
-				// 						} else if (prop === "childNodes" || prop === "children") {
-				// 							targetWithoutCircular[prop] = [];
-				// 							for(var i = 0; i < target[prop].length; i++){
-				// 								targetWithoutCircular[prop].push(resolveChild(target[prop][i]));
-				// 							}
-				// 						}
 			}
 			return targetWithoutCircular;
 		}
@@ -204,7 +184,6 @@
 			for(var i = current.indexOf('//') + 2; current[i] != '/' && i > 2; i++) {
 				currentDomain += current.charAt(i);
 			}
-
 			if(referrerDomain != currentDomain || referrerDomain === ''){
 				axios.patch(url + 'site/' + window.qxid, { //Starts empty click session on page load
 					browser: clickHelperFunctions.getBrowserType(),
