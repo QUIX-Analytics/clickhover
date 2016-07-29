@@ -18,11 +18,11 @@
     }
 
     this.deleteSite = function(id) {
+      console.log("site service deleteSite")
       return $http({
         method: 'DELETE',
         url: '/api/site/' + id
       }).then(function(response) {
-        console.log("site service deleteSite")
           return response;
       });
     }
