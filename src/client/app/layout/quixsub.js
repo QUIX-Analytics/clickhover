@@ -14,7 +14,6 @@
 		/////////////////////////////////////
 
 		function sideNav(){
-			console.log("clicked it");
 			dataService.sideNav();
 		}
 
