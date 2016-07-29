@@ -11,7 +11,7 @@
 		vm.getSite = function (id) {
 			siteService.getSite(id).then(function (response) {
 				vm.data = response.data;
-				console.log(vm.data);
+				// console.log(vm.data);
 			})
 		}
 		vm.getSite($stateParams.id);
@@ -44,15 +44,15 @@
 							dataService.refreshSessionUser(user);
 						})
 					vm.mySite = response.data._id;
-					console.log(vm.mySite);
+					// console.log(vm.mySite);
 				})
 		}
 
 		vm.deleteSite = function (id) {
-			console.log("site.js delete site");
+			// console.log("site.js delete site");
 			siteService.deleteSite(id).then(function (response) {
 				vm.data = response.data;
-				console.log(vm.data);
+				// console.log(vm.data);
 			})
 		}
 	}

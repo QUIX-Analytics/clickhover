@@ -7,7 +7,7 @@ var ShortId = require('mongoose-shortid-nodeps');
 
 module.exports = {
 	getSite: function (req, res, next) {
-		console.log('API read Site');
+		// console.log('API read Site');
 		Site.find(req.query)
 			.exec(function (err, site) {
 				if (err) res.status(500).send(err);
@@ -16,7 +16,7 @@ module.exports = {
 	},
 
 	mySite: function (req, res, next) {
-		console.log('GET My Site');
+		// console.log('GET My Site');
 		Site.findById(req.params.id)
 			.exec(function (err, site) {
 				if (err) res.status(500).send(err);
@@ -25,10 +25,10 @@ module.exports = {
 	},
 
 	createSite: function (req, res, next) {
-		console.log('API create Site', req.body);
+		// console.log('API create Site', req.body);
 		var newSite = new Site(req.body);
 		newSite.save(function (err, s) {
-			console.log(s);
+			// console.log(s);
 			if (err) return res.status(500).json(err);
 			User.findByIdAndUpdate(
 				req.user._id, {
@@ -50,20 +50,13 @@ module.exports = {
 		})
 	},
 
-	// function deleteUser(req, res, next) {
-	// 	User.findByIdAndRemove(req.params.id, function(err, user) {
-	// 		if (err) next(err);
-	// 		res.status(200).send(user);
-	// 	});
-	// }
-
 	delete: function (req, res, next) {
-		console.log("site Control delete")
+		// console.log("site Control delete")
 		return Site.findByIdAndRemove(req.params.id, function (err, site) {
 				if (!err) {
 					User.findByIdAndUpdate(req.user._id, {$pull: {"sites": site._id}}, function (err, num) {
-						console.log(req.user._id)
-						console.log("num: " + num)
+						// console.log(req.user._id)
+						console.log(num)
 					})
 					res.status(200).json(site);
 				} else {
@@ -74,7 +67,7 @@ module.exports = {
 	},
 
 	addClick: function (req, res, next) {
-		console.log('API add click to site of id', req.params.id);
+		// console.log('API add click to site of id', req.params.id);
 		Site.findById(req.params.id, function (err, site) {
 			if (err) res.status(500).send(err);
 			if (!site) {
