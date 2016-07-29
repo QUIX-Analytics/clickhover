@@ -46,6 +46,8 @@
 				// console.log(vm.data);
 			})
 		}
+		
 	}
+
 
 })()
