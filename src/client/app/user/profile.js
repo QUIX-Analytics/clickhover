@@ -40,18 +40,13 @@
 			userService.updateUser(updatedUser, currentUser._id)
 				.then(function(user) {
 					dataService.refreshSessionUser(user);
-					if(updateUser.username !== currentUser.username) {
-						vm.usernameSuccess = true;
-						$timeout(function() {
-							vm.usernameSuccess = false;
-						}, 2000)
+					if(updatedUser.username !== currentUser.username) {
+						alert('Successfully updated username');
 					}
-					if(updateUser.email !== currentUser.email) {
-						vm.emailSuccess = true;
-						$timeout(function() {
-							vm.emailSuccess = false;
-						}, 2000)
+					if(updatedUser.email !== currentUser.email) {
+						alert('Successfully updated user email');
 					}
+					$state.go($state.current, {}, {reload: true});
 				});
 
 		}
