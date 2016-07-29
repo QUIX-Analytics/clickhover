@@ -55,6 +55,8 @@
 				console.log(vm.data);
 			})
 		}
+		
 	}
+
 
 })()

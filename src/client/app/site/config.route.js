@@ -44,9 +44,9 @@
                 state: 'dashboard',
                 config: {
                     url: '/site/:id/dashboard',
-                    templateUrl: '/app/site/views/dashboard.html'
-                    // controller: 'Dashboard',
-                    // controllerAs: 'Dashboard'
+                    templateUrl: '/app/site/views/dashboard.html',
+                    controller: 'Dashboard',
+                    controllerAs: 'Dashboard'
                 }
             },
             {
