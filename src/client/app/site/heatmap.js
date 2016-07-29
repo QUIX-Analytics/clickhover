@@ -132,8 +132,8 @@
               clickDot.style.height = "10px";
               clickDot.style.width = "10px";
               clickDot.style.border = "1px solid black";
-              if(vm.clicksByStates[index].clicks[i].time < 5000) clickDot.style.background = "green";
               if(vm.clicksByStates[index].clicks[i].time < 20000) clickDot.style.background = "yellow";
+              if(vm.clicksByStates[index].clicks[i].time < 5000) clickDot.style.background = "green";
               if(vm.clicksByStates[index].clicks[i].time >= 20000) clickDot.style.background = "red";
               clickDot.style.borderRadius = "50%";
               clickDot.style.opacity = "1";
