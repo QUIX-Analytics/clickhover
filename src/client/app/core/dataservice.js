@@ -55,7 +55,7 @@
 
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
-			maxH = "20rem";
+			maxH = "11rem";
 			if (menu.style.height === maxH) {
 					menu.style.height = "0px";
 					menu.style.border = "none";
@@ -69,10 +69,10 @@
 		function sideNav(){
 			var subNav = document.getElementsByTagName("quixsub")[0];
 			var uiView = document.getElementsByTagName("ui-view")[0];
-			var toggleBtn = document.getElementById("nav-toggle");
+			var toggleBtn = document.getElementById("subnav-toggle");
 
 			var maxW = "15rem";
-			var maxT = "15.5rem";
+			var maxT = "15rem";
 
 			if (subNav.style.width === maxW){
 				subNav.style.width = "0px";
