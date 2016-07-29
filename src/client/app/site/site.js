@@ -30,7 +30,7 @@
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {
-					console.log(response.data)
+					// console.log(response.data)
 					vm.getUser()
 						.then(function (user) {
 							dataService.refreshSessionUser(user);
