@@ -1,20 +1,30 @@
 <section>
     <h2>{{Site.data.title}}</h2>
-    <h3>{{Site.data.URL}}</h3>
+    <h3>{{Site.data.URL}}</h3><hr>
 
-    Add the following script tag to your main HTML File<br/>
-    Be sure to paste right before your first < script > tag.<br/>
+    <h4>Tracking Script</h4>
+    <p>
+      Add the following script tag to your main HTML File<br/>
+      Be sure to paste right before your first &lt;script&gt; tag.<br/>
+    </p>
     <code>
-        &lt;script> window.qxid = {{Site.data._id}}<br/>
+        &lt;script&gt; window.qxid = {{Site.data._id}}<br/>
         var wa = document.createElement('script');<br/>
-        wa.type = 'text/javascript';<br/>
+        wa.type = 'text/javascript';
         wa.async = true;<br/>
         wa.src = 'http://107.170.208.27/tracking/source.js';<br/>
         var s = document.getElementsByTagName('script')[0];<br/>
         s.parentNode.insertBefore(wa, s);<br/>
-        &lt;/script>
+        &lt;/script&gt;
     </code>
     <hr>
-    <input type="text" name="name" placeholder="{{Site.data.URL}}" ng-model="Site.data.title">
+    <h4>Settings</h4>
+    Edit Site Title <br>
+    <input type="text" name="name" placeholder="{{Site.data.URL}}" ng-model="Site.data.title"><br>
+    Delete Site <br>
     <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete</button>
+    <div class="">
+      <input ng-model="Site.deleteSiteURL" type="text" placeholder="Enter full URL to delete site"><br>
+      <button ng-click="Site.deleteSite(Site.data._id)">DELETE</button>
+  </div>
 </section>
