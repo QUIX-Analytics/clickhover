@@ -17,8 +17,17 @@
       });
     }
 
-    this.addSite = function(site) {
+    this.deleteSite = function(id) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/site/' + id
+      }).then(function(response) {
+        console.log("site service deleteSite")
+          return response;
+      });
+    }
 
+    this.addSite = function(site) {
       return $http({
         method: 'POST',
         url: '/api/site',
