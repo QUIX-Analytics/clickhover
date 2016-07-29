@@ -28,6 +28,7 @@
 		function logout(){
 			userService.logout()
 				.then(function(response) {
+					dataService.dropMenu();
 					$state.go('login');
 				});
 		}
