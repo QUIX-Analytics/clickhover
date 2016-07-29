@@ -36,9 +36,7 @@
         method: 'GET',
         url: '/auth/logout'
       }).then(function(response) {
-				if(response.data === 'logged out') {
-					sessionStorage.clear();
-				}
+				sessionStorage.clear();
         return response;
       });
     }
@@ -58,8 +56,8 @@
         method: 'PUT',
         url: "/auth/" + id,
         data: updatedUser
-      }).then(function(response) {
-        return response;
+      }).then(function(user) {
+        return user.data;
       });
     }
 
