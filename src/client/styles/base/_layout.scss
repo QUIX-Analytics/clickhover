@@ -31,10 +31,10 @@ body {
 				height: $topbar-height;
 	  	  width: 15rem;
 				position: absolute;
-				right: 4rem;
+				right: 2rem;
 				display: flex;
 				align-items: center;
-				justify-content: center;
+				justify-content: space-around;
 				color: $accent;
 				font-size: 2rem;
 				&:hover{
@@ -42,23 +42,21 @@ body {
 				}
 			}
 			#profile-menu{
-				width: 25rem;
+				width: 15rem;
 				height: 0px;
 				position:absolute;
 				z-index: 0;
-				right: 4rem;
+				right: 2rem;
 				overflow: hidden;
 				top: $topbar-height;
-				background: $primary;
+				background: $dark3;
 				border-bottom: none;
 				transition: height 0.3s ease-in-out 0s;
-				.log-out{
+				.profile-box{
 					width: 100%;
-					height: 4rem;
-					color: white;
-					position: absolute;
-					bottom: 0;
-					border-top: 2px solid $accent;
+					height: 5.5rem;
+					color: $light3;
+					border-bottom: 2px solid $accent;
 					&:hover{
 						cursor: pointer;
 					}
@@ -143,17 +141,19 @@ body {
 			background-color: $dark1;
 		}
 	}
-	#nav-toggle{
-		width: 3rem;
-		height: 3rem;
+	#subnav-toggle{
+		width: 15px;
+		height: 15px;
 		position: absolute;
-		left: 15.5rem;
-		top: ($topbar-height + .5rem);
+		z-index: 1000;
+		left: 15rem;
+		top: ($topbar-height + 1rem);
 		transform: rotate(180deg);
 		cursor: pointer;
 		transition: all 0.5s ease-in-out 0s;
 		img{
 			width: 100%;
+			height: 100%;
 		}
 	}
 
