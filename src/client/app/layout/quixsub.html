@@ -1,13 +1,16 @@
 <nav>
-  <div class="subnav-button" ui-sref="profile">
-    My Info
+  <div class="subnav-button" ui-sref="dashboard({ id: {{Quixsub.id}} })">
+    Dashboard
   </div>
-  <div class="subnav-button" ui-sref="addsite">
-    Track your site
+	<div class="subnav-button" ui-sref="profile">
+    Quixtory
   </div>
-  <div  class="subnav-button">
-    My Info
+	<div class="subnav-button" ui-sref="profile">
+    Heatmap
   </div>
+	<div class="subnav-button settings">
+		Settings
+	</div>
 </nav>
 <div ng-click="Quixsub.sideNav()" id="nav-toggle">
   <img src="../../assets/images/arrow-right3.svg" alt="" />

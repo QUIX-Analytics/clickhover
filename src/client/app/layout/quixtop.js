@@ -15,11 +15,9 @@
 
 		///////////////////////////////////////////
 
-
 		function renderQuixtop(event, next) {
 			dataService.getUser()
 				.then(function(user) {
-					console.log(user);
 					vm.currentUser = user;
 				});
 

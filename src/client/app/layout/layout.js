@@ -8,9 +8,11 @@
 
 	function Layout($scope, $rootScope, $state, dataService) {
 		var vm = this;
+		vm.hide = true;
 
 		// when state changes, check to see if user exists in sessions. reroute if false
 		$rootScope.$on('$stateChangeStart', getUser);
+		$rootScope.$on('$stateChangeStart', hideSubNav);
 
 		////////////////////////////////////////////////////////////////////////
 
@@ -35,6 +37,14 @@
 
 					});
 
+			}
+		}
+
+		function hideSubNav(e, next) {
+			if(next.name === 'profile') {
+				vm.hide = false;
+			} else {
+				vm.hide = true;
 			}
 		}
 
