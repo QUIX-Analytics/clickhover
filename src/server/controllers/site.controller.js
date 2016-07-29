@@ -50,23 +50,26 @@ module.exports = {
 		})
 	},
 
+	// function deleteUser(req, res, next) {
+	// 	User.findByIdAndRemove(req.params.id, function(err, user) {
+	// 		if (err) next(err);
+	// 		res.status(200).send(user);
+	// 	});
+	// }
+
 	delete: function (req, res, next) {
-		console.log("Delete site")
-		return Site.findById(req.params.id, function (err, site) {
-			return site.remove(function (err) {
+		console.log("site Control delete")
+		return Site.findByIdAndRemove(req.params.id, function (err, site) {
 				if (!err) {
-					User.update(req.user._id, {
-							$pull: {
-								"sites": site._id
-							}
-						},
-						function (err, num) {
-							console.log(num);
-						})
+					User.findByIdAndUpdate(req.user._id, {$pull: {"sites": site._id}}, function (err, num) {
+						console.log(req.user._id)
+						console.log("num: " + num)
+					})
+					res.status(200).json(site);
 				} else {
 					console.log(err);
 				};
-			});
+
 		});
 	},
 
