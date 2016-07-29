@@ -13,7 +13,14 @@
 		vm.dropMenu = dropMenu;
 		vm.logout = logout;
 
-		///////////////////////////////////////////
+
+
+
+
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
 
 		function renderQuixtop(event, next) {
 			dataService.getUser()

@@ -14,7 +14,14 @@
 		$rootScope.$on('$stateChangeStart', getUser);
 		$rootScope.$on('$stateChangeStart', hideSubNav);
 
-		////////////////////////////////////////////////////////////////////////
+
+
+
+
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
 
 		function getUser(e, next) {
 			var allowedStates = ['login', 'register', 'landingpage'];
@@ -25,9 +32,9 @@
 					.then(function(user) {
 						vm.currentUser = user;
 
-						/*--------------------------------------------------*\
-						  Uncomment these if statements when ready to launch
-						\*--------------------------------------------------*/
+						/*------------------------------------------------------------------*\
+						  Comment lines 31-36 to disable redirect when user is not logged in
+						\*------------------------------------------------------------------*/
 						if(user && allowedStates.indexOf(next.name) > -1) {
 							$state.go('profile');
 						}
