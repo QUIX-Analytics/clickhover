@@ -17,8 +17,8 @@ var siteSchema = new Schema({
     unique: true,
     index: true,
     required: true },
-  title: {
-      type: String },
+  title: { type: String },
+  owner: { type: String, ref: 'User' },
   sessions: [session]
 });
 
