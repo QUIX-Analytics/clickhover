@@ -17,6 +17,8 @@ var siteSchema = new Schema({
     unique: true,
     index: true,
     required: true },
+  title: {
+      type: String },
   sessions: [session]
 });
 

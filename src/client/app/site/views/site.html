@@ -1,5 +1,7 @@
 <section>
-    <h2>{{Site.data.URL}}</h2>
+    <h2>{{Site.data.title}}</h2>
+    <h3>{{Site.data.URL}}</h3>
+
     Add the following script tag to your main HTML File<br/>
     Be sure to paste right before your first < script > tag.<br/>
     <code>
@@ -13,4 +15,6 @@
         &lt;/script>
     </code>
     <hr>
+    <input type="text" name="name" placeholder="{{Site.data.URL}}" ng-model="Site.data.title">
+    <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete</button>
 </section>
