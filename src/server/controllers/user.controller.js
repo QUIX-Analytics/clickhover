@@ -50,7 +50,7 @@ function read(req, res, next) {
 }
 
 function me(req, res, next) {
-	if (!req.user) return res.json(undefined);
+	if (!req.user) return res.json('');
 	User.findById(req.user._id)
 		.populate('sites')
 		.exec(function(err, resp) {
@@ -61,7 +61,11 @@ function me(req, res, next) {
 function update(req, res, next) {
 	User.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true},function(err, user) {
 		if (err) next(err);
-		res.status(200).send(user);
+		User.findById(req.user._id)
+			.populate('sites')
+			.exec(function(err, resp) {
+				return res.status(200).json(resp.userInfo);
+			});
 	});
 }
 

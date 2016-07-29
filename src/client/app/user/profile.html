@@ -10,7 +10,7 @@
 				<div class="update-profile-input">
 					<input type="text" ng-model="Profile.updatedUser.username">
 					<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
-					<p class="success">Username successfully updated</p>
+					<p class="success" ng-if="Profile.usernameSuccess">Username successfully updated</p>
 				</div>
 				<div ng-if="Profile.alertUsername">
 					<p>{{Profile.alertUsername}}</p>
@@ -24,7 +24,7 @@
 				<div class="update-profile-input">
 					<input type="text" ng-model="Profile.updatedUser.email">
 					<button ng-click="Profile.updateUser(Profile.updatedUser)">Update</button>
-					<p class="success">Email successfully updated</p>
+					<p class="success" ng-if="Profile.emailSuccess">Email successfully updated</p>
 				</div>
 				<div ng-if="Profile.alertEmail">
 					<p class="error">All fields required</p>
