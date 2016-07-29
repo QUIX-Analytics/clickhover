@@ -34,12 +34,18 @@
                 if(SITE.sessions[i].clicks[j].scrollY > vm.maxScrollY) vm.maxScrollY = SITE.sessions[i].clicks[j].scrollY;
                 if(existsAtIndex !== 'false'){
                   states[existsAtIndex].clicks.push(SITE.sessions[i].clicks[j]); //Adds to existing state's click array
+                  states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].browser = SITE.sessions[i].browser;
+                  states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].platform = SITE.sessions[i].platform;
+                  states[existsAtIndex].clicks[states[existsAtIndex].clicks.length - 1].createdAt = SITE.sessions[i].createdAt;
                 } else {
                   states.push({
                     stateName: SITE.sessions[i].clicks[j].currentState, //Creates new state in states array and adds the click to that state
                     clicks: []
                   })
-                  states[states.length - 1].clicks.push(SITE.sessions[i].clicks[j])
+                  states[states.length - 1].clicks.push(SITE.sessions[i].clicks[j]);
+                  states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].browser = SITE.sessions[i].browser;
+                  states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].platform = SITE.sessions[i].platform;
+                  states[states.length - 1].clicks[states[states.length - 1].clicks.length - 1].createdAt = SITE.sessions[i].createdAt;
                 }
               }
             }
@@ -81,6 +87,8 @@
           var heatmapScrollAfter = heatmapContainer.scrollTop;
           var scrollDifference = heatmapScrollBefore - heatmapScrollAfter;
 
+          if(heatmapScrollBefore === heatmapScrollAfter) alert("No clicks registered beyond this point");
+
           iframe.contentWindow.postMessage({direction: 'up', distance: scrollDifference / .6}, '*');
         }
         vm.heatmapScrollDown = function(distance) {
@@ -97,32 +105,54 @@
           iframe.contentWindow.postMessage({direction: 'down', distance: scrollDifference / .6}, '*');
         }
 
-        vm.updateState = function(state){
+        vm.updateHeatmap = function(state, browser, time){
+          state = JSON.parse(state);
           vm.iframeState = state;
-          var iframe = document.getElementById("testframe").src = state.stateName;
+          var iframe = document.getElementById("testframe");
+          iframe.src = state.stateName;
+          var heatmapContainer = document.getElementById("heatmap-container");
+
+          heatmapContainer.scrollTop = 0;
+          iframe.contentWindow.postMessage({direction: 'up', distance: 99999}, '*')
 
           for(var i = 0; i < vm.clicksByStates.length; i++){
-            if(vm.clicksByStates[i].stateName === state.stateName) addClickDivs(i);
+            if(vm.clicksByStates[i].stateName === state.stateName) addClickDivs(i, browser, time);
           }
         }
 
-        function addClickDivs(index){
-          // console.log('YOOOOO');
+        function addClickDivs(index, browser, time){
+          if(browser === 'All') browser = null;
+          if(time === "Forever") time = null;
           var clickHolderElement = document.getElementById('click-holder');
           while(clickHolderElement.firstChild){
             clickHolderElement.removeChild(clickHolderElement.firstChild);
           }
+          var timeParam = 0;
+          if(time==="1 Hour") timeParam = 3600000;
+          if(time==="24 Hours") timeParam = 86400000;
+          if(time==="48 Hours") timeParam = 172800000;
+          if(time==="1 week") timeParam = 604800000;
+          if(time==="1 month") timeParam = 2419200000;
           for(var i = 0; i < vm.clicksByStates[index].clicks.length; i++){
-            var clickDot = document.createElement("DIV");
-            clickDot.style.height = "10px";
-            clickDot.style.width = "10px";
-            clickDot.style.background = "red";
-            clickDot.style.borderRadius = "50%";
-            clickDot.style.opacity = "1";
-            clickDot.style.position = "absolute";
-            clickDot.style.top = (vm.clicksByStates[index].clicks[i].clickY / vm.clicksByStates[index].clicks[i].vh) * 600.4 + vm.clicksByStates[index].clicks[i].scrollY * .6275 - 5 + "px";
-            clickDot.style.left = (vm.clicksByStates[index].clicks[i].clickX / vm.clicksByStates[index].clicks[i].vw) * 900 - 5 + "px";
-            clickHolderElement.appendChild(clickDot);
+            if(!browser || vm.clicksByStates[index].clicks[i].browser === browser){
+              // console.log(Date.parse(vm.clicksByStates[index].clicks[i].createdAt));
+              // console.log(Date.now());
+              if(!time || Date.parse(vm.clicksByStates[index].clicks[i].createdAt) > Date.now() - timeParam){
+                var clickDot = document.createElement("DIV");
+                clickDot.style.height = "10px";
+                clickDot.style.width = "10px";
+                clickDot.style.border = "1px solid black";
+                if(vm.clicksByStates[index].clicks[i].time < 20000) clickDot.style.background = "yellow";
+                if(vm.clicksByStates[index].clicks[i].time < 5000) clickDot.style.background = "green";
+                if(vm.clicksByStates[index].clicks[i].time >= 20000) clickDot.style.background = "red";
+                clickDot.style.borderRadius = "50%";
+                clickDot.style.opacity = "1";
+                clickDot.style.position = "absolute";
+                clickDot.style.top = (vm.clicksByStates[index].clicks[i].clickY / vm.clicksByStates[index].clicks[i].vh) * 600.4 + vm.clicksByStates[index].clicks[i].scrollY * .6275 - 5 + "px";
+                clickDot.style.left = (vm.clicksByStates[index].clicks[i].clickX / vm.clicksByStates[index].clicks[i].vw) * 900 - 5 + "px";
+                clickHolderElement.appendChild(clickDot);
+              }
+            }
           }
         }
       }

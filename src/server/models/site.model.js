@@ -10,7 +10,7 @@ var siteSchema = new Schema({
   _id: {
     type: ShortId,
     len: 7,
-    alphabet: '0123456789'
+    alphabet: '123456789qx'
   },
   URL: {
     type: String,
