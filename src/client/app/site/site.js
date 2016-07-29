@@ -8,35 +8,30 @@
 	function Site($scope, $state, $stateParams, siteService, dataService) {
 
 		var vm = this;
-		vm.getSite = function (id) {
+		getSite($stateParams.id);
+		getUser();
+
+		function getSite(id) {
 			siteService.getSite(id).then(function (response) {
 				vm.data = response.data;
 			})
 		}
-		vm.getSite($stateParams.id);
 
-		vm.getUser = function () {
+		function getUser() {
 			dataService.getUser().then(function (response) {
 				vm.user = response;
 			})
 		}
-		vm.getUser();
 
-
-		// vm.newSite = function (site) {
-		// 	site.URL = site.URL.toLowerCase()
-		// 	siteService.addSite(site)
-		// 		.then(function (response) {
-		// 			// console.log(vm.user._id)
-		// 			vm.mySite = response.data._id;
-		// 			console.log(vm.mySite);
-		// 		})
-		// }
 
 		vm.newSite = function (site) {
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {
+					vm.getUser()
+						.then(function (user) {
+							dataService.refreshSessionUser(user);
+						})
 					vm.mySite = response.data._id;
 				})
 		}
