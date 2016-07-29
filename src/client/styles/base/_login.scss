@@ -3,7 +3,7 @@
   height: $login-height;
   margin: $login-top-margin auto 0;
   .login-logo{
-    width:65%;
+    width:100%;
     height: 10vh;
     display: flex;
     align-items: center;
@@ -13,13 +13,13 @@
     margin: 0 auto $topbar-height;
   }
    input{
-
     width: 100%;
     height: $input-height;
     margin:0 0 2rem 0;
     font-size: 1.15rem;
   }
     button{
+      width: 10rem;
       float: right;
     }
     p{
