@@ -18,7 +18,7 @@
     }
 
     this.deleteSite = function(id) {
-      console.log("site service deleteSite")
+      // console.log("site service deleteSite")
       return $http({
         method: 'DELETE',
         url: '/api/site/' + id
@@ -33,7 +33,6 @@
         url: '/api/site',
         data: site
       }).then(function(response) {
-        // push 'response.data._id' to currentuser.sites[];
         // console.log(response.data._id);
         return response;
       }, function(err) {
