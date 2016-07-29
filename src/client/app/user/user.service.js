@@ -59,7 +59,6 @@
         url: "/auth/" + id,
         data: updatedUser
       }).then(function(user) {
-				console.log(user);
         return user.data;
       });
     }
