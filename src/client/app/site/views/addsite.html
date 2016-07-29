@@ -1,9 +1,9 @@
 <section class="addsite-container">
     <section class="addsite-content">
-        <div class="addsite-steps">Add URL</div>
+        <div class="addsite-steps">Site Info</div>
         <div class="add-url-input">
             <input type="text" placeholder="Title" ng-model="site.title"><br />
-            <input type="text" placeholder="URL" ng-model="site.URL"><br />
+            <input type="text" placeholder="http://www.example.com" ng-model="site.URL"><br />
             <button type="button" name="button" ng-click="Site.newSite(site)">Add Site</button>
         </div>
         <div class="addsite-paste-script" ng-if="Site.mySite">
