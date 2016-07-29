@@ -12,6 +12,8 @@
 				.then(function(user) {
 					if(user.data === 'Unauthorized') {
 						vm.wrongCredentials = true;
+					} else {
+						$state.go('profile');
 					}
 				});
 		};

@@ -23,11 +23,7 @@
         url: '/auth/login',
         data: user
       }).then(function(response) {
-				if(response.data === 'Unauthorized') {
-					return response;
-				} else {
-					$state.go('profile');
-				}
+				return response
       });
     }
 
