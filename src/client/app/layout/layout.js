@@ -48,7 +48,8 @@
 		}
 
 		function hideSubNav(e, next) {
-			if(next.name === 'profile') {
+			var noSubNav = ['profile', 'login', 'register']
+			if(noSubNav.indexOf(next.name) > -1) {
 				vm.hide = false;
 			} else {
 				vm.hide = true;
