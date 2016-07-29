@@ -4,13 +4,13 @@
     .module('quix.site')
     .service('siteService', siteService)
 
-  function siteService($http, $state, $stateParams) {
-  
+  function siteService($http, $q) {
 
-    this.getSite = function() {
+
+    this.getSite = function(id) {
       return $http({
         method: 'GET',
-        url: '/api/site/' + $stateParams.id
+        url: '/api/site/' + id
       }).then(function(response) {
         // console.log(response.data)
           return response;
@@ -18,6 +18,7 @@
     }
 
     this.addSite = function(site) {
+
       return $http({
         method: 'POST',
         url: '/api/site',

@@ -93,6 +93,9 @@ app.get('/api/site', siteCtrl.getSite);
 app.get('/api/site/:id', siteCtrl.mySite);
 app.post('/api/site', siteCtrl.createSite);
 app.patch('/api/site/:id', siteCtrl.addClick);
+app.get('/tracking/source.js', function(req, res, next) {
+  res.sendFile(__dirname + '/tracking/source.js');
+})
 
 
 

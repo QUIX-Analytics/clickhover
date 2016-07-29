@@ -28,9 +28,16 @@ module.exports = {
     console.log('API create Site', req.body);
     var newSite = new Site(req.body);
     newSite.save(function(err,s){
+      console.log(s);
       if(err) return res.status(500).json(err);
-      // User.findByIdandUpdate(req.user._id, newData, {upsert:true}, function(err, response) {
-      //   if(err) return res.status(500).send(err);})
+      User.findByIdAndUpdate(
+              req.user._id,
+              {$push: {"sites": {_id: s._id}}},
+              {safe: true, upsert: true, new : true},
+              function(err, model) {
+                  console.log(err);
+              }
+          );
       return res.json(s);
     })
   },

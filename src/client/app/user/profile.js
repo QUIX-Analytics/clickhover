@@ -20,7 +20,7 @@
 				vm.deleteUser = deleteUser;
 			})
 
-
+		////////////////////////////////////////////////////////////
 
 		function updateUser(updatedUser) {
 			vm.alertUsername = false;
@@ -37,7 +37,10 @@
 				return;
 			}
 
-			userService.updateUser(updatedUser, currentUser._id);
+			userService.updateUser(updatedUser, currentUser._id)
+				.then(function(response) {
+					dataService.refreshSessionUser(response.data);
+				});
 		}
 
 		function deleteUser(email) {

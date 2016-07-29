@@ -1,10 +1,11 @@
 <nav>
 	<div class="btn-container">
-	  <div class="sidenavbutton">
-	    <p>{{}}</p>
+	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref="dashboard({ id: {{site._id}} })">
+	    <p>{{site._id}}</p>
 	  </div>
 	</div>
-	<div class="sidenavbutton">
+	<div class="sidenavbutton" ui-sref="site.add">
 		<p>Add</p>
 	</div>
+
 </nav>

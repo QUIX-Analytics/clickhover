@@ -1,18 +1,16 @@
 <section>
-  <h2>{{Site.data.URL}}</h2>
-  Add the following script tag to your main HTML File<br />
-  <em>Currently only works with AngularJS applications using ui-router</em><br />
-  Be sure to paste right before your first < script > tag.<br />
-  <code>
-  &lt;script>
-  window.qxid = {{Site.mySite}}<br />
-    var wa = document.createElement('script');<br />
-    wa.type = 'text/javascript';<br />
-    wa.async = true;<br />
-    wa.src = './grab.js';<br />
-    var s = document.getElementsByTagName('script')[0];<br />
-    s.parentNode.insertBefore(wa, s);<br />
-   &lt;/script>
-<hr>
-     {{Site.user}}
+    <h2>{{Site.data.URL}}</h2>
+    Add the following script tag to your main HTML File<br/>
+    Be sure to paste right before your first < script > tag.<br/>
+    <code>
+        &lt;script> window.qxid = {{Site.data._id}}<br/>
+        var wa = document.createElement('script');<br/>
+        wa.type = 'text/javascript';<br/>
+        wa.async = true;<br/>
+        wa.src = 'http://107.170.208.27/tracking/source.js';<br/>
+        var s = document.getElementsByTagName('script')[0];<br/>
+        s.parentNode.insertBefore(wa, s);<br/>
+        &lt;/script>
+    </code>
+    <hr>
 </section>
