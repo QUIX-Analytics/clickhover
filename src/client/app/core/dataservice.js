@@ -71,11 +71,13 @@
 				subNav.style.width = "0px";
 				uiView.style.marginLeft = "5.5rem";
 				toggleBtn.style.left = ".5rem";
+        toggleBtn.style.transform = "rotate(0deg)";
+
 			} else {
 				subNav.style.width = maxW;
 				uiView.style.marginLeft = "20.5rem";
 				toggleBtn.style.left = maxT;
-
+        toggleBtn.style.transform = "rotate(180deg)";
 			}
 		}
 	}
