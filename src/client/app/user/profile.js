@@ -38,9 +38,17 @@
 			}
 
 			userService.updateUser(updatedUser, currentUser._id)
-				.then(function(response) {
-					dataService.refreshSessionUser(response.data);
+				.then(function(user) {
+					dataService.refreshSessionUser(user);
+					if(updatedUser.username !== currentUser.username) {
+						alert('Successfully updated username');
+					}
+					if(updatedUser.email !== currentUser.email) {
+						alert('Successfully updated user email');
+					}
+					$state.go($state.current, {}, {reload: true});
 				});
+
 		}
 
 		function deleteUser(email) {
