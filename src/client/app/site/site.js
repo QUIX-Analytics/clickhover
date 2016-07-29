@@ -9,7 +9,7 @@
 
 		var vm = this;
 		getSite($stateParams.id);
-		getUser();
+
 
 		function getSite(id) {
 			siteService.getSite(id).then(function (response) {
@@ -17,14 +17,16 @@
 			})
 		}
 
-		function getUser() {
-			dataService.getUser().then(function (response) {
+		vm.getUser = function () {
+			return dataService.getUser().then(function (response) {
 				vm.user = response;
 			})
 		}
-
+		vm.getUser();
 
 		vm.newSite = function (site) {
+			console.log(site)
+			site.owner = vm.user._id;
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {

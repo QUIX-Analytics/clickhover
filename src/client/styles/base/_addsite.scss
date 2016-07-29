@@ -3,6 +3,12 @@
   height: 100%;
   background: $dark1;
   margin-top: $login-top-margin;
+  input{
+    width:100%;
+    height: 4rem;
+    background-color: $primary;
+    color: $dark1;
+  }
   .addsite-content{
     width: 65%;
     height:100%;
