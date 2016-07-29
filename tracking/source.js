@@ -9,7 +9,12 @@
 
 		var onClick = function(event) {
 
-			console.log(window);
+			var clickX;
+			var clickY;
+			if(event.pageX) clickX = event.pageX;
+			if(event.x) clickX = event.x;
+			if(event.pageY) clickY = event.pageY;
+			if(event.y) clickY = event.y;
 
 			var clickInfo = {
 					sessionId: localStorage.getItem('sessionId'),
@@ -17,8 +22,8 @@
 						currentState: document.baseURI,
 						target: clickHelperFunctions.resolveCircularReference(event.target), //target is a circular reference and cannot be stored normally
 						time: event.timeStamp,
-						clickX: event.x,
-						clickY: event.y,
+						clickX: clickX,
+						clickY: clickY,
 						scrollX: window.scrollX,
 						scrollY: window.scrollY,
 						vh: window.innerHeight,
