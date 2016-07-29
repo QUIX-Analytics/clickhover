@@ -4,10 +4,9 @@
 
 	angular
 		.module('quix.layout')
-		.controller('Quixtop', Quixtop
-);
+		.controller('Quixtop', Quixtop);
 
-	function Quixtop($scope, $state, $rootScope, dataService, userService ) {
+	function Quixtop($scope, $state, $rootScope, dataService, userService) {
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
