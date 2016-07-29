@@ -26,6 +26,7 @@
 
 		vm.newSite = function (site) {
 			console.log(site)
+			site.owner = vm.user._id;
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {
