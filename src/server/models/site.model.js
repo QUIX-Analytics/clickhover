@@ -10,15 +10,15 @@ var siteSchema = new Schema({
   _id: {
     type: ShortId,
     len: 7,
-    alphabet: '0123456789'
+    alphabet: '123456789qx'
   },
   URL: {
     type: String,
     unique: true,
     index: true,
     required: true },
-  title: {
-      type: String },
+  title: { type: String },
+  owner: { type: String, ref: 'User' },
   sessions: [session]
 });
 
