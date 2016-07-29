@@ -36,9 +36,7 @@
         method: 'GET',
         url: '/auth/logout'
       }).then(function(response) {
-				if(response.data === 'logged out') {
-					sessionStorage.clear();
-				}
+				sessionStorage.clear();
         return response;
       });
     }
