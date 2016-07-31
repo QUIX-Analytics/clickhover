@@ -141,11 +141,22 @@ body {
 			cursor: pointer;
 			opacity: 1;
 			background-color: $dark1;
-			border-right: 2px solid $accent;
+			// border-right: 2px solid $accent;
 		}
-		&:active{
-			border-right: 2px solid $accent;
-		}
+	}
+	.subnavActive{
+		width: 90%;
+		height: $topbar-height;
+		color: $medium2;
+		padding-right: 10%;
+		white-space: nowrap;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		cursor: pointer;
+		opacity: 1;
+		background-color: $dark1;
+		border-right: 2px solid $accent;
 	}
 	#subnav-toggle{
 		width: 15px;
