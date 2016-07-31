@@ -6,7 +6,7 @@
 		.module('quix.layout')
 		.controller('Quixtop', Quixtop);
 
-	function Quixtop($scope, $state, $rootScope, dataService, userService) {
+	function Quixtop($scope, $state, $stateParams, $rootScope, siteService, dataService, userService) {
 		var vm = this;
 
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
@@ -28,7 +28,10 @@
 					vm.currentUser = user;
 				});
 
-			vm.title = next.name;
+			siteService.getSite($stateParams.id)
+				.then(function(site) {
+					vm.title = site.data.title;
+				});
 		}
 
 		function logout(){
