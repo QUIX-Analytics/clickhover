@@ -4,7 +4,7 @@
 	    <p>{{ site.title.slice(0, 2) }}</p>
 	  </div>
 	</div>
-	<div class="sidenav-bottom" ui-sref="site.add">
+	<div class="sidenav-bottom" ui-sref="site.add" ng-if="Quixnav.currentUser">
 		<img src="../../assets/images/ios7-plus.svg" alt="" />
 	</div>
 

@@ -9,6 +9,8 @@
 	function Quixnav($scope, $rootScope, dataService) {
 		var vm = this;
 
+		vm.currentUser = false;
+
 		$rootScope.$on('$stateChangeSuccess', getSites);
 
 
@@ -24,6 +26,7 @@
 			dataService.getUser()
 				.then(function(user) {
 					vm.sites = user.sites;
+					vm.currentUser = user;
 				});
 		}
 
