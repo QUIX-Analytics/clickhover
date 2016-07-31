@@ -21,7 +21,6 @@
 		function login(user) {
 			userService.login(user)
 				.then(function(user) {
-					console.log(user)
 					if(user.data === 'Unauthorized') {
 						vm.wrongCredentials = true;
 					} else {
