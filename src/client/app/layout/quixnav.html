@@ -1,11 +1,13 @@
 <nav>
 	<div class="btn-container">
-	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref="site.my({ id: {{site._id}} })">
+	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref-active="sidenavActive" ui-sref="site.my({ id: {{site._id}} })">
 	    <p>{{site._id}}</p>
 	  </div>
 	</div>
-	<div class="sidenav-bottom" ui-sref="site.add">
-		<img src="../../assets/images/ios7-plus.svg" alt="" />
+	<div class="sidenav-bottom" ui-sref-active="sidenavBottomActive" ui-sref="site.add">
+		<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 66.1 66.1"><title>Asset 2</title>
+			<path fill="#9B9B9B" ui-sref="site.add" ui-sref-active="addSite-logo" d="M62,29H37.1V4.1a4.1,4.1,0,0,0-8.2,0V29H4.1a4.1,4.1,0,0,0,0,8.2H29V62a4.1,4.1,0,0,0,8.2,0V37.1H62A4.1,4.1,0,0,0,62,29Z"/>
+		</svg>
 	</div>
 
 </nav>
