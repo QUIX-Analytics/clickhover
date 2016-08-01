@@ -12,6 +12,7 @@
 		$rootScope.$on('$stateChangeSuccess', renderQuixtop);
 		vm.dropMenu = dropMenu;
 		vm.logout = logout;
+		vm.goToProfile = goToProfile;
 
 
 
@@ -42,10 +43,15 @@
 				});
 		}
 
+		function goToProfile() {
+			dataService.dropMenu();
+			$state.go('profile')
+		}
+
 		function dropMenu(){
 			dataService.dropMenu();
 		}
-		
+
 	}
 
 })();
