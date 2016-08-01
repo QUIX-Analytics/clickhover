@@ -22,9 +22,10 @@
 
 
 
-		/*---------------------------------*\
-			All function definitions go here
-		\*---------------------------------*/
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
 
 		function retrieveSession() {
       return JSON.parse(sessionStorage.getItem('quixUser'));

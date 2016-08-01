@@ -30,7 +30,6 @@
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
 				.then(function (response) {
-					// console.log(response.data)
 					vm.getUser()
 						.then(function (user) {
 							dataService.refreshSessionUser(user);
@@ -40,10 +39,8 @@
 		}
 
 		vm.deleteSite = function (id) {
-			// console.log("site.js delete site");
 			siteService.deleteSite(id).then(function (response) {
 				vm.data = response.data;
-				// console.log(vm.data);
 			})
 		}
 		

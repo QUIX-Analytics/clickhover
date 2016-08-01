@@ -2,22 +2,49 @@
 
   angular
     .module('quix.site')
-    .service('siteService', siteService)
+    .factory('siteService', siteService)
 
   function siteService($http, $q, $state, $stateParams) {
 
+		var currentSite,
+				currentSiteId;
 
-    this.getSite = function(id) {
-      return $http({
+		return {
+			getSite: getSite,
+			deleteSite: deleteSite,
+			addSite: addSite,
+			getCurrentSite: getCurrentSite // Should only be used by subnav controller
+		}
+
+
+
+
+
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
+
+    function getSite(id) {
+			if(currentSite && id === currentSiteId) {
+				return $q.when(currentSite)
+			}
+
+			return $http({
         method: 'GET',
         url: '/api/site/' + id
       }).then(function(response) {
-        // console.log(response.data)
-          return response;
-      });
+					currentSite = response;
+					currentSiteId = id;
+          return currentSite;
+      	});
     }
 
-    this.deleteSite = function(id) {
+		function getCurrentSite() {
+			return currentSite;
+		}
+
+    function deleteSite(id) {
       // console.log("site service deleteSite")
       return $http({
         method: 'DELETE',
@@ -27,7 +54,7 @@
       });
     }
 
-    this.addSite = function(site) {
+    function addSite(site) {
       return $http({
         method: 'POST',
         url: '/api/site',
