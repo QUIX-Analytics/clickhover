@@ -49,9 +49,7 @@
     }
 
 		function refreshSessionUser(user) {
-
 			sessionStorage.setItem('quixUser', JSON.stringify(user));
-
 		}
 
 		function dropMenu(){
