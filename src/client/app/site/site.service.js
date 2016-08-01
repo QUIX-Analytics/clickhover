@@ -2,22 +2,45 @@
 
   angular
     .module('quix.site')
-    .service('siteService', siteService)
+    .factory('siteService', siteService)
 
   function siteService($http, $q) {
-		
 
-    this.getSite = function(id) {
-      return $http({
+		var currentSite,
+				currentSiteId;
+
+		return {
+			getSite: getSite,
+			deleteSite: deleteSite,
+			addSite: addSite
+		}
+
+
+
+
+
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
+
+    function getSite(id) {
+			
+			if(currentSite && id === currentSiteId) {
+				return $q.when(currentSite)
+			}
+
+			return $http({
         method: 'GET',
         url: '/api/site/' + id
       }).then(function(response) {
-        // console.log(response.data)
-          return response;
-      });
+					currentSite = response;
+					currentSiteId = id;
+          return currentSite;
+      	});
     }
 
-    this.deleteSite = function(id) {
+    function deleteSite(id) {
       // console.log("site service deleteSite")
       return $http({
         method: 'DELETE',
@@ -27,7 +50,7 @@
       });
     }
 
-    this.addSite = function(site) {
+    function addSite(site) {
       return $http({
         method: 'POST',
         url: '/api/site',
