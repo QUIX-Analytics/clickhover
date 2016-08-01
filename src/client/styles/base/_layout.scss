@@ -89,29 +89,44 @@ body {
 				cursor: pointer;
 				opacity: 1;
 				background-color: $dark1;
+				border-right: 2px solid $accent;
 			}
+		}
+		.sidenavActive{
+		opacity: 1;
+			border-right: 2px solid $accent;
 		}
 		.sidenav-bottom{
 			opacity: .35;
 			width: $nav-width;
 			height: $topbar-height;
-			position: absolute;
-			bottom: 18rem;
-			left: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			position: absolute;
+			bottom: 18rem;
+			left: 0;
 			&:hover{
 				cursor: pointer;
 				opacity: 1;
 				background-color: $dark1;
+				fill: $accent;
+				border-right: 2px solid $accent;
 			}
-			img{
-				width: 80%;
-				height: 80%;
+			 svg{
+				width: 45%;
+				height: 45%;
 				margin: auto;
 			}
-
+			.addSite-logo{
+				fill: $accent;
+			}
+		}
+		.sidenavBottomActive{
+			opacity: 1;
+			background-color: $dark1;
+			fill: $accent;
+			border-right: 2px solid $accent;
 		}
 
 }
@@ -141,11 +156,14 @@ body {
 			cursor: pointer;
 			opacity: 1;
 			background-color: $dark1;
-			border-right: 2px solid $accent;
+			// border-right: 2px solid $accent;
 		}
-		&:active{
-			border-right: 2px solid $accent;
-		}
+	}
+
+	.subnavActive{
+		opacity: 1;
+		background-color: $dark1;
+		border-right: 2px solid $accent;
 	}
 	#subnav-toggle{
 		width: 15px;
