@@ -15,7 +15,14 @@
       deleteUser: deleteUser
 		}
 
-		////////////////////////////////////////////////
+
+
+
+
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
 
 		function login(user) {
       return $http({
@@ -23,12 +30,7 @@
         url: '/auth/login',
         data: user
       }).then(function(response) {
-        return response
-				// if(response.data === 'Unauthorized') {
-				// 	return response;
-				// } else {
-				// 	$state.go('profile');
-				// }
+				return response
       });
     }
 
