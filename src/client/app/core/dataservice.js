@@ -55,7 +55,7 @@
 
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
-			maxH = "100%";
+			maxH = "11rem";
 			if (menu.style.height === maxH) {
 					menu.style.height = "0px";
 					menu.style.border = "none";
