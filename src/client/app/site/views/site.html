@@ -8,22 +8,22 @@
       Be sure to paste right before your first &lt;script&gt; tag.<br/>
     </p>
     <code>
-        &lt;script&gt;
-        if(window.self === window.top){
-     window.qxid = '{{Site.data._id}}';
-     var wa = document.createElement('script');
-     wa.type = 'text/javascript';
-     wa.async = true;
-     wa.src = 'http://107.170.208.27/tracking/source.js';
-     var s = document.getElementsByTagName('script')[0];
-     s.parentNode.insertBefore(wa, s);
-   }
-   window.addEventListener('message', function(e){
-     if(~e.origin.indexOf('http://107.170.208.27')){
-       if(e.data.direction === "up") window.scrollTo(window.scrollX, window.scrollY - e.data.distance);
-       else if (e.data.direction === "down") window.scrollTo(window.scrollX, window.scrollY + e.data.distance);
-     } else { }
-   });
+      &lt;script&gt; if(window.self === window.top){
+            window.qxid = '{{Site.data._id}}';
+            var wa = document.createElement('script');
+            wa.type = 'text/javascript';
+            wa.async = true;
+            wa.src = 'http://107.170.208.27/tracking/source.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wa, s);
+          }
+          window.addEventListener('message', function(e){
+            if(~e.origin.indexOf('http://107.170.208.27')){
+              if(e.data.direction === "up") { window.scrollTo(window.scrollX, window.scrollY - e.data.distance);}
+              else if (e.data.direction === "down") { window.scrollTo(window.scrollX, window.scrollY + e.data.distance);}
+              else { };
+            }
+          });
         &lt;/script&gt;
     </code>
     <hr>
