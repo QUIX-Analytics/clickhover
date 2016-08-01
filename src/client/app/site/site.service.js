@@ -4,7 +4,7 @@
     .module('quix.site')
     .factory('siteService', siteService)
 
-  function siteService($http, $q, $state, $stateParams) {
+  function siteService($http, $q) {
 
 		var currentSite,
 				currentSiteId;
@@ -64,16 +64,6 @@
         return response;
       }, function(err) {
         console.log(err);
-      });
-    }
-
-    this.getSite = function() {
-      return $http({
-        method: 'GET',
-        url: '/api/site/' + $stateParams.id
-      }).then(function(response) {
-        // console.log(response.data)
-          return response;
       });
     }
 
