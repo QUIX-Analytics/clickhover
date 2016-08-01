@@ -41,7 +41,7 @@
                 }
             },
             {
-                state: 'dashboard',
+                state: 'site.my.dashboard',
                 config: {
                     url: '/site/:id/dashboard',
                     templateUrl: '/app/site/views/dashboard.html',
