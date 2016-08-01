@@ -59,10 +59,14 @@
 		}
 
 		function deleteUser(email) {
-			if (currentUser.email !== email) return console.log('wrong email');
-			userService.deleteUser(currentUser._id).then(function(response) {
-				$state.go('register')
-			});
+			if (currentUser.email !== email) {
+				alert('You entered an incorrect email address.');
+			}
+			userService.deleteUser(currentUser._id)
+				.then(function(response) {
+					dataService.dropMenu();
+					$state.go('register')
+				});
 		}
 
 	}
