@@ -6,12 +6,14 @@
 		.module('quix.layout')
 		.controller('Quixnav', Quixnav);
 
-	function Quixnav($scope, $rootScope, dataService) {
+	function Quixnav($scope, $state, $rootScope, dataService, siteService) {
 		var vm = this;
 
 		vm.currentUser = false;
 
 		$rootScope.$on('$stateChangeSuccess', getSites);
+
+		vm.goToSite = goToSite;
 
 
 
@@ -27,6 +29,13 @@
 				.then(function(user) {
 					vm.sites = user.sites;
 					vm.currentUser = user;
+				});
+		}
+
+		function goToSite(id) {
+			siteService.getSite(id)
+				.then(function(site) {
+					$state.go('site.my', { id: id })
 				});
 		}
 
