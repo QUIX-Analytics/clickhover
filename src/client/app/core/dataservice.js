@@ -14,6 +14,8 @@
 
 			//ANIMATIONS TEMP LIVE HERE
 			dropMenu: dropMenu,
+			openMenu: openMenu,
+			closeMenu: closeMenu,
 			addSiteNav: addSiteNav,
 			sideNav: sideNav
 		};
@@ -51,18 +53,30 @@
 		function refreshSessionUser(user) {
 			sessionStorage.setItem('quixUser', JSON.stringify(user));
 		}
-  ///ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
+
+  //ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
 			maxH = "11rem";
 			if (menu.style.height === maxH) {
-					menu.style.height = "0px";
-					menu.style.border = "none";
+					closeMenu();
 			} else {
-					menu.style.height = maxH;
-					menu.style.borderBottom = "2px solid #E68D35";
-
+				openMenu();
 			}
+		}
+
+		function openMenu() {
+			var menu = document.getElementById('profile-menu');
+			maxH = "11rem";
+			menu.style.height = maxH;
+			menu.style.borderBottom = "2px solid #E68D35";
+		}
+
+		function closeMenu() {
+			var menu = document.getElementById('profile-menu');
+			maxH = "11rem";
+			menu.style.height = "0px";
+			menu.style.border = "none";
 		}
 
 		function sideNav(){
