@@ -126,7 +126,6 @@
 			if(clickQueue.length === 1 || clickInfo === 'recurse'){
 				axios.patch(url + 'site/' + window.qxid, clickQueue[0])
 					.then(function(response) {
-						console.log(response);
 						clickQueue.shift();
 						if(clickQueue.length > 0){
 							sendClick('recurse');
@@ -174,7 +173,6 @@
 				qu: localStorage.getItem('qu')
 			})
 				.then(function(response) {
-					console.log(response);
 					localStorage.setItem('sessionId', response.data.sessions[response.data.sessions.length - 1]._id);
 				});
 		} else {
@@ -197,7 +195,6 @@
 					qu: localStorage.getItem('qu')
 				})
 					.then(function(response) {
-						console.log(response);
 						localStorage.setItem('sessionId', response.data.sessions[response.data.sessions.length - 1]._id);
 					});
 
