@@ -27,6 +27,7 @@
 	        var graph = [];
 	        for (var i = 0; i < sessions.length; i++) {
 	          var date = Date.parse(sessions[i].createdAt);
+            date = new Date(date);
 	          var totalTime = Date.now() - 1000 * 60 * 60 * 24 * time;
 	          if(date >= totalTime) {
 	            var x = date;
@@ -49,7 +50,7 @@
         bottom: 20,
         left: 50
       },
-      xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(lineData, function(d) {
+      xRange = d3.time.scale().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(lineData, function(d) {
         return d.x;
       }), d3.max(lineData, function(d) {
         return d.x;
