@@ -1,86 +1,153 @@
-.profile-container{
-  width: 65%;
-  height: 100%;
-  margin: 8rem auto 0;
-  button{
-    width: 24%;
-    background-color: $primary;
-    color: $dark1;
-  }
-  input{
-    width: 75%;
-    background-color: $primary;
-    color: $dark1;
-  }
-  .profile-avatar{
+.profile-container {
+	width: 80%;
+	margin: 0 auto;
+
+	.profile-avatar {
     width: 25rem;
     height: 10rem;
-    margin-bottom: 4rem;
-    img{
+    margin-bottom: 8rem;
+    img {
       border-radius: $border-radius;
       height: 10rem;
       width: 10rem;
     }
-    button{
+    button {
       width: 45%;
       margin-top: 6.2rem;
       float: right;
       background-color: $primary;
       color: $dark1;
     }
-  }
-  .update-profile-input{
-    width: 100%;
-    height: 4rem;
-    margin-bottom: 3rem;
-    input{
-      width:85%;
-      height: 100%;
-      margin-bottom: 2rem;
-    }
-    button{
-      float: right;
-      height: 100%;
-      width: 14%;
-    }
-  }
-  .profile-info{
-    width: 100%;
-    height:2.5rem;
-    color: $medium2;
-    margin-bottom: 3rem;
-    border-bottom: .25px solid $medium2;
-  }
-  .change-password input{
-    width: 100%;
-  }
-  .new-password{
-    display:flex;
-    height: 4rem;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    input{
-      height: 100%;
-      width: 42%;
-    }
-    button{
-      float: right;
-      height: 100%;
-      width: 14%;
-    }
-    p{
-      width:100%;
-    }
-  }
-  .error{
-    position:relative;
-    bottom: 1rem;
-    z-index: 5;
-    margin-bottom: 0px;
-    color: $warning;
+	}
 
-  }
-  .success{
-    color: $success;
-  }
+	.update-section {
+		width: 100%;
+		margin-bottom: 8rem;
+		.update-title {
+			width: 100%;
+	    height: 2.5rem;
+	    color: $medium2;
+	    margin-bottom: 3rem;
+	    border-bottom: 0.25px solid $dark2;
+		}
+		.update-profile-input {
+			display: flex;
+			justify-content: space-between;
+		  input {
+		    width: 84%;
+		    background-color: $primary;
+		    color: $dark1;
+		  }
+			button {
+		    width: 15%;
+		    background-color: $primary;
+		    color: $dark1;
+		  }
+		}
+		.success {
+			p {
+				color: $success;
+				margin: 0;
+			}
+		}
+		.error {
+			p {
+				color: $error;
+				margin: 0
+			}
+		}
+	}
+
 }
+
+// .profile-container{
+//   width: 65%;
+//   height: 100%;
+//   margin: 8rem auto 0;
+//   button{
+//     width: 24%;
+//     background-color: $primary;
+//     color: $dark1;
+//   }
+//   input{
+//     width: 75%;
+//     background-color: $primary;
+//     color: $dark1;
+//   }
+//   .profile-avatar{
+//     width: 25rem;
+//     height: 10rem;
+//     margin-bottom: 4rem;
+//     img{
+//       border-radius: $border-radius;
+//       height: 10rem;
+//       width: 10rem;
+//     }
+//     button{
+//       width: 45%;
+//       margin-top: 6.2rem;
+//       float: right;
+//       background-color: $primary;
+//       color: $dark1;
+//     }
+//   }
+//
+// 	.update-section {
+//
+// 	}
+//
+//   .update-profile-input{
+//     width: 100%;
+//     height: 4rem;
+//     margin-bottom: 3rem;
+//     input{
+//       width:85%;
+//       height: 100%;
+//       margin-bottom: 2rem;
+//     }
+//     button{
+//       float: right;
+//       height: 100%;
+//       width: 14%;
+//     }
+//   }
+//   .update-title{
+//     width: 100%;
+//     height:2.5rem;
+//     color: $medium2;
+//     margin-bottom: 3rem;
+//     border-bottom: .25px solid $medium2;
+//   }
+//   .change-password input{
+//     width: 100%;
+//   }
+//   .new-password{
+//     display:flex;
+//     height: 4rem;
+//     justify-content: space-between;
+//     margin-bottom: 2rem;
+//     input{
+//       height: 100%;
+//       width: 42%;
+//     }
+//     button{
+//       float: right;
+//       height: 100%;
+//       width: 14%;
+//     }
+//     p{
+//       width:100%;
+//     }
+//   }
+//   .error{
+//     position:relative;
+//     bottom: 1rem;
+//     z-index: 5;
+//     margin-bottom: 0px;
+//     color: $warning;
+//
+//   }
+//   .success{
+//     color: $success;
+//   }
+// }

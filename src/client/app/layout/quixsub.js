@@ -12,6 +12,7 @@
 		$rootScope.$on('$stateChangeSuccess', getCurrentSite);
 
 		//Temp SideNav Animation Here
+		sideNav();
 		vm.sideNav = sideNav;
 
 

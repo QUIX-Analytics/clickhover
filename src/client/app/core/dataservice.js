@@ -56,10 +56,10 @@
       return user;
 		}
 
-  //ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
+  	//ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
-			maxH = "11rem";
+			maxH = '11rem';
 			if (menu.style.height === maxH) {
 					closeMenu();
 			} else {
@@ -71,7 +71,6 @@
 			var menu = document.getElementById('profile-menu');
 			maxH = "11rem";
 			menu.style.height = maxH;
-			menu.style.borderBottom = "2px solid #E68D35";
 		}
 
 		function closeMenu() {
@@ -82,37 +81,37 @@
 		}
 
 		function sideNav(){
-			var subNav = document.getElementsByTagName("quixsub")[0];
-			var uiView = document.getElementsByTagName("ui-view")[0];
-			var toggleBtn = document.getElementById("subnav-toggle");
-			var arrowBtn = document.getElementById("subnav-arrow");
-			var maxW = "15rem";
-			var maxT = "15rem";
+			var subNav = document.getElementsByTagName('quixsub')[0];
+			var uiView = document.getElementsByTagName('ui-view')[0];
+			var toggleBtn = document.getElementById('subnav-toggle');
+			var arrowBtn = document.getElementById('subnav-arrow');
+			var maxW = '15rem';
+			var maxT = '15rem';
 
 			if (subNav.style.width === maxW){
-				subNav.style.width = "0px";
-				uiView.style.marginLeft = "5.5rem";
-				toggleBtn.style.left = "0rem";
-        arrowBtn.style.transform = "rotate(180deg)";
-
-			} else {
+				subNav.style.width = '0';
+				uiView.style.marginLeft = '5.5rem';
+				toggleBtn.style.left = '0';
+        arrowBtn.style.transform = 'rotate(180deg)';
+			}
+			else {
 				subNav.style.width = maxW;
-				uiView.style.marginLeft = "20.5rem";
+				uiView.style.marginLeft = '20.5rem';
 				toggleBtn.style.left = maxT;
-        arrowBtn.style.transform = "rotate(0deg)";
+        arrowBtn.style.transform = 'rotate(0deg)';
 			}
 		}
 
 		function addSiteNav(){
-			var uiView = document.getElementsByTagName("ui-view")[0];
-			var subNav = document.getElementsByTagName("quixsub")[0];
-			var toggleBtn = document.getElementById("subnav-toggle");
-			var arrowBtn = document.getElementById("subnav-arrow");
-			if (uiView.style.marginLeft === "5.5rem"){
-				uiView.style.marginLeft = "20.5rem";
-				toggleBtn.style.left = "15rem";
-				arrowBtn.style.transform = "rotate(0deg)";
-				subNav.style.width = "15rem";
+			var uiView = document.getElementsByTagName('ui-view')[0];
+			var subNav = document.getElementsByTagName('quixsub')[0];
+			var toggleBtn = document.getElementById('subnav-toggle');
+			var arrowBtn = document.getElementById('subnav-arrow');
+			if (uiView.style.marginLeft === '5.5rem'){
+				uiView.style.marginLeft = '20.5rem';
+				toggleBtn.style.left = '15rem';
+				arrowBtn.style.transform = 'rotate(0deg)';
+				subNav.style.width = '15rem';
 
 			}
 		}
