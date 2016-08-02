@@ -1,4 +1,4 @@
-<section>
+<section class="site-container">
     <h2>{{Site.data.title}}</h2>
     <h3>{{Site.data.URL}}</h3><hr>
 
@@ -7,27 +7,28 @@
       Add the following script tag to your main HTML File<br/>
       Be sure to paste right before your first &lt;script&gt; tag.<br/>
     </p>
-    <code>
-      &lt;script&gt; if(window.self === window.top){
-            window.qxid = '{{Site.data._id}}';
-            var wa = document.createElement('script');
-            wa.type = 'text/javascript';
-            wa.async = true;
-            wa.src = 'http://107.170.208.27/tracking/source.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wa, s);
-          }
-          window.addEventListener('message', function(e){
-            if(~e.origin.indexOf('http://107.170.208.27')){
-              if(e.data.direction === "up") { window.scrollTo(window.scrollX, window.scrollY - e.data.distance);}
-              else if (e.data.direction === "down") { window.scrollTo(window.scrollX, window.scrollY + e.data.distance);}
-              else { };
-            }
-          });
-        &lt;/script&gt;
-    </code>
+    <pre>
+    &lt;script&gt;
+      if(window.self === window.top){
+         window.qxid = '{{Site.data._id}}';
+         var wa = document.createElement('script');
+         wa.type = 'text/javascript';
+         wa.async = true;
+         wa.src = 'http://107.170.208.27/tracking/source.js';
+         var s = document.getElementsByTagName('script')[0];
+         s.parentNode.insertBefore(wa, s);
+       }
+       window.addEventListener('message', function(e){
+         if(~e.origin.indexOf('http://107.170.208.27')){
+           if(e.data.direction === "up") window.scrollTo(window.scrollX, window.scrollY - e.data.distance);
+           else if (e.data.direction === "down") window.scrollTo(window.scrollX, window.scrollY + e.data.distance);
+        } else { }
+     });
+    &lt;/script&gt;
+    </pre>
     <hr>
     <h4>Settings</h4>
+    <hr>
     Edit Site Title <br>
     <input type="text" name="name" placeholder="{{Site.data.URL}}" ng-model="Site.data.title"><br>
     Delete Site <br>
