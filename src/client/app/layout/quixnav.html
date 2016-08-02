@@ -1,10 +1,10 @@
 <nav>
 	<div class="btn-container">
-	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref-active="sidenavActive" ng-click="Quixnav.goToSite(site._id)">
-	    <p>{{ site.title.slice(0, 2) }}</p>
+	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref-active="sidenavActive" ng-click="Quixnav.goToSite(site._id); Quixnav.addSiteNav()">
+			<i class="fa fa-{{site.icon}}"></i>
 	  </div>
 	</div>
-	<div class="sidenav-bottom" ui-sref-active="sidenavBottomActive" ui-sref="site.add" ng-if="Quixnav.currentUser">
+	<div ng-click="Quixnav.addSiteNav()" class="sidenav-bottom" ui-sref-active="sidenavBottomActive" ui-sref="site.add" ng-if="Quixnav.currentUser">
 		<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 66.1 66.1"><title>Asset 2</title>
 			<path fill="#9B9B9B" ui-sref="site.add" ui-sref-active="addSite-logo" d="M62,29H37.1V4.1a4.1,4.1,0,0,0-8.2,0V29H4.1a4.1,4.1,0,0,0,0,8.2H29V62a4.1,4.1,0,0,0,8.2,0V37.1H62A4.1,4.1,0,0,0,62,29Z"/>
 		</svg>
