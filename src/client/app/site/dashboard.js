@@ -8,28 +8,34 @@
   function Dashboard($scope, siteService) {
 
     var vm = this;
-    getSite();
+		var currentSiteId = siteService.getCurrentSiteId();
+    getSite(currentSiteId, 30); // 30 day graph
 
 
-    ////////////////////////////////
 
 
 
-    function getSite() {
-      siteService.getSite().then(function(response) {
-        var sessions = response.data.sessions
-        var thirtyDayGraph = [];
-        for (var i = 0; i < sessions.length; i++) {
-          var date = Date.parse(sessions[i].createdAt);
-          var thirtyDays = Date.now() - 1000 * 60 * 60 * 24 * 30;
-          if(date >= thirtyDays) {
-            var x = date;
-            var y = sessions[i].clicks.length;
-            thirtyDayGraph.push({x: x, y: y});
-          }
-        }
-        lineGraph(thirtyDayGraph);
-      })
+		/*-----------------------------------------------------------------*\
+			All general logic goes above this comment.
+			All detailed logic(function definitions) goes below this comment.
+		\*-----------------------------------------------------------------*/
+
+    function getSite(id, time) { // id(String): site id, time(Number): time in days
+      siteService.getSite(id)
+				.then(function(response) {
+	        var sessions = response.data.sessions;
+	        var graph = [];
+	        for (var i = 0; i < sessions.length; i++) {
+	          var date = Date.parse(sessions[i].createdAt);
+	          var totalTime = Date.now() - 1000 * 60 * 60 * 24 * time;
+	          if(date >= totalTime) {
+	            var x = date;
+	            var y = sessions[i].clicks.length;
+	            graph.push({x: x, y: y});
+	          }
+	        }
+	        lineGraph(graph);
+	      })
     }
 
     function lineGraph(lineData) {
