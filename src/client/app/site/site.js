@@ -40,7 +40,8 @@
 
 		vm.deleteSite = function (id) {
 			siteService.deleteSite(id).then(function (response) {
-				vm.data = response.data;
+				$state.go('profile')
+				// vm.data = response.data;
 			})
 		}
 
