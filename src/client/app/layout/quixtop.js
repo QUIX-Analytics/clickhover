@@ -33,18 +33,18 @@
 				.then(function(site) {
 					vm.title = site.data.title;
 				});
+
+			dataService.closeMenu();
 		}
 
 		function logout(){
 			userService.logout()
 				.then(function(response) {
-					dataService.dropMenu();
 					$state.go('login');
 				});
 		}
 
 		function goToProfile() {
-			dataService.dropMenu();
 			$state.go('profile')
 		}
 
