@@ -1,23 +1,23 @@
-<header>
-  <div>
-      <h3 class="topbar-menu">
-        <img src="../../assets/images/Logosvg-01.svg" alt="QUIX"/>
-      </h3>
-      <h5 class="topbar-menu-title">{{Quixtop.title}}</h5>
-      <div ng-click="Quixtop.dropMenu()" class="topbar-user" ng-if="Quixtop.currentUser">
-        <div ng-if="Quixtop.currentUser">@{{Quixtop.currentUser.username}}</div>
-        <div ng-if="Quixtop.currentUser">&#9662</div>
-      </div>
-      <div id="profile-menu">
-        <div ng-click="Quixtop.goToProfile()" class="profile-box">
-          <img src="../../assets/images/Logosvg-01.svg" alt="QUIX" />
-          Profile
-        </div>
-        <div ng-click="Quixtop.logout()" class="profile-box">
-          <img src="../../assets/images/Logosvg-01.svg" alt="QUIX" />
-          Logout
-        </div>
-      </div>
+<div class="topbar-left">
+	<h3 class="topbar-logo">
+		<img src="../../assets/images/Logosvg-01.svg" alt="QUIX"/>
+	</h3>
+	<h5 class="topbar-menu-title">{{Quixtop.title}}</h5>
+</div>
 
+<div class="topbar-right">
+	<div ng-click="Quixtop.dropMenu()" class="topbar-user" ng-if="Quixtop.currentUser">
+    <div ng-if="Quixtop.currentUser">@{{Quixtop.currentUser.username}}</div>
+    <div ng-if="Quixtop.currentUser">&#9662</div>
+  </div>
+  <div id="profile-menu">
+    <div ng-click="Quixtop.goToProfile()" class="profile-box">
+      <img src="../../assets/images/Logosvg-01.svg" alt="QUIX" />
+      Profile
     </div>
-</header>
+    <div ng-click="Quixtop.logout()" class="profile-box">
+      <img src="../../assets/images/Logosvg-01.svg" alt="QUIX" />
+      Logout
+    </div>
+  </div>
+</div>
