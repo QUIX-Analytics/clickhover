@@ -32,7 +32,7 @@
                 }
             },
             {
-                state: 'site.my',
+                state: 'site.settings',
                 config: {
                     url: '/:id',
                     templateUrl: '/app/site/views/site.html',
@@ -41,27 +41,27 @@
                 }
             },
             {
-                state: 'dashboard',
+                state: 'site.dashboard',
                 config: {
-                    url: '/site/:id/dashboard',
-                    templateUrl: '/app/site/views/dashboard.html'
-                    // controller: 'Dashboard',
-                    // controllerAs: 'Dashboard'
+                    url: '/:id/dashboard',
+                    templateUrl: '/app/site/views/dashboard.html',
+                    controller: 'Dashboard',
+                    controllerAs: 'Dashboard'
                 }
             },
             {
-                state: 'quixtory',
+                state: 'site.quixtory',
                 config: {
-                    url: '/site/:id/quixtory',
+                    url: '/:id/quixtory',
                     templateUrl: '/app/site/views/quixtory.html'
                     // controller: 'Quixtory',
                     // controllerAs: 'Quixtory'
                 }
             },
             {
-                state: 'heatmap',
+                state: 'site.heatmap',
                 config: {
-                    url: '/site/:id/heatmap',
+                    url: '/:id/heatmap',
                     templateUrl: '/app/site/views/heatmap.html',
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
