@@ -13,7 +13,8 @@
 			getSite: getSite,
 			deleteSite: deleteSite,
 			addSite: addSite,
-			getCurrentSite: getCurrentSite // Should only be used by subnav controller
+			getCurrentSite: getCurrentSite, // Should only be used by subnav controller
+			getCurrentSiteId: getCurrentSiteId
 		}
 
 
@@ -26,7 +27,7 @@
 		\*-----------------------------------------------------------------*/
 
     function getSite(id) {
-			if(currentSite && id === currentSiteId) {
+			if(currentSite !== undefined && id === currentSiteId) {
 				return $q.when(currentSite)
 			}
 
@@ -42,6 +43,10 @@
 
 		function getCurrentSite() {
 			return currentSite;
+		}
+
+		function getCurrentSiteId() {
+			return currentSiteId;
 		}
 
     function deleteSite(id) {
