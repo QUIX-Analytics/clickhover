@@ -1,10 +1,7 @@
 <section ng-controller="Site as Site">
+  <h4>QXID: {{Site.data._id}} | {{Site.data.URL}}</h4>
+  <p>{{Site.data.createdAt}} by {{Site.data.owner}}</p>
       <div>
-        <br><br>
-        <h4>QXID: {{Site.data._id}} | {{Site.data.URL}}</h4>
-        <p>
-          {{Site.data.createdAt}} by {{Site.data.owner}}
-        </p>
           <ol>
               <div ng-repeat="session in Site.data.sessions">
                 <div class="sessioninfo">
