@@ -11,11 +11,6 @@
         var SITE = '';
         vm.getSite = function() {
           heatmapService.getSite().then(function(response) {
-            // console.log(response);
-            // vm.data = response.data;
-            // for(var i = 0; i < vm.data.length; i++){
-            //   if(vm.data[i].URL = "allenbros.com") SITE = vm.data[i];
-            // }
             SITE = response.data;
             filterDataToStateClicks();
           })
@@ -50,11 +45,8 @@
               }
             }
           }
-          console.log(states);
           vm.clicksByStates = states;
-          // vm.iframeState = vm.clicksByStates[0];
-          // addClickDivs(0);
-
+          vm.updateHeatmap();
 
 
 
@@ -106,8 +98,12 @@
         }
 
         vm.updateHeatmap = function(state, browser, time){
-          state = JSON.parse(state);
-          vm.iframeState = state;
+          if(!state && vm.clicksByStates[0]){
+            state = vm.clicksByStates[0];
+          } else {
+            state = JSON.parse(state);
+            vm.iframeState = state;
+          }
           var iframe = document.getElementById("testframe");
           iframe.src = state.stateName;
           var heatmapContainer = document.getElementById("heatmap-container");
