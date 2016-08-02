@@ -14,7 +14,7 @@ body {
 		z-index: 100;
 	  background-color: $black;
 		box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 0.6);
-	  	.topbar-menu{
+	  	.topbar-logo{
 	    	height: $topbar-height;
 	  	  width: $nav-width;
 				margin-right: 1rem;
@@ -23,9 +23,8 @@ body {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				color: $accent;
 				img{
-					width: 70%;
+					width: 50%;
 					height: auto;
 				}
 	    }
@@ -37,7 +36,8 @@ body {
 				display: flex;
 				align-items: center;
 				justify-content: flex-start;
-				color: $accent;
+				color: $primary;
+				font-family: $font-title;
 			}
 			.topbar-user{
 				height: $topbar-height;
@@ -47,9 +47,9 @@ body {
 				display: flex;
 				align-items: center;
 				justify-content: space-around;
-				color: $accent;
-				font-size: 1.85rem;
-				border-left: 1px solid $medium1;
+				color: $primary;
+				font-size: 1.5rem;
+				border-left: 0.5px solid $dark3;
 				&:hover{
 					cursor: pointer;
 				}
@@ -70,7 +70,7 @@ body {
 					display: flex;
 					align-items: center;
 					color: $medium2;
-					border-bottom: 1px solid $accent;
+					border-bottom: 0.5px solid $primary;
 					&:hover{
 						cursor: pointer;
 					}
@@ -92,14 +92,13 @@ body {
 	  background-color: $black;
 	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
 		}
-	   .sidenavbutton {
-			 opacity: .65;
+	  .sidenavbutton {
+			opacity: .65;
 	    width: $nav-width;
-	    height: 4rem;
-			padding-top: 1.5rem;
+	    height: $nav-width;
 			display: flex;
 			justify-content: center;
-			align-items: baseline;
+			align-items: center;
 			&:hover{
 				cursor: pointer;
 				opacity: 1;
@@ -108,7 +107,7 @@ body {
 			}
 		}
 		.sidenavActive{
-		opacity: 1;
+			opacity: 1;
 			border-right: 2px solid $accent;
 		}
 		.sidenav-bottom{
