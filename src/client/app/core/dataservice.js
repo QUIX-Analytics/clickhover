@@ -36,6 +36,7 @@
     }
 
 		function getUser() {
+      // currentUser = retrieveSession();
 			if(currentUser) {
 				return $q.when(currentUser);
 			}
@@ -44,7 +45,7 @@
 	        method: 'GET',
 	        url: '/auth/me'
 	      }).then(function success(response) {
-					sessionStorage.setItem('quixUser', JSON.stringify(response.data));
+					currentUser = refreshSessionUser(response.data);
 					return response.data;
 	    	});
 			}
@@ -52,6 +53,7 @@
 
 		function refreshSessionUser(user) {
 			sessionStorage.setItem('quixUser', JSON.stringify(user));
+      return user;
 		}
 
   //ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
