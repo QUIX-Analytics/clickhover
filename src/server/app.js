@@ -92,6 +92,7 @@ var siteCtrl = require('./controllers/site.controller.js');
 app.get('/api/site', siteCtrl.getSite);
 app.get('/api/site/:id', siteCtrl.mySite);
 app.post('/api/site', siteCtrl.createSite);
+app.put('/api/site/:id', siteCtrl.update);
 app.delete('/api/site/:id', siteCtrl.delete);
 app.patch('/api/site/:id', siteCtrl.addClick);
 app.get('/tracking/source.js', function(req, res, next) {
