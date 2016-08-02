@@ -51,7 +51,8 @@
 		function refreshSessionUser(user) {
 			sessionStorage.setItem('quixUser', JSON.stringify(user));
 		}
-  ///ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
+
+  	//ANIMATIONS NEED TO BE MOVED TO THEIR OWN SERVICE/FACTORY
 		function dropMenu(){
 			var menu = document.getElementById('profile-menu');
 			maxH = '11rem';
@@ -74,12 +75,12 @@
 			var maxT = '15rem';
 
 			if (subNav.style.width === maxW){
-				subNav.style.width = '0px';
+				subNav.style.width = '0';
 				uiView.style.marginLeft = '5.5rem';
-				toggleBtn.style.left = '0rem';
+				toggleBtn.style.left = '0';
         arrowBtn.style.transform = 'rotate(180deg)';
-
-			} else {
+			}
+			else {
 				subNav.style.width = maxW;
 				uiView.style.marginLeft = '20.5rem';
 				toggleBtn.style.left = maxT;

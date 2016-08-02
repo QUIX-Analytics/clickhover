@@ -50,22 +50,21 @@ $error : #9E3828;
 $topbar-height: 5.5rem;
 $nav-width: 5.5rem;
 $subnav-width: 15rem;
+$leftnav-total-width: calc($nav-width + $subnav-width);
 
 
 
 
 
-/*------------------------------------*\
-  #ADDSITE
-\*------------------------------------*/
-  $leftnav-total-width: 20.5rem;
 /*------------------------------------*\
   #LOGIN
 \*------------------------------------*/
+
 $login-top-margin: 18rem;
 $login-height: 65vh;
 $login-width: 25%;
 $input-height: 4rem;
+
 
 
 
