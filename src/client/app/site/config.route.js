@@ -66,6 +66,15 @@
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
                 }
+            },
+            {
+                state: 'sunburst',
+                config: {
+                    url: '/site/:id/sunburst',
+                    templateUrl: '/app/site/views/sunburst.html',
+                    controller: 'Sunburst',
+                    controllerAs: 'Sunburst'
+                }
             }
         ];
     }
