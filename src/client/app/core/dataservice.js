@@ -57,12 +57,10 @@
 			var menu = document.getElementById('profile-menu');
 			maxH = '11rem';
 			if (menu.style.height === maxH) {
-					menu.style.height = '0px';
-					menu.style.border = 'none';
+				menu.style.height = '0px';
+				menu.style.border = 'none';
 			} else {
-					menu.style.height = maxH;
-					menu.style.borderBottom = '2px solid #E68D35';
-
+				menu.style.height = maxH;
 			}
 		}
 
