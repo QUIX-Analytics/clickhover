@@ -31,7 +31,7 @@ module.exports = {
 			// console.log(s);
 			if (err) return res.status(500).json(err);
 			User.findByIdAndUpdate(
-				req.user._id, {
+				req.user.id, {
 					$push: {
 						"sites": {
 							_id: s._id
@@ -65,8 +65,10 @@ module.exports = {
 	delete: function (req, res, next) {
 		// console.log("site Control delete")
 		return Site.findByIdAndRemove(req.params.id, function (err, site) {
+			var id = req.params.id
+			console.log(site)
 				if (!err) {
-					User.findByIdAndUpdate(req.user._id, {$pull: {"sites": site._id}}, function (err, num) {
+					User.findByIdAndUpdate(req.user.id, {$pull: {"sites": id}}, function (err, num) {
 						// console.log(req.user._id)
 						console.log(num)
 					})
