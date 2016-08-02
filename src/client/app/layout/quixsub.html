@@ -8,10 +8,11 @@
 	<div class="subnav-button" ui-sref-active="subnavActive" ui-sref="site.heatmap({ id: Quixsub.id })">
     Heatmap
   </div>
-	<div class="subnav-button settings" ui-sref="site.settings({ id: Quixsub.id })">
+
+	<div class="subnav-button settings" ui-sref-active="subnavActive"  ui-sref="site.settings({ id: Quixsub.id })">
 		Settings
 	</div>
 </nav>
 <div ng-click="Quixsub.sideNav()" id="subnav-toggle">
-  <img src="../../assets/images/arrow-right3.svg" alt="" />
+  <img id="subnav-arrow" src="../../assets/images/arrow-right3.svg" alt="" />
 </div>
