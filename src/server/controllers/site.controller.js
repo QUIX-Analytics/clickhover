@@ -53,6 +53,7 @@ module.exports = {
 	delete: function (req, res, next) {
 		// console.log("site Control delete")
 		return Site.findByIdAndRemove(req.params.id, function (err, site) {
+			console.log(site)
 				if (!err) {
 					User.findByIdAndUpdate(req.user._id, {$pull: {"sites": site._id}}, function (err, num) {
 						// console.log(req.user._id)
