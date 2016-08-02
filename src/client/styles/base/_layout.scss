@@ -5,7 +5,17 @@ body {
 	flex-direction: row;
 	background-color: $dark1;
 
-	quixtop{
+	ui-view {
+		background-color: $dark1;
+		width: 100%;
+		height: 100%;
+		margin-top: $topbar-height;
+		margin-left: $nav-width;
+		padding: 5rem;
+		transition: margin-left 0.5s ease-in-out 0s;
+	}
+
+	quixtop {
 	  width: 100vw;
 	  height: $topbar-height;
 	  position: fixed;
@@ -204,16 +214,10 @@ body {
 	}
 }
 
-ui-view {
-	background-color: $dark1;
-	width: 100%;
-	height: 100%;
-	margin-left: $nav-width;
-	transition: margin-left 0.5s ease-in-out 0s;
-}
-.main {
-  background-color: $dark1;
-  width: calc(100% - $nav-width);
-  height: calc(100vh - $topbar-height);
-  margin-left: $leftnav-total-width;
-}
+
+// .main {
+//   background-color: $dark1;
+//   width: calc(100% - $nav-width);
+//   height: calc(100vh - $topbar-height);
+//   margin-left: $leftnav-total-width;
+// }
