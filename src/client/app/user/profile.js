@@ -8,6 +8,7 @@
 
 		var vm = this;
 		var currentUser;
+		vm.alertUsername = ''
 
 		dataService.getUser()
 			.then(function(user) {
@@ -30,14 +31,15 @@
 		\*-----------------------------------------------------------------*/
 
 		function updateUser(updatedUser) {
-			vm.alertUsername = false;
 			if(updatedUser.username.length < 4) {
+				vm.alert = 'error';
 				vm.alertUsername = 'Your username is too short (4 character minimum).';
 				vm.updatedUser.username = currentUser.username;
 				vm.updatedUser.email = currentUser.email;
 				return;
 			}
 			if(updatedUser.username.length > 20) {
+				vm.alert = 'error';
 				vm.alertUsername = 'Your username is too long (20 character maximum).';
 				vm.updatedUser.username = currentUser.username;
 				vm.updatedUser.email = currentUser.email;
@@ -48,7 +50,8 @@
 				.then(function(user) {
 					dataService.refreshSessionUser(user);
 					if(updatedUser.username !== currentUser.username) {
-						alert('Successfully updated username');
+						vm.alert = 'success';
+						vm.alertUsername = 'Successfully updated username';
 					}
 					if(updatedUser.email !== currentUser.email) {
 						alert('Successfully updated user email');
