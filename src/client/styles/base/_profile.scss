@@ -13,16 +13,17 @@
     color: $dark1;
   }
   .profile-avatar{
-    width: 35%;
+    width: 25rem;
     height: 10rem;
     margin-bottom: 4rem;
     img{
       border-radius: $border-radius;
       height: 10rem;
-      width:45%;
+      width: 10rem;
     }
     button{
       width: 45%;
+      margin-top: 6.2rem;
       float: right;
       background-color: $primary;
       color: $dark1;
@@ -48,7 +49,7 @@
     height:2.5rem;
     color: $medium2;
     margin-bottom: 3rem;
-    border-bottom: 1px solid $medium2;
+    border-bottom: .25px solid $medium2;
   }
   .change-password input{
     width: 100%;

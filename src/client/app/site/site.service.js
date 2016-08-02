@@ -13,7 +13,9 @@
 			getSite: getSite,
 			deleteSite: deleteSite,
 			addSite: addSite,
-			getCurrentSite: getCurrentSite // Should only be used by subnav controller
+			getCurrentSite: getCurrentSite, // Should only be used by subnav controller
+			getCurrentSiteId: getCurrentSiteId,
+      updateSite: updateSite
 		}
 
 
@@ -26,7 +28,7 @@
 		\*-----------------------------------------------------------------*/
 
     function getSite(id) {
-			if(currentSite && id === currentSiteId) {
+			if(currentSite !== undefined && id === currentSiteId) {
 				return $q.when(currentSite)
 			}
 
@@ -42,6 +44,10 @@
 
 		function getCurrentSite() {
 			return currentSite;
+		}
+
+		function getCurrentSiteId() {
+			return currentSiteId;
 		}
 
     function deleteSite(id) {
@@ -67,5 +73,18 @@
       });
     }
 
+    function updateSite(updatedSite, id) {
+      return $http({
+        method: 'PUT',
+        url: '/api/site/' + id,
+        data: updatedSite
+      }).then(function(site) {
+        console.log(site.data);
+        return site;
+      }, function(err) {
+        console.log(err);
+      });
+    }
   }
+
 })()
