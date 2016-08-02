@@ -14,6 +14,8 @@
 
 			//ANIMATIONS TEMP LIVE HERE
 			dropMenu: dropMenu,
+			openMenu: openMenu,
+			closeMenu: closeMenu,
 			addSiteNav: addSiteNav,
 			sideNav: sideNav
 		};
@@ -57,11 +59,23 @@
 			var menu = document.getElementById('profile-menu');
 			maxH = '11rem';
 			if (menu.style.height === maxH) {
-				menu.style.height = '0px';
-				menu.style.border = 'none';
+					closeMenu();
 			} else {
-				menu.style.height = maxH;
+				openMenu();
 			}
+		}
+
+		function openMenu() {
+			var menu = document.getElementById('profile-menu');
+			maxH = "11rem";
+			menu.style.height = maxH;
+		}
+
+		function closeMenu() {
+			var menu = document.getElementById('profile-menu');
+			maxH = "11rem";
+			menu.style.height = "0px";
+			menu.style.border = "none";
 		}
 
 		function sideNav(){
