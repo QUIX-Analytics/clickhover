@@ -43,6 +43,8 @@
 				vm.data = response.data;
 			})
 		}
+		
 	}
+
 
 })()

@@ -29,6 +29,10 @@
 		function getSites() {
 			dataService.getUser()
 				.then(function(user) {
+					var icons = ['space-shuttle', 'ship', 'motorcycle', 'fighter-jet', 'rocket', 'bus', 'bicycle', 'subway', 'truck']
+					for (var i = 0; i < user.sites.length; i++) {
+						user.sites[i].icon = icons[i];
+					}
 					vm.sites = user.sites;
 					vm.currentUser = user;
 				});
@@ -37,7 +41,7 @@
 		function goToSite(id) {
 			siteService.getSite(id)
 				.then(function(site) {
-					$state.go('site.my', { id: id });
+					$state.go('site.settings', { id: id });
 				});
 		}
 		function sideNav(){
