@@ -2,7 +2,6 @@
 	<div class="btn-container">
 	  <div class="sidenavbutton" ng-repeat="site in Quixnav.sites" ui-sref-active="sidenavActive" ng-click="Quixnav.goToSite(site._id)">
 			<i class="fa fa-{{site.icon}}"></i>
-			<!-- <p>{{ site.title.slice(0, 2) }}</p> -->
 	  </div>
 	</div>
 	<div class="sidenav-bottom" ui-sref-active="sidenavBottomActive" ui-sref="site.add" ng-if="Quixnav.currentUser">
