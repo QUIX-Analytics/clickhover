@@ -13,8 +13,10 @@
 
 		$rootScope.$on('$stateChangeSuccess', getSites);
 
-		vm.goToSite = goToSite;
+		$rootScope.$on('$stateChangeSuccess', addSiteNav);
+		// $rootScope.$on('$stateChangeSuccess', sideNav);
 
+		vm.goToSite = goToSite;
 
 
 
@@ -35,10 +37,16 @@
 		function goToSite(id) {
 			siteService.getSite(id)
 				.then(function(site) {
-					$state.go('site.my', { id: id })
+					$state.go('site.my', { id: id });
 				});
 		}
+		function sideNav(){
+			dataService.sideNav();
+		}
 
+		function addSiteNav(){
+			dataService.addSiteNav();
+		}
 	}
 
 })();

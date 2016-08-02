@@ -8,7 +8,7 @@
 
 	function Quixsub($stateParams, $rootScope, dataService, siteService) {
 		var vm = this;
-		
+
 		$rootScope.$on('$stateChangeSuccess', getCurrentSite);
 
 		//Temp SideNav Animation Here

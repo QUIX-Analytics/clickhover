@@ -29,7 +29,7 @@ body {
 	    }
 			.topbar-user{
 				height: $topbar-height;
-	  	  width: 15rem;
+	  	  width: 18rem;
 				position: absolute;
 				right: 2rem;
 				display: flex;
@@ -37,6 +37,7 @@ body {
 				justify-content: space-around;
 				color: $accent;
 				font-size: 1.85rem;
+				border-left: 1px solid $medium1;
 				&:hover{
 					cursor: pointer;
 				}
@@ -75,16 +76,18 @@ body {
 	  padding-top: $login-top-margin;
 	  position: fixed;
 		z-index: 50;
+		color: $medium2;
 	  background-color: $black;
 	  box-shadow: 3px 0px 5px hsla(0, 0%, 0%, 0.5);
 		}
 	   .sidenavbutton {
-			 opacity: .35;
+			 opacity: .65;
 	    width: $nav-width;
-	    height: $topbar-height;
+	    height: 4rem;
+			padding-top: 1.5rem;
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: baseline;
 			&:hover{
 				cursor: pointer;
 				opacity: 1;
@@ -166,18 +169,26 @@ body {
 		border-right: 2px solid $accent;
 	}
 	#subnav-toggle{
-		width: 15px;
-		height: 15px;
+		width: 20px;
+		height: 20px;
+		background-color: $subnav-color;
 		position: absolute;
 		z-index: 1000;
 		left: 15rem;
 		top: ($topbar-height + 1rem);
-		transform: rotate(180deg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		cursor: pointer;
 		transition: all 0.5s ease-in-out 0s;
-		img{
-			width: 100%;
-			height: 100%;
+		border-radius: 0 5px 5px 0;
+		border: .5px solid $accent;
+		border-left: none;
+		#subnav-arrow{
+			width: 75%;
+			height: 75%;
+			transform: rotate(180deg);
+			transition: all 0.5s ease-in-out 0s;
 		}
 	}
 
@@ -187,7 +198,7 @@ ui-view {
 		background-color: $dark1;
 		width: 100%;
 		height: 100%;
-		margin-left: $leftnav-total-width;
+		margin-left: $nav-width;
 		transition: margin-left 0.5s ease-in-out 0s;
 }
 .main {
