@@ -28,13 +28,17 @@
     </pre>
     <hr>
     <h4>Settings</h4>
+    <div>
+      Edit Site Title <br>
+      <input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title"><br>
+      <button ng-click="Site.updateSite(updatedSite)">Update</button>
+      <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p>
+    </div>
     <hr>
-    Edit Site Title <br>
-    <input type="text" name="name" placeholder="{{Site.data.URL}}" ng-model="Site.data.title"><br>
     Delete Site <br>
     <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete</button>
-    <div class="">
+    <!-- <div class="">
       <input ng-model="Site.deleteSiteURL" type="text" placeholder="Enter full URL to delete site"><br>
       <button ng-click="Site.deleteSite(Site.data._id)">DELETE</button>
-  </div>
+    </div> -->
 </section>
