@@ -14,7 +14,8 @@
 			deleteSite: deleteSite,
 			addSite: addSite,
 			getCurrentSite: getCurrentSite, // Should only be used by subnav controller
-			getCurrentSiteId: getCurrentSiteId
+			getCurrentSiteId: getCurrentSiteId,
+      updateSite: updateSite
 		}
 
 
@@ -72,5 +73,18 @@
       });
     }
 
+    function updateSite(updatedSite, id) {
+      return $http({
+        method: 'PUT',
+        url: '/api/site/' + id,
+        data: updatedSite
+      }).then(function(site) {
+        console.log(site.data);
+        return site;
+      }, function(err) {
+        console.log(err);
+      });
+    }
   }
+
 })()

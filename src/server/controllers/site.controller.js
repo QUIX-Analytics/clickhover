@@ -50,6 +50,18 @@ module.exports = {
 		})
 	},
 
+	update: function (req, res, next) {
+		console.log("Update Site")
+		console.log(req.body)
+		return Site.findByIdAndUpdate(req.params.id, req.body, function (err, site) {
+				if (!err) {
+					res.status(200).json(site);
+				} else {
+					console.log(err);
+				};
+
+		});
+	},
 	delete: function (req, res, next) {
 		// console.log("site Control delete")
 		return Site.findByIdAndRemove(req.params.id, function (err, site) {
