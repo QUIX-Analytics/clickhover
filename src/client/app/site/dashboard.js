@@ -9,8 +9,7 @@
 
     var vm = this;
 		var currentSiteId = siteService.getCurrentSiteId();
-    graphClicks(currentSiteId, 30); // 30 day graph
-    getSessions(currentSiteId, 30)
+    getSite(currentSiteId, 30); // 30 day graph
 
 
 
@@ -21,7 +20,7 @@
 			All detailed logic(function definitions) goes below this comment.
 		\*-----------------------------------------------------------------*/
 
-    function graphClicks(id, time) { // id(String): site id, time(Number): time in days
+    function getSite(id, time) { // id(String): site id, time(Number): time in days
       siteService.getSite(id)
 				.then(function(response) {
 	        var sessions = response.data.sessions;
@@ -37,27 +36,25 @@
 	          }
 	        }
 	        lineGraphClicks(graph);
-	      })
-    }
 
-    function getSessions(id, time) {
-      var graph = [];
-      for (var i = 0; i < sessions.length; i++) {
-        var a = false;
-        var date = Date.parse(sessions[i].createdAt);
-        date = Math.floor(date / 86400000)
-        for (var j = 0; j < graph.length; j++) {
-          if (graph[j].x === date) {
-            a = true;
-            graph[j].y += 1;
+          var graph = [];
+          for (var i = 0; i < sessions.length; i++) {
+            var a = false;
+            var date = Date.parse(sessions[i].createdAt);
+            date = Math.floor(date / 86400000)
+            for (var j = 0; j < graph.length; j++) {
+              if (graph[j].x === date) {
+                a = true;
+                graph[j].y += 1;
+              }
+            }
+            if (!a){
+              graph.push({x: date, y: 1})
+            }
           }
-        }
-        if (!a){
-          graph.push({x: date, y: 1})
-        }
-      }
-      console.log(graph);
-      lineGraphSessions(graph);
+          console.log(graph);
+          lineGraphSessions(graph);
+	      })
     }
 
     function lineGraphClicks(lineData) {
