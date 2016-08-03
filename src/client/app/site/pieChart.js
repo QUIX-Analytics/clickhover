@@ -8,7 +8,7 @@
         d3.select(el[0]).append('svg')
         var width = 950,
         height = 500,
-        textColor = '#fff',
+        textColor = #fff,
         radius = Math.min(width, height) / 2;
 
         var data = [
