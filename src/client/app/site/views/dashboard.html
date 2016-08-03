@@ -2,7 +2,7 @@
     <table>
         <tr>
             <th>
-                *
+                {{ Dashboard.today }}
             </th>
             <th>
                 24 Hours
@@ -22,16 +22,16 @@
                 Sessions
             </td>
             <td>
-                1
+                1 -
             </td>
             <td>
-                2
+                2 -
             </td>
             <td>
-                7
+                7 -
             </td>
             <td>
-                30
+                30 -
             </td>
         </tr>
         <tr>
@@ -102,8 +102,26 @@
                 30
             </td>
         </tr>
+        <tr>
+            <td>
+                Users
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                7
+            </td>
+            <td>
+                30
+            </td>
+        </tr>
     </table>
 </section>
+
 <svg id="sessions" width="500" height="250"></svg>
 <svg id="visualisation" width="500" height="250"></svg>
-{{Site.today}}
+{{Dashboard.today}}
