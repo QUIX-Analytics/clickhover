@@ -1,6 +1,40 @@
 <section class="heatmap-container" ng-controller="Heatmap as heatmap">
   <h2>Heatmap</h2>
 
+	<div class="filter-container">
+	  <div>
+	    <h5>Page:</h5>
+	    <select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option ng-repeat="state in heatmap.clicksByStates" value="{{state}}">{{state.stateName}}</option>
+	    </select>
+	  </div>
+
+	  <div>
+	    <h5>Browser:</h5>
+	    <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option>All</option>
+	      <option>Chrome</option>
+	      <option>Firefox</option>
+	      <option>Safari</option>
+	      <option>IE</option>
+	      <option>Other...</option>
+	    </select>
+	  </div>
+
+	  <div>
+	    <h5>Time:</h5>
+	    <select name="timeSelect" ng-model="timeSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option>1 Hour</option>
+	      <option>24 Hours</option>
+	      <option>48 Hours</option>
+	      <option>1 week</option>
+	      <option>1 month</option>
+	      <option>Forever</option>
+	    </select>
+	  </div>
+
+	</div>
+
 	<div class="actualheatmap-container">
 
 	  <!-- - - VERY FRAGILE. IF YOU TOUCH THIS CODE, I WILL BEAT YOU WITH A BAT -PUEBLO - - -->
@@ -22,40 +56,5 @@
 	  </div>
 
 	</div>
-
-<div style="display: flex; justify-content: space-around;">
-  <div class="">
-    <h5>Page:</h5>
-    <select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option ng-repeat="state in heatmap.clicksByStates" value="{{state}}">{{state.stateName}}</option>
-    </select>
-  </div>
-
-  <div>
-    <h5>Browser:</h5>
-    <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option>All</option>
-      <option>Chrome</option>
-      <option>Firefox</option>
-      <option>Safari</option>
-      <option>IE</option>
-      <option>Other...</option>
-    </select>
-  </div>
-
-  <div>
-    <h5>Time:</h5>
-    <select name="timeSelect" ng-model="timeSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option>1 Hour</option>
-      <option>24 Hours</option>
-      <option>48 Hours</option>
-      <option>1 week</option>
-      <option>1 month</option>
-      <option>Forever</option>
-    </select>
-  </div>
-
-</div>
-
 
 </section>
