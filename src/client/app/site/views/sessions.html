@@ -1,12 +1,7 @@
 <section ng-controller="Site as Site">
-  <h4>{{Site.data.URL}} | QXID: {{Site.data._id}}</h4>
-  <p>{{Site.data.createdAt | date: 'short'}} by {{Site.data.owner}}</p>
-  Reverse = {{ reverse }}  <button type="button" name="reverse" ng-click="Site.reverse = false">Sort</button>
-  <label>
-    Limit to:
-    <input type="number" step="5" ng-model="Site.numLimit">
- </label>
-
+  <!-- Sort by: {{Site.propertyName}} Reverse = {{ Site.reverse }} -->
+  <h4>Sessions</h4>
+  <label for="limit">Limit to: <input type="number" step="5" ng-model="Site.numLimit"></label>
     <table class="sessions">
       <tr>
         <th>
@@ -27,81 +22,18 @@
         <th>
           <button type="button" name="Updated" ng-click="Site.sortBy('updatedAt')">Updated</button>
         </th>
+        <th>
+          <button type="button" name="Entry" ng-click="Site.sortBy('entryState')">Entrance</button>
+        </th>
       </tr>
-      <tr ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: Site.propertyName : reverse = true">
-        <td>
-          {{session._id}}
-        </td>
-        <td>
-          {{session.qu}}
-        </td>
-        <td>
-          {{session.browser}}
-        </td>
-        <td>
-          {{session.platform}}
-        </td>
-        <td>
-          {{session.createdAt | date: 'medium'}}
-        </td>
-        <td>
-          {{session.updatedAt | date: 'medium'}}
-        </td>
+      <tr ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: Site.propertyName : reverse = Site.reverse ">
+        <td> {{session._id}} </td>
+        <td> {{session.qu}} </td>
+        <td> {{session.browser}} </td>
+        <td> {{session.platform}} </td>
+        <td> {{session.createdAt | date: 'medium'}} </td>
+        <td> {{session.updatedAt | date: 'medium'}} </td>
+        <td> {{session.entryState}} </td>
       </tr>
     </table>
-
-
-      <!-- <div>
-          <ol>
-              <div ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = true">
-                <div class="sessioninfo">
-                  <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-bookmark-o" aria-hidden="true"></i></li>
-                    <li><i class="fa-li fa fa-clock-o" aria-hidden="true"></i> to {{session.updatedAt | date: 'mediumTime'}}</li>
-                    <li><i class="fa-li fa fa-sitemap" aria-hidden="true"></i>{{session.entryState}}</li>
-                    <li><i class="fa-li fa fa-user-secret" aria-hidden="true"></i></li>
-                    <li><i class="fa-li fa fa-" aria-hidden="true"></i><i class="fa fa- fa-fw" aria-hidden="true"></i> {{session.clicks[0].vh}}&nbsp;x&nbsp;{{session.clicks[0].vw}}</li>
-                    <li><i class="fa-li fa fa-mouse-pointer" aria-hidden="true"></i>{{session.clicks.length}}</li>
-                  </ul>
-                </div>
-                <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
-                  <ul>
-                    <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
-                      {{ click.target.tagName }} | {{ click.time/1000 | number: 2 }} s<br>
-                    </li>
-                  </ul>
-                </div>
-                <hr>
-              </div>
-          </ol>
-      </div> -->
-
 </section>
-<!--
-site info
-* _id
-* createdAt
-- updatedAt
-* title
-* URL
-* owner
-- [sessions]
-  * createdAt
-  * updatedAt
-  * browser
-  * platform
-  * entryState
-  * qu (quix user)
-  * _id
-  - [clicks]
-    - path
-    - vw
-    - vh
-    - scrollY
-    - scrollX
-    - clickY
-    - clickX
-    - time
-    - {target}
-    - currentState
-   -->
