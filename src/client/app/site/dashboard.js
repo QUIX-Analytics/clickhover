@@ -11,7 +11,7 @@
 		var currentSiteId = siteService.getCurrentSiteId();
     getSite(currentSiteId, 30); // 30 day graph
 
-
+    vm.today = moment().format('MM / DD');
 
 
 
@@ -172,7 +172,7 @@
           .attr('stroke-width', 2)
           .attr('fill', 'none');
 
-        vm.today = moment().format('MM / DD');
+
 
     }
 
