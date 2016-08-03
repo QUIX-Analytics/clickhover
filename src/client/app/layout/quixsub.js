@@ -25,6 +25,7 @@
 		\*-----------------------------------------------------------------*/
 
 		function getCurrentSite() {
+			sideNav();
 			vm.id = siteService.getCurrentSite().data._id;
 		}
 
