@@ -54,6 +54,20 @@
 
 		}
 
+		// Quixstory
+
+		vm.reverse = true;
+		vm.numLimit = 20;
+
+		vm.propertyName = 'createdAt';
+
+
+		vm.sortBy = function(propertyName) {
+			vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
+			vm.propertyName = propertyName;
+		};
+
+
 	}
 
 
