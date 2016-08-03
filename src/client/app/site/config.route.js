@@ -75,9 +75,9 @@
                 }
             },
             {
-                state: 'behavior',
+                state: 'site.behavior',
                 config: {
-                    url: '/site/:id/behavior',
+                    url: '/:id/behavior',
                     templateUrl: '/app/site/views/behavior.html',
                     controller: 'Behavior',
                     controllerAs: 'Behavior'
