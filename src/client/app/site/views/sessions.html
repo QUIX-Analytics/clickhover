@@ -10,22 +10,25 @@
     <table class="sessions">
       <tr>
         <th>
-          Session ID
+          <button type="button" name="ID" ng-click="Site.sortBy('_id')">Session ID</button>
         </th>
         <th>
-          User ID
+          <button type="button" name="QU" ng-click="Site.sortBy('qu')">User ID</button>
+        </thng-click>
+        <th>
+          <button type="button" name="Browser" ng-click="Site.sortBy('browser')">Browser</button>
         </th>
         <th>
-          Browser
+          <button type="button" name="Platform" ng-click="Site.sortBy('platform')">Platform</button>
         </th>
         <th>
-          Platform
+          <button type="button" name="Created" ng-click="Site.sortBy('createdAt')">Created</button>
         </th>
         <th>
-          Created
+          <button type="button" name="Updated" ng-click="Site.sortBy('updatedAt')">Updated</button>
         </th>
       </tr>
-      <tr ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = true">
+      <tr ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: Site.propertyName : reverse = true">
         <td>
           {{session._id}}
         </td>
@@ -40,6 +43,9 @@
         </td>
         <td>
           {{session.createdAt | date: 'medium'}}
+        </td>
+        <td>
+          {{session.updatedAt | date: 'medium'}}
         </td>
       </tr>
     </table>
