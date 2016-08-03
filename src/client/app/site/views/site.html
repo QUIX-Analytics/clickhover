@@ -1,38 +1,44 @@
 <section class="site-container">
-    <h4>{{Site.data.URL}} tracking script</h4>
-    <p>Add the following script tag to your main HTML File<br/>
-      Be sure to paste right before your first &lt;script&gt; tag.</p>
-    <pre>
-    &lt;script&gt;
-         if(window.self === window.top){
-              window.qxid = '{{Site.data._id}}';
-              var wa = document.createElement('script');
-              wa.type = 'text/javascript';
-              wa.async = true;
-              wa.src = 'http://107.170.208.27/tracking/source.js';
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(wa, s);
+  <h4>{{Site.data.URL}}</h4>
+
+  <div class="edit-title">
+		<p>Edit site title:</p>
+		<div class="title-input">
+			<input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title">
+	    <button ng-click="Site.updateSite(updatedSite)">Update</button><br>
+	    <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p><br>
+		</div>
+  </div>
+
+  <p>
+		Add the following script tag to your main HTML File<br/>
+    Be sure to paste right before your first &lt;script&gt; tag.
+	</p>
+  <pre>
+
+  &lt;script&gt;
+       if(window.self === window.top){
+            window.qxid = '{{Site.data._id}}';
+            var wa = document.createElement('script');
+            wa.type = 'text/javascript';
+            wa.async = true;
+            wa.src = 'http://107.170.208.27/tracking/source.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wa, s);
+          }
+          window.addEventListener('message', function(e){
+            if(~e.origin.indexOf('http://107.170.208.27')){
+              if(e.data.direction === "up") { window.scrollTo(window.scrollX, window.scrollY - e.data.distance);}
+              else if (e.data.direction === "down") { window.scrollTo(window.scrollX, window.scrollY + e.data.distance);}
+              else { };
             }
-            window.addEventListener('message', function(e){
-              if(~e.origin.indexOf('http://107.170.208.27')){
-                if(e.data.direction === "up") { window.scrollTo(window.scrollX, window.scrollY - e.data.distance);}
-                else if (e.data.direction === "down") { window.scrollTo(window.scrollX, window.scrollY + e.data.distance);}
-                else { };
-              }
-            });
-    &lt;/script&gt;
-    </pre>
-    <hr>
-    <h4>Site Settings</h4>
-    <div>
-      Edit Site Title<br>
-      <input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title">
-      <button ng-click="Site.updateSite(updatedSite)">Update</button><br>
-      <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p><br>
-    </div><br>
-    <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete Site</button>
-    <!-- <div class="">
-      <input ng-model="Site.deleteSiteURL" type="text" placeholder="Enter full URL to delete site"><br>
-      <button ng-click="Site.deleteSite(Site.data._id)">DELETE</button>
-    </div> -->
+          });
+  &lt;/script&gt;
+  </pre>
+
+  <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete Site</button>
+  <!-- <div class="">
+    <input ng-model="Site.deleteSiteURL" type="text" placeholder="Enter full URL to delete site"><br>
+    <button ng-click="Site.deleteSite(Site.data._id)">DELETE</button>
+  </div> -->
 </section>
