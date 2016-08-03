@@ -7,7 +7,7 @@
     background-color: #fff;
     width: 960px;
     height: 700px;
-    margin-top: 10px;
+    margin-top: 100px;
   }
   #main {
     float: left;
@@ -41,7 +41,7 @@
     width: 140px;
     text-align: center;
     color: #666;
-    z-index: -1;
+    z-index: 10;
   }
   #percentage {
     font-size: 2.5em;
@@ -103,28 +103,13 @@
           .innerRadius(function(d) { return Math.sqrt(d.y); })
           .outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
 
-      // Use d3.text and d3.csv.parseRows so that we do not need to have a header
-      // row, and can receive the csv as an array of arrays.
-      // d3.text("visit-sequences.csv", function(text) {
-      //   var csv = d3.csv.parseRows(text);
-      //   var json = buildHierarchy(csv);
-      //   createVisualization(json);
-      // });
-      var tempData = {
-        "home-product-product-product-search", 3,
-        "home-product-search-product-search", 6,
-        "home-search-product-product-search", 2,
-        "home-product-product-product-search", 2,
-        "home-product-product-search-search", 4,
-        "home-product-home-product-search", 9,
-        "product-product-home-product-search", 1,
-        "search-product-home-product-search", 4,
-        "product-product-home-product-search", 5,
-        "prodct-product-home-home-search", 6
-      }
-      var json = buildHierarchy(tempData);
-      console.log(json);
-      createVisualization(json);
+      setTimeout(function(){
+        var clickJourneys = window.clickJourneys;
+        console.log(clickJourneys);
+        var json = buildHierarchy(clickJourneys);
+        console.log(json);
+        createVisualization(json);
+      }, 1000)
 
       // Main function to draw and set up the visualization, once we have the data.
       function createVisualization(json) {
@@ -344,7 +329,6 @@
       // root to leaf, separated by hyphens. The second column is a count of how
       // often that sequence occurred.
       function buildHierarchy(csv) {
-        console.log('is this it');
         var root = {"name": "root", "children": []};
         for (var i = 0; i < csv.length; i++) {
           var sequence = csv[i][0];
