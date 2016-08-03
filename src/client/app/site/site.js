@@ -25,7 +25,7 @@
 		vm.getUser();
 
 		vm.newSite = function (site) {
-			console.log(site)
+			// console.log(site)
 			site.owner = vm.user._id;
 			site.URL = site.URL.toLowerCase()
 			siteService.addSite(site)
@@ -34,8 +34,13 @@
 						.then(function (user) {
 							dataService.refreshSessionUser(user);
 						})
-					vm.mySite = response.data._id;
-				})
+					var addSite = response.data._id;
+					var mySite = {
+						id: addSite
+					};
+					$state.go('^.settings', mySite);
+				}
+			)
 		}
 
 		vm.deleteSite = function (id) {
