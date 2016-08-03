@@ -1,8 +1,63 @@
-.site-container{
+.site-container {
   width: 70%;
-  height: 100%;
-  margin: 8rem auto 0;
-  pre{
-    background-color: $white; 
+  margin: 0 auto ;
+	h4 {
+		font-family: $font-title;
+		border-bottom: 0.25px solid $primary;
+		padding-bottom: 1rem;
+		margin-bottom: 4rem;
+	}
+
+	.edit-title {
+		p {
+			margin: 0;
+		}
+		.title-input {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 4rem;
+			input {
+				width: 84%;
+				background-color: $primary;
+				color: $dark1;
+			}
+			button {
+				opacity: 0.35;
+				width: 15%;
+				background-color: $primary;
+				color: $dark1;
+				border: none;
+				padding: 0 2rem;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+  pre {
+		margin: 0;
+		margin-bottom: 4rem;
+    background-color: $dark2;
+		overflow: hidden;
+		padding: 1rem;
+		font-size: 1.2rem;
   }
+
+	button {
+		background-color: transparent;
+		border: 1px solid $error;
+		color: $error;
+		padding: 0 2rem;
+		opacity: 1;
+		&:hover {
+			background-color: $error;
+			border: 1px solid hsla(8, 60%, 39%, 0);
+			color: $dark1;
+		}
+	}
 }
