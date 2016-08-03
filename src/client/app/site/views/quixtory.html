@@ -1,23 +1,29 @@
 <section ng-controller="Site as Site">
   <h4>{{Site.data.URL}} | QXID: {{Site.data._id}}</h4>
   <p>{{Site.data.createdAt | date: 'short'}} by {{Site.data.owner}}</p>
+  Reverse = {{ reverse }}  <button type="button" name="reverse" ng-click="Site.reverse = false">Sort</button>
+  <label>
+    Limit to:
+    <input type="number" step="5" ng-model="Site.numLimit">
+ </label>
+
       <div>
           <ol>
-              <div ng-repeat="session in Site.data.sessions | orderBy: 'updatedAt': reverse = true">
+              <div ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = true">
                 <div class="sessioninfo">
                   <ul class="fa-ul">
                     <li><i class="fa-li fa fa-bookmark-o" aria-hidden="true"></i>{{session._id}}</li>
                     <li><i class="fa-li fa fa-clock-o" aria-hidden="true"></i>{{session.createdAt | date: 'medium'}} to {{session.updatedAt | date: 'mediumTime'}}</li>
                     <li><i class="fa-li fa fa-sitemap" aria-hidden="true"></i>{{session.entryState}}</li>
                     <li><i class="fa-li fa fa-user-secret" aria-hidden="true"></i>{{session.qu}}</li>
-                    <li><i class="fa-li fa fa-{{session.platform}}" aria-hidden="true"></i>{{session.browser}} {{session.clicks[0].vh}}&nbsp;x&nbsp;{{session.clicks[0].vw}}</li>
+                    <li><i class="fa-li fa fa-{{session.browser | lowercase}}" aria-hidden="true"></i><i class="fa fa-{{session.platform}} fa-fw" aria-hidden="true"></i> {{session.clicks[0].vh}}&nbsp;x&nbsp;{{session.clicks[0].vw}}</li>
                     <li><i class="fa-li fa fa-mouse-pointer" aria-hidden="true"></i>{{session.clicks.length}}</li>
                   </ul>
                 </div>
                 <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
                   <ul>
-                    <li ng-repeat="click in session.clicks">
-                    <!-- <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks"> -->
+                    <!-- <li ng-repeat="click in session.clicks"> -->
+                    <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
                       {{ click.target.tagName }} | {{ click.time/1000 | number: 2 }} s<br>
                     </li>
                   </ul>

@@ -54,6 +54,12 @@
 
 		}
 
+		// Quixstory
+
+		vm.reverse = true;
+		vm.numLimit = 20;
+
+
 	}
 
 
