@@ -14,7 +14,7 @@
 		//Temp SideNav Animation Here
 		sideNav();
 		vm.sideNav = sideNav;
-
+		vm.open = true;
 
 
 
@@ -25,12 +25,13 @@
 		\*-----------------------------------------------------------------*/
 
 		function getCurrentSite() {
+			vm.open = true;
 			sideNav();
 			vm.id = siteService.getCurrentSite().data._id;
 		}
 
 		function sideNav(){
-			dataService.sideNav();
+			vm.open = dataService.sideNav(vm.open);
 		}
 
 	}
