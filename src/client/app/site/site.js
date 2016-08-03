@@ -36,9 +36,8 @@
 						})
 					var addSite = response.data._id;
 					var mySite = {
-					id: addSite
+						id: addSite
 					};
-					console.log(mySite);
 					$state.go('^.settings', mySite);
 				}
 			)
