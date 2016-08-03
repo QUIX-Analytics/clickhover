@@ -35,7 +35,9 @@
 							dataService.refreshSessionUser(user);
 						})
 					vm.mySite = response.data._id;
-				})
+					$state.go('site.settings');
+				}
+			)
 		}
 
 		vm.deleteSite = function (id) {

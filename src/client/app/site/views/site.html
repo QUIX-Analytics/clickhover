@@ -1,7 +1,8 @@
 <section class="site-container">
-    <h4>{{Site.data.URL}} tracking script</h4>
+    <h4>{{Site.data.URL}}
+        tracking script</h4>
     <p>Add the following script tag to your main HTML File<br/>
-      Be sure to paste right before your first &lt;script&gt; tag.</p>
+        Be sure to paste right before your first &lt;script&gt; tag.</p>
     <pre>
     &lt;script&gt;
          if(window.self === window.top){
@@ -25,10 +26,10 @@
     <hr>
     <h4>Site Settings</h4>
     <div>
-      Edit Site Title<br>
-      <input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title">
-      <button ng-click="Site.updateSite(updatedSite)">Update</button><br>
-      <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p><br>
+        Edit Site Title<br>
+        <input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title">
+        <button ng-click="Site.updateSite(updatedSite)">Update</button><br>
+        <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p><br>
     </div><br>
     <button type="button" name="button" ng-click="Site.deleteSite(Site.data._id)">Delete Site</button>
     <!-- <div class="">
