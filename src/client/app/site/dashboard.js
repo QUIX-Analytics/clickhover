@@ -30,8 +30,7 @@
 	          var date = Date.parse(sessions[i].createdAt);
             date = new Date(date);
 	          var totalTime = Date.now() - 1000 * 60 * 60 * 24 * time;
-	          if(date >= to
-              talTime) {
+	          if(date >= totalTime) {
 	            var x = date;
 	            var y = sessions[i].clicks.length;
 	            graph.push({x: x, y: y});
