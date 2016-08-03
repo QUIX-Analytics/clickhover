@@ -1,8 +1,47 @@
-.site-container{
+.site-container {
   width: 70%;
-  height: 100%;
-  margin: 8rem auto 0;
-  pre{
-    background-color: $white; 
+  margin: 0 auto ;
+	h4 {
+		font-family: $font-title;
+		border-bottom: 0.25px solid $primary;
+		padding-bottom: 1rem;
+		margin-bottom: 4rem;
+	}
+
+	.edit-title {
+		p {
+			margin: 0;
+		}
+		.title-input {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 4rem;
+			input {
+				width: 84%;
+				background-color: $primary;
+				color: $dark1;
+			}
+			button {
+				width: 15%;
+				background-color: $primary;
+				color: $dark1;
+			}
+		}
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+  pre {
+		margin: 0;
+    background-color: $white;
   }
+
+	button {
+		width: 15%;
+		background-color: $error;
+		color: $dark1;
+		border: none;
+	}
 }
