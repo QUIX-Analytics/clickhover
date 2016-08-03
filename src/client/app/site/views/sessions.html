@@ -1,0 +1,39 @@
+<section ng-controller="Site as Site">
+  <!-- Sort by: {{Site.propertyName}} Reverse = {{ Site.reverse }} -->
+  <h4>Sessions</h4>
+  <label for="limit">Limit to: <input type="number" step="5" ng-model="Site.numLimit"></label>
+    <table class="sessions">
+      <tr>
+        <th>
+          <button type="button" name="ID" ng-click="Site.sortBy('_id')">Session ID</button>
+        </th>
+        <th>
+          <button type="button" name="QU" ng-click="Site.sortBy('qu')">User ID</button>
+        </thng-click>
+        <th>
+          <button type="button" name="Browser" ng-click="Site.sortBy('browser')">Browser</button>
+        </th>
+        <th>
+          <button type="button" name="Platform" ng-click="Site.sortBy('platform')">Platform</button>
+        </th>
+        <th>
+          <button type="button" name="Created" ng-click="Site.sortBy('createdAt')">Created</button>
+        </th>
+        <th>
+          <button type="button" name="Updated" ng-click="Site.sortBy('updatedAt')">Updated</button>
+        </th>
+        <th>
+          <button type="button" name="Entry" ng-click="Site.sortBy('entryState')">Entrance</button>
+        </th>
+      </tr>
+      <tr ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: Site.propertyName : reverse = Site.reverse ">
+        <td> {{session._id}} </td>
+        <td> {{session.qu}} </td>
+        <td> {{session.browser}} </td>
+        <td> {{session.platform}} </td>
+        <td> {{session.createdAt | date: 'medium'}} </td>
+        <td> {{session.updatedAt | date: 'medium'}} </td>
+        <td> {{session.entryState}} </td>
+      </tr>
+    </table>
+</section>

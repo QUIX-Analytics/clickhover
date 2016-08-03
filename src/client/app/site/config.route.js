@@ -66,6 +66,13 @@
                     controller: 'Heatmap',
                     controllerAs: 'Heatmap'
                 }
+            },
+            {
+                state: 'site.sessions',
+                config: {
+                    url: '/:id/sessions',
+                    templateUrl: '/app/site/views/sessions.html'
+                }
             }
         ];
     }
