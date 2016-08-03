@@ -11,6 +11,11 @@
 		var currentSiteId = siteService.getCurrentSiteId();
     getSite(currentSiteId, 30); // 30 day graph
 
+
+    /*-----------------------------------------------------------------*\
+		Moment.JS
+		\*-----------------------------------------------------------------*/
+
     vm.today = moment().format('MM / DD');
 
 
