@@ -68,6 +68,13 @@
                 }
             },
             {
+                state: 'site.sessions',
+                config: {
+                  url: '/:id/sessions',
+                  templateUrl: '/app/site/views/sessions.html'
+                }
+            },
+            {
                 state: 'behavior',
                 config: {
                     url: '/site/:id/behavior',
