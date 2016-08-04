@@ -29,6 +29,7 @@
 		function getSites() {
 			dataService.getUser()
 				.then(function(user) {
+					console.log(user);
 					if(user) {
 						var icons = ['space-shuttle', 'ship', 'motorcycle', 'fighter-jet', 'rocket', 'bus', 'bicycle', 'subway', 'truck']
 						for (var i = 0; i < user.sites.length; i++) {
@@ -41,6 +42,7 @@
 		}
 
 		function goToSite(id) {
+
 			siteService.getSite(id)
 				.then(function(site) {
 					$state.go('site.settings', { id: id });
