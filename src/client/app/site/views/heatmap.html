@@ -1,61 +1,60 @@
-<section ng-controller="Heatmap as heatmap">
-  <h2>Heatmap</h2><hr>
+<section class="heatmap-container" ng-controller="Heatmap as heatmap">
+  <h2>Heatmap</h2>
 
-<div style="display:flex; flex-direction: row; align-items: center; justify-content: center;">
+	<div class="filter-container">
+	  <div>
+	    <h5>Page:</h5>
+	    <select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option ng-repeat="state in heatmap.clicksByStates" value="{{state}}">{{state.stateName}}</option>
+	    </select>
+	  </div>
 
-  <!-- - - VERY FRAGILE. IF YOU TOUCH THIS CODE, I'LL BEAT YOU WITH A BAT - - - -->
-  <div style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform(0deg); position: relative;">
-    <div id="heatmap-container" style="width: 900px; position: relative; height: 600px; overflow: hidden;">
-      <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: fixed; top: 0; margin-left: -300px; margin-top: -200px;"></iframe>
-      <div id="click-holder" style="width: 900px; height: 600px; position: absolute; background: none; z-index: 1; opacity: 1;"></div>
-    </div>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	  <div>
+	    <h5>Browser:</h5>
+	    <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option>All</option>
+	      <option>Chrome</option>
+	      <option>Firefox</option>
+	      <option>Safari</option>
+	      <option>IE</option>
+	      <option>Other...</option>
+	    </select>
+	  </div>
 
-  <div style="width: 80px; display: flex; flex-direction:column; align-items: center;">
-    <button ng-click="heatmap.heatmapScrollUp(600)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-    <button ng-click="heatmap.heatmapScrollUp(300)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
-    <button ng-click="heatmap.heatmapScrollUp(100)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-    <button ng-click="heatmap.heatmapScrollDown(100)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-    <button ng-click="heatmap.heatmapScrollDown(300)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
-    <button ng-click="heatmap.heatmapScrollDown(600)" style="height: 100px; width: 30px; display: flex; flex-direction: column; align-items: center; align-content: center; justify-content: center;"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-  </div>
+	  <div>
+	    <h5>Time:</h5>
+	    <select name="timeSelect" ng-model="timeSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
+	      <option>1 Hour</option>
+	      <option>24 Hours</option>
+	      <option>48 Hours</option>
+	      <option>1 week</option>
+	      <option>1 month</option>
+	      <option>Forever</option>
+	    </select>
+	  </div>
 
-</div>
+	</div>
 
-<div style="display: flex; justify-content: space-around;">
-  <div class="">
-    <h5>Page:</h5>
-    <select name="stateSelect" ng-model="stateSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option ng-repeat="state in heatmap.clicksByStates" value="{{state}}">{{state.stateName}}</option>
-    </select>
-  </div>
+	<div class="actualheatmap-container">
 
-  <div>
-    <h5>Browser:</h5>
-    <select name="browserSelect" ng-model="browserSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option>All</option>
-      <option>Chrome</option>
-      <option>Firefox</option>
-      <option>Safari</option>
-      <option>IE</option>
-      <option>Other...</option>
-    </select>
-  </div>
+	  <!-- - - VERY FRAGILE. IF YOU TOUCH THIS CODE, I WILL BEAT YOU WITH A BAT -PUEBLO - - -->
+	  <div class="actualheatmap" style="-webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform(0deg); position: relative;">
+	    <div id="heatmap-container" style="width: 900px; position: relative; height: 600px; overflow: hidden;">
+	      <iframe id="testframe" sandbox="allow-scripts allow-same-origin" scrolling="no" ng-src="" width="1500px" height="1000px" style="-webkit-transform:scale(.6); -moz-transform:scale(.6); z-index: 0; opacity: 1; position: fixed; top: 0; margin-left: -300px; margin-top: -200px;"></iframe>
+	      <div id="click-holder" style="width: 900px; height: 600px; position: absolute; background: none; z-index: 1; opacity: 1;"></div>
+	    </div>
+	  </div>
+	  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-  <div>
-    <h5>Time:</h5>
-    <select name="timeSelect" ng-model="timeSelected" ng-change="heatmap.updateHeatmap(stateSelected, browserSelected, timeSelected)">
-      <option>1 Hour</option>
-      <option>24 Hours</option>
-      <option>48 Hours</option>
-      <option>1 week</option>
-      <option>1 month</option>
-      <option>Forever</option>
-    </select>
-  </div>
+	  <div class="actualheatmap-scroll">
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollUp(600)"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollUp(300)"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollUp(100)"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollDown(100)"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollDown(300)"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+	    <div class="scroll-btn" ng-click="heatmap.heatmapScrollDown(600)"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+	  </div>
 
-</div>
-
+	</div>
 
 </section>
