@@ -1,11 +1,22 @@
 .site-container {
-  width: 70%;
-  margin: 0 auto ;
-	h4 {
-		font-family: $font-title;
-		border-bottom: 0.25px solid $primary;
-		padding-bottom: 1rem;
+  width: 90%;
+  margin: 0 auto;
+
+	.site-header {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
 		margin-bottom: 4rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid $primary;
+
+		h2 {
+			margin: 0;
+			font-family: $font-title;
+		}
 	}
 
 	.edit-title {

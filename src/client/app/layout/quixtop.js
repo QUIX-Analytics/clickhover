@@ -31,7 +31,7 @@
 
 			siteService.getSite($stateParams.id)
 				.then(function(site) {
-					vm.title = site.data.title;
+					vm.title = site.title;
 				});
 
 			dataService.closeMenu();

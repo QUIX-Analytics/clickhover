@@ -1,10 +1,12 @@
 <section class="site-container">
-  <h4>{{Site.data.URL}}</h4>
+	<div class="site-header">
+		<h2>{{Site.data.URL}}</h2>
+	</div>
 
   <div class="edit-title">
 		<p>Edit site title:</p>
 		<div class="title-input">
-			<input type="text" name="Title" placeholder="{{Site.data.title}}" ng-model="updatedSite.title">
+			<input type="text" name="Title" value="{{Site.data.title}}" ng-model="updatedSite.title">
 	    <button ng-click="Site.updateSite(updatedSite)">Update</button><br>
 	    <p class="success" ng-if="Site.titleSuccess">Title successfully updated</p><br>
 		</div>
