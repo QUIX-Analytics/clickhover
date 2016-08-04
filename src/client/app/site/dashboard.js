@@ -47,14 +47,23 @@
 			}
 		}
 
+		function onlyUnique(value, index, self) {
+			return self.indexOf(value) === index;
+		}
+
 		function siteStats() {
-			console.log("Site Stats")
+			// console.log("Site Stats")
 			siteService.getSite($stateParams.id)
 				.then(function (site) {
 					var sesh = site.data.sessions
 					vm.sessionCount = sesh.length
-					var users =
-						console.log(vm.sessionCount)
+					var users = [];
+					for (var i = 0; i < sesh.length; i++) {
+						users.push(sesh[i].qu);
+					}
+          var uniqueUsers = users.filter(onlyUnique);
+          vm.userCount = uniqueUsers.length
+					// console.log(vm.userCount)
 				})
 		}
 
