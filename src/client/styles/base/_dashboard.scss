@@ -1,13 +1,7 @@
 .pieChart{
-  position: absolute;
-  z-index: 100;
-  left: 50px;
-  color: white;
+  width: 50%;
 
   svg{
-    color: white;
-    text{
-      fill: white;
-    }
+    float: left;
   }
 }
