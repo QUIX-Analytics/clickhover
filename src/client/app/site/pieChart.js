@@ -8,7 +8,7 @@
         d3.select(el[0]).append('svg')
         var width = 950,
         height = 500,
-        textColor = #fff,
+        fill = #fff,
         radius = Math.min(width, height) / 2;
 
         var data = [
@@ -35,7 +35,6 @@
         var svg = d3.select('body').append('svg')
             .attr('height', height)
             .attr('width', width)
-            .attr('color', textColor)
           .append('g')
             .attr('transform', 'translate(' +width/2+ ',' + height/2+')');
 
@@ -50,6 +49,7 @@
 
         g.append('text')
           .text(function(d){ return d.data.age})
+          .style('fill', fill)
           .attr('transform', function(d){
             return 'translate('+labelArc.centroid(d)+')'
       });
