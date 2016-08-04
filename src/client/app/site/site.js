@@ -13,7 +13,7 @@
 
 		function getSite(id) {
 			siteService.getSite(id).then(function (response) {
-				vm.data = response.data;
+				vm.data = response;
 			})
 		}
 
