@@ -19,6 +19,7 @@
 
 
 
+
 		/*-----------------------------------------------------------------*\
 			All general logic goes above this comment.
 			All detailed logic(function definitions) goes below this comment.
@@ -27,7 +28,10 @@
 		function getCurrentSite() {
 			vm.open = true;
 			sideNav();
-			vm.id = siteService.getCurrentSite().data._id;
+			sideNav();
+			if(siteService.getCurrentSite()) {
+				vm.id = siteService.getCurrentSite().data._id;
+			}
 		}
 
 		function sideNav(){

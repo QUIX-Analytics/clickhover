@@ -29,12 +29,14 @@
 		function getSites() {
 			dataService.getUser()
 				.then(function(user) {
-					var icons = ['space-shuttle', 'ship', 'motorcycle', 'fighter-jet', 'rocket', 'bus', 'bicycle', 'subway', 'truck']
-					for (var i = 0; i < user.sites.length; i++) {
-						user.sites[i].icon = icons[i];
+					if(user) {
+						var icons = ['space-shuttle', 'ship', 'motorcycle', 'fighter-jet', 'rocket', 'bus', 'bicycle', 'subway', 'truck']
+						for (var i = 0; i < user.sites.length; i++) {
+							user.sites[i].icon = icons[i];
+						}
+						vm.sites = user.sites;
+						vm.currentUser = user;
 					}
-					vm.sites = user.sites;
-					vm.currentUser = user;
 				});
 		}
 
