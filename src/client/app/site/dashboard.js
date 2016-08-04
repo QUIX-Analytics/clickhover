@@ -53,8 +53,8 @@
 			// console.log("Site Stats")
 			siteService.getSite($stateParams.id)
 				.then(function (site) {
-					var sesh = site.data.sessions
-					var clicks = site.data.sessions.clicks
+					var sesh = site.sessions
+					var clicks = site.sessions.clicks
 					vm.sessionCount = sesh.length
 					var users = [];
 					//  console.log(clicks)
@@ -72,7 +72,7 @@
 		function getSite(time) { // id(String): site id, time(Number): time in days
 			siteService.getSite($stateParams.id)
 				.then(function (response) {
-					var sessions = response.data.sessions;
+					var sessions = response.sessions;
 					var graph = [];
 					for (var i = 0; i < sessions.length; i++) {
 						var date = Date.parse(sessions[i].createdAt);
