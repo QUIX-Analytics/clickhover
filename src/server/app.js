@@ -73,7 +73,7 @@ app.use(passport.session())
   #DATABASE
 \*------------------------------------*/
 
-mongoose.set('debug', true);
+mongoose.set('debug', false);
 mongoose.connect(config.mongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('QUIX database now connected!')
