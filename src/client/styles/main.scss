@@ -6,15 +6,24 @@
 @import "base/vars";
 @import "base/quixskeleton";
 @import "base/layout";
+<<<<<<< HEAD
 @import "base/login";
 @import "base/addsite";
 @import "base/profile";
 @import "base/site";
 @import "base/dashboard";
 
+=======
+>>>>>>> master
 
 /*------------------------------------*\
   #VIEWS
 \*------------------------------------*/
 
+@import "views/login";
+@import "views/addsite";
+@import "views/profile";
+@import "views/site";
+@import "views/heatmaps";
 @import "views/auth";
+@import "views/quixtory"

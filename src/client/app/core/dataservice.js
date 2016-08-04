@@ -8,7 +8,7 @@
 
     var currentUser = retrieveSession();
 
-		var service = {
+		return {
 			getUser: getUser,
 			refreshSessionUser: refreshSessionUser,
 
@@ -19,8 +19,6 @@
 			addSiteNav: addSiteNav,
 			sideNav: sideNav
 		};
-
-		return service;
 
 
 
@@ -80,7 +78,7 @@
 			menu.style.border = "none";
 		}
 
-		function sideNav(){
+		function sideNav(toggleSubNav){
 			var subNav = document.getElementsByTagName('quixsub')[0];
 			var uiView = document.getElementsByTagName('ui-view')[0];
 			var toggleBtn = document.getElementById('subnav-toggle');
@@ -100,6 +98,8 @@
 				toggleBtn.style.left = maxT;
         arrowBtn.style.transform = 'rotate(0deg)';
 			}
+
+			return !toggleSubNav;
 		}
 
 		function addSiteNav(){
