@@ -66,6 +66,9 @@
 
 		vm.propertyName = 'createdAt';
 
+		vm.sort = function() {
+			vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;
+		}
 
 		vm.sortBy = function(propertyName) {
 			vm.reverse = (vm.propertyName === propertyName) ? !vm.reverse : false;

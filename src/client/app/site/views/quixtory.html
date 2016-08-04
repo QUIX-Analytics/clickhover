@@ -1,16 +1,15 @@
 <section class="quixtory-container" ng-controller="Site as Site">
 	<div class="quixtory-header">
-	  <h4>{{Site.data.URL}} | QXID: {{Site.data._id}}</h4>
-	  Reverse = {{ reverse }}  <button type="button" name="reverse" ng-click="Site.reverse = false">Sort</button>
+	  <h4>QUIXstory</h4>
+	  <button type="button" name="reverse" ng-click="Site.sortBy()">Sort</button>
 	  <label>
-	    Limit to:
-	    <input type="number" step="5" ng-model="Site.numLimit">
+	    Limit to: <input type="number" step="5" ng-model="Site.numLimit">
 	 </label>
  </div>
 
   <div class="quixtory-content">
 
-    <div class="session-container" ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = true">
+    <div class="session-container" ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = Site.reverse">
       <div class="sessioninfo">
         <ul class="fa-ul">
           <li><i class="fa-li fa fa-bookmark-o" aria-hidden="true"></i>{{session._id}}</li>
