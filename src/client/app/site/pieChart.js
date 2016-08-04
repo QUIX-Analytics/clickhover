@@ -2,13 +2,21 @@
 
   angular
     .module('quix.site')
-    .controller('Dashboard', function($scope){})
-    .directive('pieChart', function(){
-      function link(scope, el){
+    .directive('pieChart', pieChart);
+
+      function pieChart() {
+        var directive = {
+            link:link,
+            templateUrl: 'pieChart.html',
+            restrict: 'EA',
+            controller: Dashboard
+        };
+        return directive;
+
+        function link(scope, el, attrs){
         d3.select(el[0]).append('svg')
-        var width = 950,
-        height = 500,
-        fill = #fff,
+        var width = (475*1.5),
+        height = (250*1.5),
         radius = Math.min(width, height) / 2;
 
         var data = [
@@ -25,13 +33,13 @@
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#000"]);
         var arc = d3.svg.arc()
           .outerRadius(radius - 10)
-          .innerRadius(radius - 120);
+          .innerRadius(radius - 70);
         var labelArc = d3.svg.arc()
-            .outerRadius(radius - 50)
-            .innerRadius(radius - 50)
+            .outerRadius(radius - 20)
+            .innerRadius(radius - 20)
         var pie = d3.layout.pie()
             .sort(null)
-            .value(function(d) { return d.population});
+            .value(function(d) { return d.population})
         var svg = d3.select('body').append('svg')
             .attr('height', height)
             .attr('width', width)
@@ -49,16 +57,12 @@
 
         g.append('text')
           .text(function(d){ return d.data.age})
-          .style('fill', fill)
           .attr('transform', function(d){
             return 'translate('+labelArc.centroid(d)+')'
       });
       }
-      return{
-        link:link,
-        restrict: 'E'
-      };
-    });
+
+    }
 
 
 
