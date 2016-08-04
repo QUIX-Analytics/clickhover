@@ -79,7 +79,7 @@
         url: '/api/site/' + id,
         data: updatedSite
       }).then(function(site) {
-        console.log(site.data);
+        // console.log(site.data);
         return site;
       }, function(err) {
         console.log(err);
