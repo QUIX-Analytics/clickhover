@@ -19,8 +19,6 @@
 		vm.today = moment().format('MM/DD');
 		vm.now = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");;
 
-		console.log()
-
 		/*-----------------------------------------------------------------*\
 			All general logic goes above this comment.
 			All detailed logic(function definitions) goes below this comment.
@@ -56,7 +54,7 @@
 			siteService.getSite($stateParams.id)
 				.then(function (site) {
 					var sesh = site.data.sessions
-					var clicks = console.log(site.data.sessions.clicks)
+					var clicks = site.data.sessions.clicks
 					vm.sessionCount = sesh.length
 					var users = [];
 					//  console.log(clicks)
