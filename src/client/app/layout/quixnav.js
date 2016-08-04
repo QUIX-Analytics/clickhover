@@ -41,6 +41,7 @@
 		}
 
 		function goToSite(id) {
+
 			siteService.getSite(id)
 				.then(function(site) {
 					$state.go('site.settings', { id: id });
