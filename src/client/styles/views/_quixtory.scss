@@ -1,11 +1,17 @@
 .quixtory-container {
 
 	.quixtory-header {
+		display: flex;
+		flex-direction: row;
 
+		button {
+			width: 2rem;
+			padding: 0;
+		}
 	}
 
 	.quixtory-content {
-		
+
 	}
 
 }
