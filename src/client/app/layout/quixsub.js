@@ -30,7 +30,7 @@
 			sideNav();
 			sideNav();
 			if(siteService.getCurrentSite()) {
-				vm.id = siteService.getCurrentSite().data._id;
+				vm.id = siteService.getCurrentSite()._id;
 			}
 		}
 

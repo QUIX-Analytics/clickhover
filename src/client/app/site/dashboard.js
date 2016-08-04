@@ -57,10 +57,14 @@
 			siteService.getSite($stateParams.id)
 				.then(function (site) {
 					var sesh = site.data.sessions
+					var clicks = console.log(site.data.sessions.clicks)
 					vm.sessionCount = sesh.length
 					var users = [];
+					//  console.log(clicks)
 					for (var i = 0; i < sesh.length; i++) {
 						users.push(sesh[i].qu);
+						// clicks.push(sesh[i].)
+						// console.log(clicks)
 					}
           var uniqueUsers = users.filter(onlyUnique);
           vm.userCount = uniqueUsers.length
