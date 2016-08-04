@@ -34,7 +34,6 @@
     }
 
 		function getUser() {
-      // currentUser = retrieveSession();
 			if(currentUser) {
 				return $q.when(currentUser);
 			}

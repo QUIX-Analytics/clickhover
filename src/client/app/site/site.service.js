@@ -4,7 +4,7 @@
     .module('quix.site')
     .factory('siteService', siteService)
 
-  function siteService($http, $q) {
+  function siteService($http, $q, dataService) {
 
 		var currentSite,
 				currentSiteId;
@@ -32,14 +32,18 @@
 				return $q.when(currentSite)
 			}
 
-			return $http({
-        method: 'GET',
-        url: '/api/site/' + id
-      }).then(function(response) {
-					currentSite = response;
-					currentSiteId = id;
-          return currentSite;
-      	});
+			return dataService.getUser()
+				.then(function(user) {
+					var sites = user.sites;
+					for (var i = 0; i < sites.length; i++) {
+						if(sites[i]._id === id) {
+							currentSite = sites[i];
+							currentSiteId = id;
+							return $q.when(currentSite);
+						}
+					}
+				})
+				
     }
 
 		function getCurrentSite() {
