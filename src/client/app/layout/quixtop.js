@@ -45,7 +45,7 @@
 		}
 
 		function goToProfile() {
-			$state.go('profile')
+			$state.go('profile');
 		}
 
 		function dropMenu(){
