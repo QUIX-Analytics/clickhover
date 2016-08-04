@@ -1,31 +1,34 @@
 <section class="quixtory-container" ng-controller="Site as Site">
 	<div class="quixtory-header">
 	  <h4>QUIXtory</h4>
-	  <button type="button" name="reverse" ng-click="Site.sortBy()">Sort</button>
-	  <label>
-	    Limit to: <input type="number" step="5" ng-model="Site.numLimit">
-	 </label>
+		<div>
+		  <label>
+		    Limit to: <input type="number" step="5" ng-model="Site.numLimit">
+		  </label>
+			<button type="button" name="reverse" ng-click="Site.sortBy()">
+				<i class="fa fa-arrows-v"></i>
+			</button>
+		</div>
  </div>
   <div class="quixtory-content">
     <div class="session-container" ng-repeat="session in Site.data.sessions | limitTo: Site.numLimit | orderBy: 'updatedAt': reverse = Site.reverse">
       <div class="sessioninfo">
         <ul class="fa-ul">
-          <li><i class="fa-li fa fa-bookmark-o" aria-hidden="true"></i>{{session._id}}</li>
-          <li><i class="fa-li fa fa-clock-o" aria-hidden="true"></i>{{session.createdAt | date: 'medium'}} to {{session.updatedAt | date: 'mediumTime'}}</li>
-          <li><i class="fa-li fa fa-sitemap" aria-hidden="true"></i>{{session.entryState}}</li>
-          <li><i class="fa-li fa fa-user-secret" aria-hidden="true"></i>{{session.qu}}</li>
-          <li><i class="fa-li fa fa-{{session.browser | lowercase}}" aria-hidden="true"></i><i class="fa fa-{{session.platform}} fa-fw" aria-hidden="true"></i> {{session.clicks[0].vh}}&nbsp;x&nbsp;{{session.clicks[0].vw}}</li>
-          <li><i class="fa-li fa fa-mouse-pointer" aria-hidden="true"></i>{{session.clicks.length}}</li>
+          <li><i class="fa fa-bookmark-o" aria-hidden="true"></i>{{session._id}}</li>
+          <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{session.createdAt | date: 'medium'}} to {{session.updatedAt | date: 'mediumTime'}}</li>
+          <li><i class="fa fa-sitemap" aria-hidden="true"></i>{{session.entryState}}</li>
+          <li><i class="fa fa-user-secret" aria-hidden="true"></i>{{session.qu}}</li>
+          <li><i class="fa fa-{{session.browser | lowercase}}" aria-hidden="true"></i><i class="fa fa-{{session.platform}} fa-fw" aria-hidden="true"></i> {{session.clicks[0].vh}}&nbsp;x&nbsp;{{session.clicks[0].vw}}</li>
+          <li><i class="fa fa-mouse-pointer" aria-hidden="true"></i>{{session.clicks.length}}</li>
         </ul>
       </div>
-      <div ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
+      <div class="timeline" ng-if="session.clicks[0]" style="display: inline-block; padding: 1px">
         <ul>
           <li style="display: inline-block; margin-left: 3px" ng-repeat="click in session.clicks">
-            {{ click.target.tagName }} | {{ click.time/1000 | number: 2 }} s<br>
+            {{ click.target.tagName }} <br> {{ click.time/1000 | number: 2 }} s<br>
           </li>
         </ul>
       </div>
-      <hr>
     </div>
   </div>
 </section>
