@@ -5,29 +5,61 @@
 		.module('quix.site')
 		.controller('Dashboard', Dashboard)
 
-	function Dashboard($scope, siteService) {
+	function Dashboard($scope, siteService, $stateParams) {
 
 		var vm = this;
-		var currentSiteId = siteService.getCurrentSiteId();
-		getSite(currentSiteId, 30); // 30 day graph
-
+		// var currentSiteId = siteService.getCurrentSiteId();
+		getSite(30); // 30 day graph
+		siteStats();
 
 		/*-----------------------------------------------------------------*\
 		  Moment.JS
 		\*-----------------------------------------------------------------*/
 
 		vm.today = moment().format('MM/DD');
-    vm.now = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");;
+		vm.now = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");;
 
-
+		console.log()
 
 		/*-----------------------------------------------------------------*\
 			All general logic goes above this comment.
 			All detailed logic(function definitions) goes below this comment.
 		\*-----------------------------------------------------------------*/
 
-		function getSite(id, time) { // id(String): site id, time(Number): time in days
-			siteService.getSite(id)
+		function bucketSort(array) {
+			let buckets = [];
+			for (var i = 0; i <= 100; i++) {
+				buckets.push(0);
+			}
+
+			for (var i = 0; i < array.length; i++) {
+				let number = array[i];
+				buckets[number]++;
+			}
+
+			let arrayIndex = 0;
+			for (var number = 0; number <= 100; number++) {
+				let count = buckets[number];
+				for (var i = 0; i < count; i++) {
+					array[arrayIndex] = number;
+					arrayIndex++;
+				}
+			}
+		}
+
+		function siteStats() {
+			console.log("Site Stats")
+			siteService.getSite($stateParams.id)
+				.then(function (site) {
+					var sesh = site.data.sessions
+					vm.sessionCount = sesh.length
+					var users =
+						console.log(vm.sessionCount)
+				})
+		}
+
+		function getSite(time) { // id(String): site id, time(Number): time in days
+			siteService.getSite($stateParams.id)
 				.then(function (response) {
 					var sessions = response.data.sessions;
 					var graph = [];
