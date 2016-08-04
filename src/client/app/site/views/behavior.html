@@ -5,10 +5,11 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
-    background-color: #fff;
+    background-color: none;
     width: 960px;
     height: 700px;
     margin-top: 100px;
+    margin-left: 100px;
   }
   #main {
     float: left;
@@ -41,11 +42,15 @@
     left: 305px;
     width: 140px;
     text-align: center;
-    color: #666;
+    color: #fff;
     z-index: 10;
   }
   #percentage {
     font-size: 2.5em;
+    color: #fff;
+  }
+  #endlabel {
+    color: #fff;
   }
 </style>
 
@@ -209,7 +214,7 @@
         .attr("id", "trail");
     trail.append("svg:text")
       .attr("id", "endlabel")
-      .style("fill", "#000");
+      .style("fill", "#fff");
   }
 
   function breadcrumbPoints(d, i) {
