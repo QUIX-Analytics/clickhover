@@ -1,5 +1,6 @@
 <section>
   {{ Dashboard.now }}
+  {{Dashboard.today}}
     <table>
         <tr>
             <th>
@@ -17,13 +18,16 @@
             <th>
                 30 Days
             </th>
+            <th>
+                Total
+            </th>
         </tr>
         <tr>
             <td>
                 Sessions
             </td>
             <td>
-                1 -
+                1
             </td>
             <td>
                 2 -
@@ -33,6 +37,9 @@
             </td>
             <td>
                 30 -
+            </td>
+            <td>
+              {{ Dashboard.sessionCount }}
             </td>
         </tr>
         <tr>
@@ -51,6 +58,9 @@
             <td>
                 30
             </td>
+            <td>
+              Total
+            </td>
         </tr>
         <tr>
             <td>
@@ -67,6 +77,9 @@
             </td>
             <td>
                 30
+            </td>
+            <td>
+              Total
             </td>
         </tr>
         <tr>
@@ -85,6 +98,9 @@
             <td>
                 30
             </td>
+            <td>
+              Total
+            </td>
         </tr>
         <tr>
             <td>
@@ -102,6 +118,9 @@
             <td>
                 30
             </td>
+            <td>
+              Total
+            </td>
         </tr>
         <tr>
             <td>
@@ -118,6 +137,9 @@
             </td>
             <td>
                 30
+            </td>
+            <td>
+              {{ Dashboard.userCount }}
             </td>
         </tr>
     </table>
